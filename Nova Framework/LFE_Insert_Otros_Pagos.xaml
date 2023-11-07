@@ -1,0 +1,877 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LFE_Insert_Records" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_Dic_Data" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_Dic_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_LFE_Otros_Pagos_List" Type="InArgument(s:String[])" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1130,3748</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>LFE_Insert_Records_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: &#xA;LFE webpage | Fill 'Otros pagos window' with the employee information&#xA;&#xA;Give as parameter all the records that will be added&#xA;&#xA;Precondition:&#xA;Microsoft Edge Browser.&#xA;The bot must be on Agregar otros pagos window&#xA;Give as parameter all the records that will be added&#xA;&#xA;Arguments:&#xA;io_Dic_Config(&quot;LFE_Url&quot;) - Webpage URL (LFE web)&#xA;io_Dic_Config(&quot;GeneralTimeout&quot;) - Gneral timeout for activities&#xA;io_Dic_Data(&quot;LFE_Current_Employee&quot;) - Current employee&#xA;io_Dic_Data(&quot;LFE_Employee_Otros_Pagos_Subsidio_Empleado&quot;) - Amount to be added&#xA;io_Dic_Data(&quot;LFE_Employee_Otros_Pagos_Vales_Despensa&quot;) - Amount to be added&#xA;io_Dic_Data(&quot;LFE_Employee_Otros_Pagos_Bono_Dominical&quot;) - Amount to be added&#xA;io_Dic_Data(&quot;LFE_Employee_Otros_Pagos_Bono_Referido&quot;) - Amount to be added&#xA;&#xA;Out Arguments:&#xA;in_LFE_Otros_Pagos_List - The list of records that will be added&#xA;&#xA;" DisplayName="LFE_Insert_Percepciones" sap:VirtualizedContainerService.HintSize="868.6666666666666,3683.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Url" />
+      <Variable x:TypeArguments="x:Int32" Name="int_Timeout" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Current_Employee" />
+      <Variable x:TypeArguments="s:String[]" Name="arrayStr_LFE_Otros_Pagos_List" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Employee_Otros_Pagos_Subsidio_Empleado" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Employee_Otros_Pagos_Vales_Despensa" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Employee_Otros_Pagos_Bono_Dominical" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Employee_Otros_Pagos_Bono_Referido" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Employee_Otros_Pagos_Bono_Ingles" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap2010:Annotation.AnnotationText="Init all settings to be able to work with this component, set up variables, validate windows, steps, etc.&#xA;&#xA;If all is fine, let's continue with the process." DisplayName="Init" sap:VirtualizedContainerService.HintSize="806.6666666666666,924" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="493.3333333333333,456.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431.3333333333333,346" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Url]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">https://secure.lasfacturaselectronicas.com/lfe-misfacturas/</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[int_Timeout]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">120</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Current_Employee]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Yheider</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="s:String[]">[arrayStr_LFE_Otros_Pagos_List]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="s:String[]">[{"001 - Subsidio al Empleo", "002 - Apoyo Vales D.", "003 - Bono Dominical", "004 - Bono referido", "005 - Bono Ingles"}]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Subsidio_Empleado]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">0.01</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Vales_Despensa]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">8.0</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Bono_Dominical]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">9.0</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Bono_Referido]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">10</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Bono_Ingles]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">11</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Config | Init configurations" sap:VirtualizedContainerService.HintSize="422.6666666666667,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Url]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Config("LFE_Url").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Int32">[int_Timeout]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Int32">[Cint(io_Dic_Config("GeneralTimeout"))]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Data | Setup arguments" sap:VirtualizedContainerService.HintSize="422.6666666666667,284.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Current_Employee]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Current_Employee").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="s:String[]">[arrayStr_LFE_Otros_Pagos_List]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="s:String[]">[in_LFE_Otros_Pagos_List]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Subsidio_Empleado]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Employee_Otros_Pagos_Subsidio_Empleado").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Vales_Despensa]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Employee_Otros_Pagos_Vales_Despensa").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Bono_Dominical]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Employee_Otros_Pagos_Bono_Dominical").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Bono_Referido]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Employee_Otros_Pagos_Bono_Referido").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Employee_Otros_Pagos_Bono_Ingles]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Employee_Otros_Pagos_Bono_Ingles").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="422.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[LFE Website] Insert Otros Pagos for employee &quot; + str_LFE_Current_Employee + &quot; Process start&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Contains all the main activities this component will perform, like type into, extract info, mathematics operations, conexions, open browser, etc.&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="806.6666666666666,1894.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each | Loop through each record in the list" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[arrayStr_LFE_Otros_Pagos_List]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="x:String">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:String" Name="currentPago" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="368,172" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="326,84.66666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="558.6666666666666,1674.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="out_bl_Success" />
+                        <Variable x:TypeArguments="x:String" Name="str_LFE_Percepciones" />
+                        <Variable x:TypeArguments="x:String" Name="str_LFE_Otros_Pagos_To_Add" />
+                        <Variable x:TypeArguments="x:Boolean" Name="bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="496.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[str_LFE_Otros_Pagos_To_Add]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[currentPago]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Switch x:TypeArguments="x:String" DisplayName="Switch | Add the correct amount depending of the type of item" Expression="[currentPago]" sap:VirtualizedContainerService.HintSize="496.6666666666667,239.33333333333334" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence x:Key="001 - Subsidio al Empleo" sap:VirtualizedContainerService.HintSize="496,200.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">[str_LFE_Employee_Otros_Pagos_Subsidio_Empleado.Length &gt; 0]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                        <Assign x:Key="002 - Apoyo Vales D." sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">[str_LFE_Employee_Otros_Pagos_Vales_Despensa.Length &gt; 0]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign x:Key="003 - Bono Dominical" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">[str_LFE_Employee_Otros_Pagos_Bono_Dominical.Length &gt; 0]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign x:Key="004 - Bono referido" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">[str_LFE_Employee_Otros_Pagos_Bono_Referido.Length &gt; 0]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign x:Key="005 - Bono Ingles" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">[str_LFE_Employee_Otros_Pagos_Bono_Ingles.Length &gt; 0]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Switch>
+                      <If Condition="[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty = True]" sap:VirtualizedContainerService.HintSize="496.6666666666667,687.3333333333334" sap2010:WorkflowViewState.IdRef="If_11">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,503.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Verify that option 001 Appeared" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Type of Percepcion" sap:VirtualizedContainerService.HintSize="334,228" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="801, 416, 451, 22" DesignTimeScaleFactor="1" FriendlyName="'INPUT ext-gen1709'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='Otros Pagos:' innertext='Otros Pagos:' parentid='ComOtrosPagos' visibleinnertext='Otros Pagos:' /&gt;" Guid="6a6aea29-279d-4df3-a935-9c85b04fe6f5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAccAAAAaCAYAAADCK5f3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQnSURBVHhe7ZrpahtZEEbnpf0KUR5CeocZi4G8QBg5/7xgY4MTSJz88ooxxsR2T1fdXqqq75U6nsxMZJ0DB3q5u6C+yNFvFQAAADgIRwAAgEAXjn++WyAiImKtC8ePX74hIiJupJKDj0/PqgvH69tbRETEjVRy8ObmRnXheHt3h4iIuJEWw/Hu/h4REXEj1b+gXl+rLhzvHx4QERE3UsnBq6sr1YXjw/fv/8zPf1RvtqbV+9w7XEs//f6m2uIzRcQNUHLw8vJSdeH4+PjkXUzrwrjV+3a7+hzbWL9sV5O6kP6Ve/cSf/Z4WFY+6/j5cv6IuEEWw/Hp+bl3Z1YH4qxamGeLqb8feDavi+mKNoiIiL+gkoMXFxfDcLScbU+qrelOc5fhqwRh+41yXp11z2ZV1yvXRtmpZu3z2tmH9FTntO3jeB8ksJv3Zm07U7mf9WN2c51V87fNM/c8oOPGeZr75nomc+g4k2r+VVv59dS2+4jI+ib1+rqzCOeq6w9jaJ/tedqTO9+2bb+OYv+Rc+o72Ys5n9yYaf5JfRb951TaMwDAuiE5eH5+rhbDsS38+eKXws0X8rqsujArtGkCK10bbCC1DMZrA8GPkQp5fl5Lv4ZAnNveh3PQuXL/aIhBbtA+XfD49ek/CFz4pTH8noT8vpb2HzNni+yzfWavdczm3PW6P8PsOAAAa4rk4OnpqVoOR6EJhsG3BFs8hfbeBsSYNoZscC0ZzxZmH1iF8K2RPi8Lx/5dORAkgIb7EuLe+vu01j7w+vvBeYT9J8b3L8/ZYMb3fVN7vbdBKcRzAwBYYyQHT05O1OXhaNFC2BRGve5DU5XCGsNsVRvDIAwE03YQSqGYF8MxrGMwh6BtzJrsfXjn15Hm6scf7ktYFVR2feKPhuOY/nHOcjiG86vp+hKOAPCKkRw8Pj5Wx4ejLarZQl0Tw3FVG8MgDIQl44365hiKd/GbY1yT7ZcZIx8iP+ObY8/gPLLnOb7/yjnN+L6v2SfhCACvGMnBo6MjdekPclwBdYUx/v9XfS/h5EKm0MYWW0uu0A7Ga+f3Y0gxL4ZjFyiFeYVQ9HW8dt6wrhiO3f6WBIULmzCXDfl0P9N3PqCEeJ6JUf1XzKnYs7LXtm8YZ9meAQDWDcnBw8NDtfzNUQth/6c69ytNIbzXQqzPTLHMtck8bwt+CqVGKc5xPC3GzfsuDJt+uXBsrlOf9CtLHzg9GhjN2LOpKfohAFywuPXIr2XzQeH2JeOHgPPv0xgu3FrsfObzKPXvn8U57bnUytnJ2CYwbf+ur34ehCMAvE4kBw8ODtQf+LMqvJRs0P3L/B9zAgCsM5KD+/v7KuH4H0A4AgD8+kgO7u3tqYQjAABAjeTg7u6uSjgCAADUEI4AAACBYjgiIiLiog9HAAAASBCOAAAAjqr6G7e4CCvPaV6FAAAAAElFTkSuQmCC" InformativeScreenshot="baefaa23e6ffff22b8abb6eee555c5a5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <uix:NClick.VerifyOptions>
+                                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionOptions.Retry>
+                                  <uix:VerifyExecutionOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionOptions.Timeout>
+                                </uix:VerifyExecutionOptions>
+                              </uix:NClick.VerifyOptions>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="Click item" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.5" BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="802, 438, 466, 20" DesignTimeScaleFactor="1" FriendlyName="'001 - SUELDOS Y SALARIOS'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl class='x-boundlist-item*' visibleinnertext='*{0}*' /&gt;&quot;, str_LFE_Otros_Pagos_To_Add)]" Guid="6a6aea29-279d-4df3-a935-9c85b04fe6f5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAdYAAAAYCAYAAABHj9wqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARcSURBVHhe7Zk7ctRAEIb3OByACCecxLWZ70BgQo5gSJwQEHEBnPgEFBnmZSc22CHPKiKhnpe6R62VtDIULF9XfTXeefa0VP2ry6umtcPnb6TBMAzDsP/SRAdPXt1szdXnn0VLi7ACAADAMoqwPj791jx9cRO4uP5BS0tLS0tLO7MVLe0JqwwCAADAPFxh9SYCAADANKhYAQAAbgkqVgAAgFumCOuTk2sqVgAAgAXkilU0dXVx892vWE8fNfdWq2Yl7D1qTtTY0Tr1t+wfqzWBZ83+6n7z4LTun8PL5sFed0Z3Tuy3Z8a+e4cvrc/12uOD9u+D5sick/vt/LBXNe/k8L6Z4/kwPC5IXPr9IZbrZ6YvMrJn8tv6qmJR+hQb1uhz9PPWz9q8B3WsqzvU8fLvCACwOwQtbTV1dX79zalYJdl24ihJsiRjSc4lSYpYdGLVJeElwuqIQ5vE98PvOOaJWpgfkv3A2RuFVfdHAdRCEEVCzUmiEv3Y5G/6nZGzeuLk+DRhT4n1/rraz1unmLamv0e4vxZGc/9uTZ4T5tdnrPVvAIDdIles59dBWJ2KtU74ShAkOddJ2Ard0op103rvPCUEwe+lwipoH3x/OvGYc1/tv3eXzNieebyep2KxYE0tpPVv+w4kVOzdcQCAHacI6wevYh2srPpi0E+iY6IwRjzDVjx27PcLq7pX/ZGRqWLi++uQY1vH2DCyp1rrfei4ojZ5jTw/G2MrrHF+/4Og6w/zF70DAAD/FrliFU0twmom1Un/jwqrEM8p/58rvnhJPfYFH4Kfal0giaLcyRPIgf5yrzoWGSPiQ/76yN7jwjO8p4m58U/FIs3NjK0p57TUommFdej52rOjuOY9EVkA2H2isLYV6/tPf7pijRXRUBLvkxJ/SOz9801CN2JXMSCgQ/3lXuXudnyw3/hbjyXq+I6i96zi6wi8fR7C1DXx2dTr51astj+LrBcrAIDdIFesoqlFWM2kWjSUEFgh9ZLpmLBuQTnfEw7lgxGMilnCqu/g3yeIxZA4jgnn2LhHXhPu2H2YZGJMvPi0zFnjxNAKq/cx1bIp9r/jnQAA+Msowvru49d+xRqSbZcIJbGWRCoJviRZSZibRGkb2vWV6Egiz2f2BC0IYzrvVoRV/O/OE3oVVxKq+EGx2V+XLJLeWGB4z1rkhC4mvrDOXdONDaw39xfiHnnO0bp6BkOxBwDYEXLF+i4Iq1exCil5hurGS/JpTFeruj9QJfOpjO1jx1US1z4rgo8huVdjci+nv1eNtQRxUXMW3XtUWIf2jAKmzw6UD4okcHpdy90742vsndM+rY8PtR/a5zrW+s69mCKqALD7FGF961asAAAAMJVcsYqmFmH1JgIAAMA0orC2FeubKypWAACAJZSKtdXUIqzeRAAAAJhGrFhbYT27/FIq1ly10tLS0tLS0s5rRUulWF2dpYoVwzAMw7DtrQjr61SxYhiGYRi2vYmWnl1+aX4BSOJj/9IkQcUAAAAASUVORK5CYII=" InformativeScreenshot="22f93a71cfcb4161d49ef9e3a6165cfb.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Agregar Percepcion" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="622, 449, 124, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Agregar percepción'" FullSelectorArgument="&lt;webctrl aaname='Agregar?*' class='x-btn-inner add' visibleinnertext='Agregar*' /&gt;" Guid="d3ebce15-8707-4648-bcbc-2737e026bbc6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIAAAAAUCAYAAABFyTWeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAX/SURBVGhD7Vf7T1NXHL//U7NlybYsuplsyUjWKaMDs0dg6trNB9tAQGQqZYpiiUrBRxucAzdgIxOwrTwUHRMmKrQFFXkYs/iYmxlu+8kfPjvfc885Pff2FtyiJoY2+eR7zvf9uretcezMTcRvP8TUH8DUfYYsXRI0fushjg3ehDHODsS8RoIsXVKUlsC4+juQxdKFceUecIUdFLT70EwMDWe2oyayCdt71qM2VoZTkz9m1M/en727MfEbMMmYk4LK+/7TVfjm0gFcuHUOyXuXcenuCKIznaiKfYrNP6xL08/en807XwA79vSWoHe6EzceTKP/15NouX4YzdeC6JxrwdCdM6g9W4Y1X3vS7LJ4ivi+Ai5XBY46yf4DjMRdQAc9+ZGpNkzPX0Xo6j7sv7gTe0erEUzuRkOyFnvjOxC50YnKmA9rjxVYbBdDrD6fJZ2Pml+c5Vk4YRY1uS74Ouy8x9NHIy4ORH+ajqLxvB9X7sfZE9+AA4la7Bqugvz4L5Zhyzkftp7fgJ65DuSFV+D4yFFlvzA1k/YV5+Pt+tlH0M/Sp0GN8dvA+B0GRhtOb8fJmQ72qm/FngvbUDOyBWX968X4AW9HAUr7PsBnp1bj4Phu7Bv6Eh+GPcp+QTocgjs3hIikSj4LP9twl0tgFZMRv5294nIr4FvFeFzfqudrl/b98ElbQnG/ySd7xc+Hf5j0mQ/mz1dsyuip0vMMF7vgZjK3sNPlkQC9vbQYNn13YFb5l3qmvVPe1jxS+ZG+Xg/xTXtVr1YXj0n5jbCesq8DH8uHyyz9XZgaY+wgsYP90h+4eRKNE7vZ8MvF2NM/G6PvYuvgx2hLhvBG4BVlTw51fxREnqmBlPAYK9ArCxZ8aijX72DF0QKQDS/U1LPaC5nQC9EQBF/3xf0JSjrmYogByXhCLkEDtcSXZ1pasZh6/hZ9Bh5fu8v6ZH6p+qx5yLypfzJXaT8mdL20AHzQsifmohCf58fOtHBmfkKf26fgNB+jN/4nJKpOeNE18x1qL1di2+gXYtzpH1qAyoG1aE8ewWt7XlT2mTGOcrcLhSHzHvC6kFM9nsbvDZXA5W5Ai/0s9OTmmyhBIN6FQlceyiOmfUt1HlzeLtMXl2n6nG+LZ0MqL3aPNCCHxxB+dV8M5MOi7+g7U96Z6rbWk+bX0hMtvpbrYjXawRZgHn2JefQy7IyWomm0FsHELpT/7MPGwUJ81J4rxm4OnlAcK0DjqB91AxXIDeYoe041f+oeDbIEbY1wB9GaiJvJhoV+mAokPruLcwv3p+lZ/HebDYua91Y/LUC30s/xx7k+5/tSfBWP/Gj+6n3U0Lh55zlTU3X7BfSl75CeX6Z4tnpU3dZ6TP2UrqU/DCq+yLXers/vgjI43Q0lYIhOdGJd+0p0z7ShbLAImwbe59/58kPDX9/jweeR1eieasWrgRdweLBxwQBE0xuYKjTAiiAZ13daAOIzcD21EOzuTy0QHzTj2RfAbLx5zrgAGtUH2kK+ZHzKRQ6G4oeD/Mz1WWzdXh8Qz1PmLe/VqbxlHtxOy0/1g0EtFg2UD1ouCPVQ52dYAOVHUPsC9CUeoC/JIGhJx1r2F8+LE9e/VT/4aPAbegg0/AJ0XWvBJ2357Pt/ubLLTBMiISvfbF4i/e1ADSQ9tQzSzvTjqKfbUyMtfA8KfR7B13JxyJcPQvnysEan5K1+5sMmUzUoP9YczThOedt4fHhmHPPhkHyKo+VMcq1eHpvs5AJwe5u+8utMzQWQEIKi5lxs7i5CD1uCptGvUNm3BltOFaHpQg262fB9bR68XPNcys5mnxGLyHmT+ZPgLF/MXg3EQcbxhO0fXa4NyVGeAU9AbvQn/4ITiprz8NbBZQicrUTrGNvay0HsGtiM5XXP4/W6ZY42/wvhUrXRLlcp22IHnQVwXH8y3Y047qDzqDAXIOkoe7xIooItQFHYSfZ0kXEBCK3DzXjvyDv8r96KupewsuFN9p3f5KibxbMJo3/ibwwwZOnSpEZkbJ5fslh6oNkbh2JziI4/wMDkP1ksIdDMD8Xm8C8TKNFZu3mq3wAAAABJRU5ErkJggg==" InformativeScreenshot="f95abf039abcacd8272fbe3757019663.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector, Image" Version="V1">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="616, 416, 180, 17" ElementType="Text" FriendlyName="'Percepciones'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAVCAYAAAD1sST3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHaSURBVGhD7ZgBrsIgDIZ3NXebhZuYXUUvY7Lr9NECo+3Q6fO96Mj/JSYWKGXZB5sOBEDHQHDQNRAcdA0EB10DwUHXQHDQNRAcdA0EB11TBb/NNA4DDeoTrrnvW5A1BrrkEIA9nOAjzbccX0OUXMUAHJD7gtNC82mg8bxIdJkaJztvgtNMs/SV3AuFxlNgOY9rW5kz5QcKsU7qs6ezzuE6iz/BZRPm/qm05nVPoT6R1j5Gr6/OZWq5a/m6Jxl4ml3B+ebKzWfBuFlLlgWrAthNsSLjikwsTa4j7bWmbKIio8nJGMHVPKZu+m7X2xqXr4vrbTZO3LQyHoIfnZ1XFL7pVfSEinlMEYnxomRYXC39Gvt8FfscQc/vcusmtBIbSf36SuyvHXTDgx+Z9tSr7enzquA+/13BzVOFWXP3BPdrURumtOl5waF58IpS8Ce44gXBN7Iybwjuc391gjfx+eDIPCH49rRcziGN84Lek4PHabFivH0CuFyfwxhBH7+DNwXf9MV4ivXjvEG3xTFpvM4FR+QpwRn7mtE+RQWZp44tcsgmWdtzHZG4jrX/driaXMcIHtH5/l+UpuBMim1eq42B4EenCv4JWhsEgD8EgoOu+azgAPwzEBx0DNEPaibKRsKkW4wAAAAASUVORK5CYII=" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NClick.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_50" />
+                        </If.Else>
+                      </If>
+                      <Switch x:TypeArguments="x:String" DisplayName="Switch | Add the correct amount depending of the type of item" Expression="[currentPago]" sap:VirtualizedContainerService.HintSize="496.6666666666667,239.33333333333334" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence x:Key="001 - Subsidio al Empleo" sap:VirtualizedContainerService.HintSize="450,179.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty = True]" sap:VirtualizedContainerService.HintSize="388,184" sap2010:WorkflowViewState.IdRef="If_9">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,747" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="1" DisplayName="Type Into '001 - SUELDOS Y SALARIOS'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_11" InteractionMode="HardwareEvents" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Employee_Otros_Pagos_Subsidio_Empleado + &quot;[k(Enter)]&quot;]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="8, 79, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'$427,300.00'" FullSelectorArgument="&lt;webctrl class=' x-grid-cell x-grid-cell-gridcolumn-*' innertext='$0.00*' tableCol='6' visibleinnertext='$0.00*' /&gt;" Guid="ba755858-7f66-438f-9745-38bcaa937264" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAApSURBVBhXNcixCQAADAJB91/KaZzB0iAY4YoXP9upJUAytQQkpZZ/KAdnPRz5syqjzQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="740, 477, 316, 19" ElementType="Text" FriendlyName="'001 - SUELDOS Y SALARIOS'" FullSelectorArgument="&lt;webctrl tableRow='?' tag='DIV' aaname='*SUELDOS Y SALARIOS' innertext='*SUELDOS Y SALARIOS' visibleinnertext='*SUELDOS Y SALARIOS' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUAAAAAXCAYAAAB6bJZRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAMwSURBVHhe7Zk9bhtBDIX3aunUGL5DrmBAra7gzlXgIrVLN2lcqVHjI6h1LuB2MuQOd0gu90cRgmg9r/iwXnKG5NDg0wjqjsdjAgCAFunOH5/p56/fA/KOJ5544vlVnwILIAAAtAgEEADQLBBAAECzQAABAM0CAQQANAsEEADQLKsE8PR0n7quYx5el+3M+3Pa3T2nk7ZdwuthiN119+nxXWyH9KLWvey7tHs657/P6fFO1tt9dU3dZ+MTNi6hzzfyR/Vp/8dbesg+05eg/h5X+/5N+fo4xka9DeOIz5232Gq9dS/1Ruy11rl6FvoCwIZYIYA0gGXAzeBN2dXw/K0AcjwlKlk4eDhXCOBIiM0aZadYuj6OXXPykI/8JfdUfbJWMDnm66sik9ftXd59jq/Pbfptobp3eb358HHrbT7fn75O3S+zXvchc3o61D4AsDGWBXBqiJeG2/gvZGrA3fARdXjnBWZRADMsejzowe1Nx58RIIvrl7tJCWF9ykf75cn2yfyUj4RZnsXu17uzm/xBj83+oG8AbJXbFMASj26Ro5huOOvw1j0DJX8oMFF9YuOBVwJSiHKZ+iK45nwr04IUrqn1Vh8JcX/eKs7ZPiWAZI/O7Nb7fuj30c2XUbf98uEQf+0HYFv8JwGUISKCQR4QoSnDxkIxL4CRIPmBZ6L6xLYogGJz9am1mjB/BJ8vx9NfN6VGLWITAmhEcrRX+j2u5TIB1DaKN/f/A+C2udEboGUY0GDw6/BeL4CrvwKrPcSSwC35DeqMtE9ES+D8oQCKGGuKaOn1wblNfeT3scN8xHRPANgC/+BHkMI1Apj31qHSQ+aFSb9fKYA8+PWWw2KozmTeJ+uLmRfAvN//6MF1qf4W3yDQUb8D25DX+arQu3X83p+n+u27/dFjXCMAW2KFAMrw97cKPcixvQxMsRNz4hDTC9sQQw1rP8zVN5dXBI0G3NqzGLDgOduQv0efz/pn6guYF0CfpwiKF2hChMz1gPj2fTeuQ2JMiCP5fqjeeFEf4q/qPwDbY5UAAgDAVwQCCABoFgggAKBZIIAAgGaBAAIAmgUCCABoFgggAKBRPtMfGn9QpHBOIvUAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="1" DisplayName="Type Into 'Subsidio causado'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_12" InteractionMode="HardwareEvents" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[&quot;0&quot; + &quot;[k(Enter)]&quot;]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="8, 79, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'$427,300.00'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='*Subsidio causado:*' aria-role='textbox' class='x-form-field x-form-text' name='subsidioCausado' type='text' /&gt;" Guid="ba755858-7f66-438f-9745-38bcaa937264" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAApSURBVBhXNcixCQAADAJB91/KaZzB0iAY4YoXP9upJUAytQQkpZZ/KAdnPRz5syqjzQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="740, 477, 316, 19" ElementType="Text" FriendlyName="'001 - SUELDOS Y SALARIOS'" FullSelectorArgument="&lt;webctrl tableRow='?' tag='DIV' aaname='*SUELDOS Y SALARIOS' innertext='*SUELDOS Y SALARIOS' visibleinnertext='*SUELDOS Y SALARIOS' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUAAAAAXCAYAAAB6bJZRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAMwSURBVHhe7Zk9bhtBDIX3aunUGL5DrmBAra7gzlXgIrVLN2lcqVHjI6h1LuB2MuQOd0gu90cRgmg9r/iwXnKG5NDg0wjqjsdjAgCAFunOH5/p56/fA/KOJ5544vlVnwILIAAAtAgEEADQLBBAAECzQAABAM0CAQQANAsEEADQLKsE8PR0n7quYx5el+3M+3Pa3T2nk7ZdwuthiN119+nxXWyH9KLWvey7tHs657/P6fFO1tt9dU3dZ+MTNi6hzzfyR/Vp/8dbesg+05eg/h5X+/5N+fo4xka9DeOIz5232Gq9dS/1Ruy11rl6FvoCwIZYIYA0gGXAzeBN2dXw/K0AcjwlKlk4eDhXCOBIiM0aZadYuj6OXXPykI/8JfdUfbJWMDnm66sik9ftXd59jq/Pbfptobp3eb358HHrbT7fn75O3S+zXvchc3o61D4AsDGWBXBqiJeG2/gvZGrA3fARdXjnBWZRADMsejzowe1Nx58RIIvrl7tJCWF9ykf75cn2yfyUj4RZnsXu17uzm/xBj83+oG8AbJXbFMASj26Ro5huOOvw1j0DJX8oMFF9YuOBVwJSiHKZ+iK45nwr04IUrqn1Vh8JcX/eKs7ZPiWAZI/O7Nb7fuj30c2XUbf98uEQf+0HYFv8JwGUISKCQR4QoSnDxkIxL4CRIPmBZ6L6xLYogGJz9am1mjB/BJ8vx9NfN6VGLWITAmhEcrRX+j2u5TIB1DaKN/f/A+C2udEboGUY0GDw6/BeL4CrvwKrPcSSwC35DeqMtE9ES+D8oQCKGGuKaOn1wblNfeT3scN8xHRPANgC/+BHkMI1Apj31qHSQ+aFSb9fKYA8+PWWw2KozmTeJ+uLmRfAvN//6MF1qf4W3yDQUb8D25DX+arQu3X83p+n+u27/dFjXCMAW2KFAMrw97cKPcixvQxMsRNz4hDTC9sQQw1rP8zVN5dXBI0G3NqzGLDgOduQv0efz/pn6guYF0CfpwiKF2hChMz1gPj2fTeuQ2JMiCP5fqjeeFEf4q/qPwDbY5UAAgDAVwQCCABoFgggAKBZIIAAgGaBAAIAmgUCCABoFgggAKBRPtMfGn9QpHBOIvUAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;[LFE Website] Adding &quot; + str_LFE_Otros_Pagos_To_Add + &quot; pay  for employee &quot; + str_LFE_Current_Employee]" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,231" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;[LFE Website] No pay for &quot; + str_LFE_Otros_Pagos_To_Add + &quot; for employee: &quot; + str_LFE_Current_Employee]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                        <Sequence x:Key="002 - Apoyo Vales D." sap:VirtualizedContainerService.HintSize="450,179.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty = True]" sap:VirtualizedContainerService.HintSize="388,184" sap2010:WorkflowViewState.IdRef="If_10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,489" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;[LFE Website] Adding &quot; + str_LFE_Otros_Pagos_To_Add + &quot; pay  for employee &quot; + str_LFE_Current_Employee]" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="1" DisplayName="Type Into '001 - SUELDOS Y SALARIOS'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_20" InteractionMode="HardwareEvents" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Employee_Otros_Pagos_Vales_Despensa + &quot;[k(Enter)]&quot;]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="8, 79, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'$427,300.00'" FullSelectorArgument="&lt;webctrl class=' x-grid-cell x-grid-cell-gridcolumn-*' innertext='$0.00*' tableCol='6' visibleinnertext='$0.00*' /&gt;" Guid="ba755858-7f66-438f-9745-38bcaa937264" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAApSURBVBhXNcixCQAADAJB91/KaZzB0iAY4YoXP9upJUAytQQkpZZ/KAdnPRz5syqjzQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="740, 477, 316, 19" ElementType="Text" FriendlyName="'001 - SUELDOS Y SALARIOS'" FullSelectorArgument="&lt;webctrl tableRow='?' tag='DIV' aaname='*SUELDOS Y SALARIOS' innertext='*SUELDOS Y SALARIOS' visibleinnertext='*SUELDOS Y SALARIOS' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUAAAAAXCAYAAAB6bJZRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAMwSURBVHhe7Zk9bhtBDIX3aunUGL5DrmBAra7gzlXgIrVLN2lcqVHjI6h1LuB2MuQOd0gu90cRgmg9r/iwXnKG5NDg0wjqjsdjAgCAFunOH5/p56/fA/KOJ5544vlVnwILIAAAtAgEEADQLBBAAECzQAABAM0CAQQANAsEEADQLKsE8PR0n7quYx5el+3M+3Pa3T2nk7ZdwuthiN119+nxXWyH9KLWvey7tHs657/P6fFO1tt9dU3dZ+MTNi6hzzfyR/Vp/8dbesg+05eg/h5X+/5N+fo4xka9DeOIz5232Gq9dS/1Ruy11rl6FvoCwIZYIYA0gGXAzeBN2dXw/K0AcjwlKlk4eDhXCOBIiM0aZadYuj6OXXPykI/8JfdUfbJWMDnm66sik9ftXd59jq/Pbfptobp3eb358HHrbT7fn75O3S+zXvchc3o61D4AsDGWBXBqiJeG2/gvZGrA3fARdXjnBWZRADMsejzowe1Nx58RIIvrl7tJCWF9ykf75cn2yfyUj4RZnsXu17uzm/xBj83+oG8AbJXbFMASj26Ro5huOOvw1j0DJX8oMFF9YuOBVwJSiHKZ+iK45nwr04IUrqn1Vh8JcX/eKs7ZPiWAZI/O7Nb7fuj30c2XUbf98uEQf+0HYFv8JwGUISKCQR4QoSnDxkIxL4CRIPmBZ6L6xLYogGJz9am1mjB/BJ8vx9NfN6VGLWITAmhEcrRX+j2u5TIB1DaKN/f/A+C2udEboGUY0GDw6/BeL4CrvwKrPcSSwC35DeqMtE9ES+D8oQCKGGuKaOn1wblNfeT3scN8xHRPANgC/+BHkMI1Apj31qHSQ+aFSb9fKYA8+PWWw2KozmTeJ+uLmRfAvN//6MF1qf4W3yDQUb8D25DX+arQu3X83p+n+u27/dFjXCMAW2KFAMrw97cKPcixvQxMsRNz4hDTC9sQQw1rP8zVN5dXBI0G3NqzGLDgOduQv0efz/pn6guYF0CfpwiKF2hChMz1gPj2fTeuQ2JMiCP5fqjeeFEf4q/qPwDbY5UAAgDAVwQCCABoFgggAKBZIIAAgGaBAAIAmgUCCABoFgggAKBRPtMfGn9QpHBOIvUAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,231" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;[LFE Website] No pay for &quot; + str_LFE_Otros_Pagos_To_Add + &quot; for employee: &quot; + str_LFE_Current_Employee]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                        <Sequence x:Key="003 - Bono Dominical" sap:VirtualizedContainerService.HintSize="450,179.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty = True]" sap:VirtualizedContainerService.HintSize="388,184" sap2010:WorkflowViewState.IdRef="If_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,489" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;[LFE Website] Adding &quot; + str_LFE_Otros_Pagos_To_Add + &quot; pay  for employee &quot; + str_LFE_Current_Employee]" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="1" DisplayName="Type Into '001 - SUELDOS Y SALARIOS'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_9" InteractionMode="HardwareEvents" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Employee_Otros_Pagos_Bono_Dominical + &quot;[k(Enter)]&quot;]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="8, 79, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'$427,300.00'" FullSelectorArgument="&lt;webctrl class=' x-grid-cell x-grid-cell-gridcolumn-*' innertext='$0.00*' tableCol='6' visibleinnertext='$0.00*' /&gt;" Guid="ba755858-7f66-438f-9745-38bcaa937264" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAApSURBVBhXNcixCQAADAJB91/KaZzB0iAY4YoXP9upJUAytQQkpZZ/KAdnPRz5syqjzQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="740, 477, 316, 19" ElementType="Text" FriendlyName="'001 - SUELDOS Y SALARIOS'" FullSelectorArgument="&lt;webctrl tableRow='?' tag='DIV' aaname='*SUELDOS Y SALARIOS' innertext='*SUELDOS Y SALARIOS' visibleinnertext='*SUELDOS Y SALARIOS' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUAAAAAXCAYAAAB6bJZRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAMwSURBVHhe7Zk9bhtBDIX3aunUGL5DrmBAra7gzlXgIrVLN2lcqVHjI6h1LuB2MuQOd0gu90cRgmg9r/iwXnKG5NDg0wjqjsdjAgCAFunOH5/p56/fA/KOJ5544vlVnwILIAAAtAgEEADQLBBAAECzQAABAM0CAQQANAsEEADQLKsE8PR0n7quYx5el+3M+3Pa3T2nk7ZdwuthiN119+nxXWyH9KLWvey7tHs657/P6fFO1tt9dU3dZ+MTNi6hzzfyR/Vp/8dbesg+05eg/h5X+/5N+fo4xka9DeOIz5232Gq9dS/1Ruy11rl6FvoCwIZYIYA0gGXAzeBN2dXw/K0AcjwlKlk4eDhXCOBIiM0aZadYuj6OXXPykI/8JfdUfbJWMDnm66sik9ftXd59jq/Pbfptobp3eb358HHrbT7fn75O3S+zXvchc3o61D4AsDGWBXBqiJeG2/gvZGrA3fARdXjnBWZRADMsejzowe1Nx58RIIvrl7tJCWF9ykf75cn2yfyUj4RZnsXu17uzm/xBj83+oG8AbJXbFMASj26Ro5huOOvw1j0DJX8oMFF9YuOBVwJSiHKZ+iK45nwr04IUrqn1Vh8JcX/eKs7ZPiWAZI/O7Nb7fuj30c2XUbf98uEQf+0HYFv8JwGUISKCQR4QoSnDxkIxL4CRIPmBZ6L6xLYogGJz9am1mjB/BJ8vx9NfN6VGLWITAmhEcrRX+j2u5TIB1DaKN/f/A+C2udEboGUY0GDw6/BeL4CrvwKrPcSSwC35DeqMtE9ES+D8oQCKGGuKaOn1wblNfeT3scN8xHRPANgC/+BHkMI1Apj31qHSQ+aFSb9fKYA8+PWWw2KozmTeJ+uLmRfAvN//6MF1qf4W3yDQUb8D25DX+arQu3X83p+n+u27/dFjXCMAW2KFAMrw97cKPcixvQxMsRNz4hDTC9sQQw1rP8zVN5dXBI0G3NqzGLDgOduQv0efz/pn6guYF0CfpwiKF2hChMz1gPj2fTeuQ2JMiCP5fqjeeFEf4q/qPwDbY5UAAgDAVwQCCABoFgggAKBZIIAAgGaBAAIAmgUCCABoFgggAKBRPtMfGn9QpHBOIvUAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,231" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;[LFE Website] No pay for &quot; + str_LFE_Otros_Pagos_To_Add + &quot; for employee: &quot; + str_LFE_Current_Employee]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                        <Sequence x:Key="004 - Bono referido" sap:VirtualizedContainerService.HintSize="450,179.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty = True]" sap:VirtualizedContainerService.HintSize="388,184" sap2010:WorkflowViewState.IdRef="If_6">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,489" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;[LFE Website] Adding &quot; + str_LFE_Otros_Pagos_To_Add + &quot; pay  for employee &quot; + str_LFE_Current_Employee]" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="1" DisplayName="Type Into '001 - SUELDOS Y SALARIOS'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_8" InteractionMode="HardwareEvents" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Employee_Otros_Pagos_Bono_Referido + &quot;[k(Enter)]&quot;]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="8, 79, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'$427,300.00'" FullSelectorArgument="&lt;webctrl class=' x-grid-cell x-grid-cell-gridcolumn-*' innertext='$0.00*' tableCol='6' visibleinnertext='$0.00*' /&gt;" Guid="ba755858-7f66-438f-9745-38bcaa937264" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAApSURBVBhXNcixCQAADAJB91/KaZzB0iAY4YoXP9upJUAytQQkpZZ/KAdnPRz5syqjzQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="740, 477, 316, 19" ElementType="Text" FriendlyName="'001 - SUELDOS Y SALARIOS'" FullSelectorArgument="&lt;webctrl tableRow='?' tag='DIV' aaname='*SUELDOS Y SALARIOS' innertext='*SUELDOS Y SALARIOS' visibleinnertext='*SUELDOS Y SALARIOS' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUAAAAAXCAYAAAB6bJZRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAMwSURBVHhe7Zk9bhtBDIX3aunUGL5DrmBAra7gzlXgIrVLN2lcqVHjI6h1LuB2MuQOd0gu90cRgmg9r/iwXnKG5NDg0wjqjsdjAgCAFunOH5/p56/fA/KOJ5544vlVnwILIAAAtAgEEADQLBBAAECzQAABAM0CAQQANAsEEADQLKsE8PR0n7quYx5el+3M+3Pa3T2nk7ZdwuthiN119+nxXWyH9KLWvey7tHs657/P6fFO1tt9dU3dZ+MTNi6hzzfyR/Vp/8dbesg+05eg/h5X+/5N+fo4xka9DeOIz5232Gq9dS/1Ruy11rl6FvoCwIZYIYA0gGXAzeBN2dXw/K0AcjwlKlk4eDhXCOBIiM0aZadYuj6OXXPykI/8JfdUfbJWMDnm66sik9ftXd59jq/Pbfptobp3eb358HHrbT7fn75O3S+zXvchc3o61D4AsDGWBXBqiJeG2/gvZGrA3fARdXjnBWZRADMsejzowe1Nx58RIIvrl7tJCWF9ykf75cn2yfyUj4RZnsXu17uzm/xBj83+oG8AbJXbFMASj26Ro5huOOvw1j0DJX8oMFF9YuOBVwJSiHKZ+iK45nwr04IUrqn1Vh8JcX/eKs7ZPiWAZI/O7Nb7fuj30c2XUbf98uEQf+0HYFv8JwGUISKCQR4QoSnDxkIxL4CRIPmBZ6L6xLYogGJz9am1mjB/BJ8vx9NfN6VGLWITAmhEcrRX+j2u5TIB1DaKN/f/A+C2udEboGUY0GDw6/BeL4CrvwKrPcSSwC35DeqMtE9ES+D8oQCKGGuKaOn1wblNfeT3scN8xHRPANgC/+BHkMI1Apj31qHSQ+aFSb9fKYA8+PWWw2KozmTeJ+uLmRfAvN//6MF1qf4W3yDQUb8D25DX+arQu3X83p+n+u27/dFjXCMAW2KFAMrw97cKPcixvQxMsRNz4hDTC9sQQw1rP8zVN5dXBI0G3NqzGLDgOduQv0efz/pn6guYF0CfpwiKF2hChMz1gPj2fTeuQ2JMiCP5fqjeeFEf4q/qPwDbY5UAAgDAVwQCCABoFgggAKBZIIAAgGaBAAIAmgUCCABoFgggAKBRPtMfGn9QpHBOIvUAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,231" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;[LFE Website] No pay for &quot; + str_LFE_Otros_Pagos_To_Add + &quot; for employee: &quot; + str_LFE_Current_Employee]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                        <Sequence x:Key="005 - Bono Ingles" sap:VirtualizedContainerService.HintSize="450,179.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[bl_LFE_Otros_Pagos_To_Add_Null_Or_Empty = True]" sap:VirtualizedContainerService.HintSize="388,184" sap2010:WorkflowViewState.IdRef="If_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,489" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;[LFE Website] Adding &quot; + str_LFE_Otros_Pagos_To_Add + &quot; pay  for employee &quot; + str_LFE_Current_Employee]" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="1" DisplayName="Type Into '001 - SUELDOS Y SALARIOS'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="HardwareEvents" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Employee_Otros_Pagos_Bono_Ingles + &quot;[k(Enter)]&quot;]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="8, 79, 0, 0" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'$427,300.00'" FullSelectorArgument="&lt;webctrl class=' x-grid-cell x-grid-cell-gridcolumn-*' innertext='$0.00*' tableCol='6' visibleinnertext='$0.00*' /&gt;" Guid="ba755858-7f66-438f-9745-38bcaa937264" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAApSURBVBhXNcixCQAADAJB91/KaZzB0iAY4YoXP9upJUAytQQkpZZ/KAdnPRz5syqjzQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="740, 477, 316, 19" ElementType="Text" FriendlyName="'001 - SUELDOS Y SALARIOS'" FullSelectorArgument="&lt;webctrl tableRow='?' tag='DIV' aaname='*SUELDOS Y SALARIOS' innertext='*SUELDOS Y SALARIOS' visibleinnertext='*SUELDOS Y SALARIOS' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUAAAAAXCAYAAAB6bJZRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAMwSURBVHhe7Zk9bhtBDIX3aunUGL5DrmBAra7gzlXgIrVLN2lcqVHjI6h1LuB2MuQOd0gu90cRgmg9r/iwXnKG5NDg0wjqjsdjAgCAFunOH5/p56/fA/KOJ5544vlVnwILIAAAtAgEEADQLBBAAECzQAABAM0CAQQANAsEEADQLKsE8PR0n7quYx5el+3M+3Pa3T2nk7ZdwuthiN119+nxXWyH9KLWvey7tHs657/P6fFO1tt9dU3dZ+MTNi6hzzfyR/Vp/8dbesg+05eg/h5X+/5N+fo4xka9DeOIz5232Gq9dS/1Ruy11rl6FvoCwIZYIYA0gGXAzeBN2dXw/K0AcjwlKlk4eDhXCOBIiM0aZadYuj6OXXPykI/8JfdUfbJWMDnm66sik9ftXd59jq/Pbfptobp3eb358HHrbT7fn75O3S+zXvchc3o61D4AsDGWBXBqiJeG2/gvZGrA3fARdXjnBWZRADMsejzowe1Nx58RIIvrl7tJCWF9ykf75cn2yfyUj4RZnsXu17uzm/xBj83+oG8AbJXbFMASj26Ro5huOOvw1j0DJX8oMFF9YuOBVwJSiHKZ+iK45nwr04IUrqn1Vh8JcX/eKs7ZPiWAZI/O7Nb7fuj30c2XUbf98uEQf+0HYFv8JwGUISKCQR4QoSnDxkIxL4CRIPmBZ6L6xLYogGJz9am1mjB/BJ8vx9NfN6VGLWITAmhEcrRX+j2u5TIB1DaKN/f/A+C2udEboGUY0GDw6/BeL4CrvwKrPcSSwC35DeqMtE9ES+D8oQCKGGuKaOn1wblNfeT3scN8xHRPANgC/+BHkMI1Apj31qHSQ+aFSb9fKYA8+PWWw2KozmTeJ+uLmRfAvN//6MF1qf4W3yDQUb8D25DX+arQu3X83p+n+u27/dFjXCMAW2KFAMrw97cKPcixvQxMsRNz4hDTC9sQQw1rP8zVN5dXBI0G3NqzGLDgOduQv0efz/pn6guYF0CfpwiKF2hChMz1gPj2fTeuQ2JMiCP5fqjeeFEf4q/qPwDbY5UAAgDAVwQCCABoFgggAKBZIIAAgGaBAAIAmgUCCABoFgggAKBRPtMfGn9QpHBOIvUAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,231" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;[LFE Website] No pay for &quot; + str_LFE_Otros_Pagos_To_Add + &quot; for employee: &quot; + str_LFE_Current_Employee]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </Switch>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.6666666666667,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;[LFE Website] Pay added &quot;]" />
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" Title="Las Facturas Electronicas" Url="[str_LFE_Url]" />
+                </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NApplicationCard>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEach.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEach>
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="484,1320" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="450,1070" sap2010:WorkflowViewState.IdRef="Sequence_23">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="out_bl_Success" />
+                <Variable x:TypeArguments="x:String" Name="str_LFE_Percepciones" />
+                <Variable x:TypeArguments="x:String" Name="str_LFE_Percepcion_To_Add" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;[LFE Website] Saving records added&quot;]" />
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Change to Guardar button." ClickType="Single" DisplayName="Click 'Guardar'" sap:VirtualizedContainerService.HintSize="388,190" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1237, 768, 71, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Guardar'" FullSelectorArgument="&lt;webctrl tag='DIV' class='x-btn x-btn-default-small x-icon-text-left x-btn-icon-text-left x-btn-default-small-icon-text-left x-box-item x-toolbar-item' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' innertext='Guardar' parentclass='x-box-inner' visibleinnertext='Guardar' /&gt;" Guid="1cf1713b-6b29-4ba6-ba18-180f073421d7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAUCAYAAADFlsDIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATSSURBVFhH7Zj7T1tlHMb3tzjE+YNE1xh+aGay/bQti1HTbtQRdYIoTKAHGGvNuAjMOrmJyRiUbI4wJi0LbAMGVFJuvdCOEblspZRN1xYaM110IZoC5fG877n0HFogkZgY0iZP3vP9vs/znvN+zjlN032BQABra2tIfGI/hAvhM/3QhylvCPtWV1exsbGR0BYifGZnZzlYpBGJRGSGRC2vp6enOVhkYn19nRoEkTr0VwDd/msouK9G+ogS71tTkTN+DCZfI4IvnsT493IdF5Ywup5ZkT1xHEVjGrR5GtG12E7V+ugycgbfgbrnTYz4+2Jye3UUYZEvMakmfh1C+vghfDtVhv6n3bg6/x0qp85TkeO+p12ontBB2foKfly8K8v+X+Rr1kCht8Sd+zeKC2t5xY8s+zEKikD5YjIXxe4cFEx8hiJW51jpXWfR+/MtXLIV40irAr88fyJbeCdZ9AooFFFpmn1xfbvRfwaLfNsLMi82QTt8ij5RBBSBpHV+gjx7BvJsH4OxZcAauIdSZz76WGAfmI6iwV4j5rfXAoxpLCCdRd7TGbEg8+1eC00sLNl5dqe4sM7ajqPVcxktngYUu7KR78hkIZ1B/jirsTMYCQ7S3x/LKwE0T1fj6lQ13mpSyhbeUvNGaBR6WOLN8SD1A1wt2+yAXvIkamCcl/h13ByXs0Av+qI3ha4l9vnz89ei10l620iEFQ6HIejd/hTcefwDyicLUOjMYp+w23j0fAba0QwMBwYoqPXIGpp/qkHpaDa6PK1Irtov5reTl1x0mhHeOHPhsJfbfD9XU69ucJMnjEGyOdrn/FIPmdM0eelx/DyXoR4PgRU9304SYfn9fgg62p2M7sWbKHNrUe4uxJ/hPyig3/9+RkcCqvHB12AGT6PE+im6PdfxculLYn47OWpUUKjq4KC1CYxwt2nPgTqVAkyHxKs18VmJl4j25X7Oo0KdLU7eVgeVJK+qcfA9Biaa3VkiLPJzXmhq7ijx/UwDjHO1KBrPhMGlx8rqCwoqshFB4/2vkNt/CgUsrCuTF2F0GqA0pMoWlq4nq/kLNEvnOxgWVr0MFvFHN+tAPdunG2T9XN9M+1K/FJY8z4EWoJq0CqhrnTJYW16vpBZhBYNB2iBqsFUg8/YJ9D42Qz+aCcb6IS7az8H72xyaH3yDz++dRF5fGor609G7cBNvtxxGRVe5mCeSrievnXTjCqYzOs/DcvJzZCPBIO9joQgZpmNzPtrn1pfmgzCzULi8mYWlRr2d5Mkx5wnY66Hmb9zW1xutZU+WoMkFFw5fex2GsQLc9XXg/NBHKLSkQzugQX4fEQF1Gj3edpQNZOPghRS45lyyxbcXv2HJa0EvnswRcLSnBqNV85vdqi+FyIsC4NdURfPOWvaY9hk2HwtLzG8j2ZMlVYerDa/WJaHSmos+FljTpAElQ1m4YMlEE/sa9rKgSvqzkMzsx43hNll2r0qEtbS0RBvSsd3ZhoM1KXjv+hEY3QZ0zragc6YFjc5KnLhyCG/oX8MNKwcqXp6MgvbCvAhreXmZNjaP7nk3qnoqoLyUigP6JBwoToLyy1RU3aqA+6E7xr+XxxhYghJ1bC17DUlDUCgUStSSmvAR//zz+Xz03RRMiTE6Ei6ED/e3cgj/ALO6sw5ofwXmAAAAAElFTkSuQmCC" InformativeScreenshot="f445865c651a84434363d63a488c6b92.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="8, 79, 0, 0" ElementType="Text" FriendlyName="'Cancelar'" FullSelectorArgument="&lt;webctrl aaname='Cancelar' class='x-btn-inner abortar' visibleinnertext='Cancelar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAUCAYAAADFlsDIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASRSURBVFhH7Zjta1tVHMf3lwgibnONzhFkbnVV17k6cANpos2K69ChG5XRu825FgfzTR3aNgo+lIgogpC2+EJUkmawzLVLXzkofXBN3zVtUxlL13Z0u0nar+d7zr039yY3KYMJGnrgy+/8Hu+9n5w8tFtSqRRyuRw2V+kiF/IZnZjGzak0tmSzWayvr2+qjMhnbGxMwTKDa2trVsFC9FcMv/gsbvpfwZ++A0L10tJnnHl7fXF/tfmjo6MKFoNUPp+X9u8rv2No304s/vAlHgz+jPtRIcPSZ5z5hdhvsr64vxp9C5YZpCWo63XPIPPjV7h7+Txmax/D3EtPYO7lJ6WlzzjzrGO9vb9arQWLH2LUfOQXDAkAiz99g+VPP0RGa0bm3HHM129F+lWPtPQZZ551rGefOeM/pWgHvE3fYtot95AqgfXH89uxNPA97n1xCQt1jxvfB0DmzFtYEKeK1lzMs4717LMPLq8YOrxeeC11IOZa94j0b8Dipz0V371VPvyd13bhdkONgUWtxVONxk6t2w0eWcf6+O5tsr+yYmgXgAK9SSuW7A2gPVpc9wgVbRewQki65R5SLrC2IRcOYdG/F5nGPbhzYLuBxrkYZ37RX4vsdz2Ii5NlH+yqCjdOaIXT1o4Y47dCCIh9+wUj7uhV4FV9AKFbZWL2a3Jf0pNEqMkrrqFylV44C5au66Die55C7utOLB3dj6XAftw98hyW25oNRGrRZ5z5peZ66J9fFH07ZH8lDfKhLwy65gqakjcf6J2C/hdhiQeIMD4oQai9+yzGzPwU4TMfUbCmbHVmrepX19v4vvQCrJmZGVDxvTuQ7TyLlZZDWDlaj9VLpw1EzsU486zLfnxa9NXI/krqaxM31dbnmpsZ7oHPetW98HUljJiGPlmTQI/PCy3MfR80rw89w7Z+GSv0S/l6kAhryrrVyHuxz60sByz+pI/X1iB//m2snjiMe+Lk2NfKQY+xU4v51RNHkP+gRfR5ZL99eLE/0u233bg9rx5CCyufUAkrdSPogBUsghW8YZ/PmN8BUM63YKl++SKIXKLLJ2D1i30B1kb3b8FiYnZ2Ftf2PY3l9xqRbfXj/vFDBhZxkt6ow+qxBmnNxTzrlt99Xfaxn3NMlfoDEoq/e8TKE6AW7pcPGkywnntVM5sIwi9g9cv+EQNWYe/VBuQcJSMmAFh+t8hLWEGMlO0vxDe6fwcsKvZZJ66LP2VWTvqRf78Jujg5D945DP2kD3rrm9JKnydK5FnHevbZB5eXglF4q/BBUurUyZgGTZwsCVScLHdYxXMEaHHKSmYTnAVL5Lk36rU2cT0JtnhueVmwSJEaHx/Hle7L4pf5Tqy2NgHnWrAuflutnTmGtbNCwtJnnHnWsZ595oxqlQPW3NycDE5MTEgAQwKErrUAF08BH9kkfMaZt4My+4utqf973oLFxPz8vCyglcC6PsG1Fzy4Kj70r4pvO0vCZ5x51tn7qtm6wjI1OTmJSCRiKRqNOnzm7fXF/dXmO96G6XRaFpja9As++Vj//Esmpy2aZtGmVZZcyEf9WzmNfwCZ6YkVkKlizwAAAABJRU5ErkJggg==" SearchSteps="Selector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NKeyboardShortcuts ActivateBefore="True" sap2010:Annotation.AnnotationText="Sends enter to the website, and verifies that the popup disappeared." ClickBeforeMode="None" DisplayName="Sends Enter to guardar confirmation popup" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" InteractionMode="DebuggerApi" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+                <uix:NKeyboardShortcuts.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Element 'Aviso'" Mode="Disappears" Retry="True" Timeout="[int_Timeout]">
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="847, 510, 138, 17" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Percepciones guardadas'" FullSelectorArgument="&lt;webctrl aaname='Percepciones guardadas' class='x-window-header-text x-window-header-text-default' parentclass='x-component x-component-default x-box-item' visibleinnertext='Percepciones guardadas' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Percepciones guardadas' class='x-window-header-text x-window-header-text-default' parentclass='x-component x-component-default x-box-item' visibleinnertext='Percepciones guardadas' tag='SPAN' type='' check:text='Percepciones guardadas' /&gt;" Guid="5e8d3957-0f75-45ce-a878-f118d4a0ed11" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIoAAAARCAYAAAACJjTkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJrSURBVGhD7Ze7cQIxEIYdUBQVuAYSqvDQxZFTwOGQgBmHBLgAAjIqoAxZ0mql3dXqdGCPORgF3wx3K+3zl85+O12uptGo0YTSGEUTSmMUTSiNUTShPBPb3szeOzNb7s1Os6uczcfS7rH7FlvNPo4klMPezF0SjN6syeLpgMVvzMdBs78okxIKJiGfG49nkkK5HM3CPeOtIm+csG7XbeB51cP61dHuTckB4eTXfFC8H8hN2ufdd1a8XFN67yG+1ytuK+4jeyI4OLkO34c9GMP7lj0gt2KMSXuZrbeEvsnch+py1OJn9RBBloXCig2iEbZ5d1Ya+pV9FnZdb3+P8OFj8ROANrcO81xIoRBf8rOk++Y2EAfa7MHAXvg9UEMOP0gsDuudEIrmI/Qk+kBkL9EvGSDCamHxeT/pHh5fzEcw/DeKGGqGTYQPgviRAW/wgc/p5iCq9/Di5SDS/pIInb/kg2Ntn6IXWBtFiIHFETaZX3baQ69kH06lw4vPyszyfuRC0eOj8Ok7WO8Y+PQQROGUanHIDT7w+X+EIn0H5BAq9bA4A0LB33D7FW6UsC/mgLGpUGJ+/EbL+6H3Soufbkkk/TMzTijRQd7UrDg2DFxDPj1VH3w/2qAwu97m+defnpS7Qqkv4j3zRQdqbZpQYIgVocS+h4FpQhF7nV/8zftRjx9rk3EtI4XiwM0Jl4je7JQcgOKo+CBAIYC03/XHrM+PC0Xb55uDA6HvQi4ULW85HIrPCftMKQrFkuWS1uPQKVD3HfGz96lHjiSUB6I26MngJ/X1aEL5BfJEw22ir312JiGUxvRpQmmM4Gp+ABEXOjtks6izAAAAAElFTkSuQmCC" InformativeScreenshot="97dceefa92de19395fb93b89fcd7715b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Image" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="858, 541, 179, 14" ElementType="Text" FriendlyName="'Percepciones agregadas'" FullSelectorArgument="&lt;webctrl aaname='Percepciones agregadas con exito' class='x-component ext-mb-text x-component-default' parentclass='x-container x-container-default' visibleinnertext='Percepciones agregadas con exito' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Percepciones agregadas con exito' class='x-component ext-mb-text x-component-default' parentclass='x-container x-container-default' visibleinnertext='Percepciones agregadas con exito' tag='SPAN' type='' check:text='Percepciones agregadas con exito' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALcAAAASCAYAAAAZv0/CAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO5SURBVGhD7Vi7cWMxDFRTHieqQzMKVYIDxW7AoVOX4OwqcAGXXwUug0eAHyyW5PvM+MZ37xjsjMiHBYHFPsry6eevzzAxcURMc08cFtPcE4fFNPfEYTHNfSC838/hdH3rPvsfYeb+8RweTqdwAlxeffC3Q2u8hZfes4lDmvvlegoP94/4+SM8Pe7zJJn7HJ5+5PXrLRoc1hN/PY59c3+luXOy9NakN6i50eUFeHwOT/qscN/CpXP7q/B5r+RM/Fu4xHPSM38rI0fOeeebW1/A/LwONdd9vdk3kRs41me53FmDl3opBvURpL7zQO75WzHX0dVCgP1APO+7Ae/m+Pl4bQDum7z0mvrxexF6Vpxj1aCvX0HjJeUDB7xYbm6vvdc37bVnrppbkmhiMVeNy6bIAppw2Vg4sBpXjCTi5nOoKW3aDceb3Z2Nedy5uWFXby8u9yXnubwRr/GFrToMIPWVM1ytpltTSxOLPSTTFS1rbYVX0Giwj1PMkp7F+u49c/u8BS4/9qGfLd7NkTDyku2jfliv36+5evVkrPxZIsGcFNYSg4Njk2R4QWHNfFgzR4H5icviGBcGxfWVNfe+BcLp1op6tQPZqoUbnIP0s6DBCkfOGxmvguei4F5AV4kHXW0WJbaAc7Ra6S0M9ZleS1xB+0Iu/KD0t53tJ2gSFoHNk6GCEr83UFyzCRSQvxGwclO9xmVzcy1glLKHeR1SLo7ztaLoPIDtWnij8gyg5r0c2sfaKihvApsHelPtbO5r5raaqAadj79kxuZeqCdzF/4sKWhJFSzCgrkbowqYD+s1czPXBE31GpfN3dbnwfwCElNydWtFvVrttmphRu31s6DBGgch/NE+5E3gXkAPyrNmbtSDnz08eu7Y3Av1ZO4Gc7fFvt9vKa4RIRfIw2MR47qKUvnEZY7AmVOa8d8uKIIfbGman8X1NZ4f815wL8agSJbH9EFNvD7teS7XSAvSX4aKRq05kO84KW6N8xJ/aOPZfn4FrVEE9vLENdaBn0tcN2/7rHjJcqfay4zwMuCLYVhPxiZzC1Ts2HACNMVNaB6LLQJpIXU/n6MFWWwtNMOdKedobhpOw/XitINKa8/r7ZV4A/ag/42pvWdj6bNz3C/nkck6efAHtcsvN5gbXI6P5+ItbJxzuFzXOaOzG7jZ0AvEXI2lmgbmFjReUj7nS2tnaKgJ9W3qyTBzfwek2AUR/k3Ii9IKvRd8S03sxzT3V2DwbbUPeAtFDL49Jrbje809MfEHMc09cVB8ht/flc7DTFATBQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                  </uix:VerifyExecutionOptions>
+                </uix:NKeyboardShortcuts.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NKeyboardShortcuts>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;[LFE Website] Closing Agregar Otros Pagos window&quot;]" />
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Cerrar ventana percepciones" sap:VirtualizedContainerService.HintSize="388,193" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1295, 331, 19, 19" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG ext-gen4376'" FullSelectorArgument="&lt;webctrl id='ext-gen4376' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen4376' tag='IMG' type='' class='x-tool-close' aaname='' /&gt;" Guid="aef72d3b-6169-4658-b4e5-bf343c3bb022" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADGSURBVDhPtZJNCsIwEIU9jRfxgm5deQe33qEiiNClKG0pggtBEH8qr2HSl2kcUqwPPpKZZD5KySTLy2Ys/itbrKtk9Gwgw4Uh0UIvGyqSsLAnu7wcy9XR7xnuI6asvruB6WzerqgF3UdMWXFz8GCsBogpO1w7WCArnyOmbHN6BLBInyGmbFs8PbEv43PElO2qdwsLYjVATNm+Dv8VakH3EVOWnx0YkD3DfcSU4THy8DfMR8vC1LAIBDKAC6no2Z7sF0aUlc0H5Yz8X70zJ9AAAAAASUVORK5CYII=" InformativeScreenshot="4e760a3e7f93d7ce2d612b2a2b7c6b52.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Image" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="624, 334, 120, 13" ElementType="Text" FriendlyName="'Agregar percepciones'" FullSelectorArgument="&lt;webctrl aaname='Agregar percepciones' class='x-window-header-text x-window-header-text-default' parentclass='x-component x-component-default x-box-item' visibleinnertext='Agregar percepciones' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Agregar*' class='x-window-header-text x-window-header-text-default' parentclass='x-component x-component-default x-box-item' visibleinnertext='Agregar*' tag='SPAN' type='' check:text='Agregar*' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAARCAYAAAAfdMg6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJISURBVGhD7Za9cQIxEIUduCgqcA2XUAVzXRw5BXAOHTDjkAAX4IDMFVCGrL+Vdp8k6ziDx/Yp+IaflVa77+0JHt4/LqqxHJrhC6MZvjCa4QujGb4wEsNfhp16fBo0e7WFWOMWnNVmbfTdqc0xF78vYDgV4+hGHmv8B6Thx4NaGbPXO/fan9IYZ31QL2xIun4fBwXX27Umlxwqh5/20e2P0C1zUp1f1/XmBsKng+IctqZQS7jNdN12v+0X6/N5ajk4No87G+Or4S3q5R+obR/jvO5abrkv5kv2sT3CcFrYjXjtwGcyBgwnutEbQCb79avhHM4w77mRwRyCBLbFoqG4HvKI+uq1BPpX6NtostfvJ+SwdUYtjPiyV71P99SB4VFzcx714QY9n9vVJvdRTO8TurkeOMzwfEJbLCWBht1n2aTNRXEkERSMYrniHm54NEKCcSZcsZYTCKr3YZ/EFTmibmQs1sz1kpqbOD21fBhcbr42o5NFx57hJqLePNFwahYxzc81HA7DoZJGQR4xqTcwPKkFBdXf1QyfkONnDS/ogV6yfoLhsVB//QgRmYAmVjP8C4N4Q3IdNPEdw4VB5b2J4clAmjXsSq/mkPsTTXVPt77SY+0ZMgMcDMdGDWSOLZhE5IhCuOEGKj7iGk+/TwaJY88oC146Sz6l+VryosV+HHRmJQeD64DxWX/ahM6ZeCD3E+a19Yg/bVOhg8LkzqV0hV5NbSDuhzQlv+Y3MdnwZJrmNoi/LzCB82iGT2XWE974uzTDF8VFfQKhVUkodWP2yQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Popup" Mode="Disappears" Retry="True" Timeout="[int_Timeout]">
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="624, 334, 120, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Agregar percepciones'" FullSelectorArgument="&lt;webctrl id='ext-gen4373' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Agregar percepciones' class='x-window-header-text x-window-header-text-default' parentclass='x-component x-component-default x-box-item' visibleinnertext='Agregar percepciones' tag='SPAN' type='' check:innerText='Agregar percepciones' /&gt;" Guid="7c692501-e081-4e53-a054-4fbed4e3d4a7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIAAAAAVCAYAAACOleY7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJqSURBVGhD7ZY9csIwEIUpcihOkDO44RSMb2F6DoBTUjCTksI5QDJDk0m6VKTJGRT9rbW7WmFsCJNEKr5JYKXV7ttnmdnrx5d6fjsWMmX28v4pBgp5MJO+LORDMUDmFANkTjFA5hQDZE7SANtmre7uG81GrYR44VIOarkw+q7Vci/Fb0PCAFCco2qlNYX/gGyA/U7NzfAXa/e37uIYZrFTW2Saqt4E4/D1dq3JRU3m8E9D6/YH4BbqVOXXVbW5ofjTA3EMWpOopb/tdN12v+2X1+fzDOXA2DzubB6fN09BL/+AreoQx3UP5ab7Qr5oH9oDiAaAjVXLryn2GQbFDABUrR8IDN2vnzeH/gzzPx5sPywABLfF8wHz9SwPqW+4lp76kfVtNNno/8/IYesMWphh0F71Pt1TxQwQNDfnQR/O+HJuVxvdBzG9j+jmepAQDCAfYIuHpEwA95k2bXNBnBMJzAaHcoU92ABhMBQeR0Ima+mYwHof7xMYkSPoBoPmNWO9qOYmDk81NofLjdcKOll07IHdVNAbIzYANM8xYkw1QHQ4bxgPjuUhTr6CAQQhRhvgjBy3NUBCDz5L3o8mMkAo3F9XRFQkqIkNGeDEwHCDdB1r6hIDkIGl90YGiAxq1qBXwGAOuj/SVPd07VdAqF0gZWhNZADeuAGGZRsAUTGkMGwAAzQTcELE30fGwtgz0gNInUWblmuRRQz9OODMgRwIrAOPT/oRSHQW4j3SK89ryxB/BJ4LHNw7eyonHDqOIYP8HHRI8prfyGgDRG6b2jB/PyUcOo5igLFcdAMU/j7FAJlTDJA5xQBZc1Tf5mVVLo3Sj6QAAAAASUVORK5CYII=" InformativeScreenshot="cd929b6cf7755840f518c6de7a61d831.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive" />
+                    </uix:VerifyExecutionOptions.Target>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+              </uix:NClick>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" Title="Las Facturas Electronicas" Url="[str_LFE_Url]" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Once the process is completed, let's set up all the final variables and out arguments that will be used in the next components. &#xA;&#xA;Also, validate the final information." DisplayName="End" sap:VirtualizedContainerService.HintSize="807,279" sap2010:WorkflowViewState.IdRef="Sequence_13">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;[LFE Website] Insert Otros Pagos for employee &quot; + str_LFE_Current_Employee + &quot; Process completed&quot;]" />
+    </Sequence>
+  </Sequence>
+</Activity>

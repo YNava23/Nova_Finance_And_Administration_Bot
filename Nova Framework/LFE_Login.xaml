@@ -1,0 +1,389 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LFE_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_Dic_Data" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_Dic_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1254,3772.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>LFE_Login_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="72">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="96">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: Login into LFE Website.&#xA;&#xA;Pre-conditions:&#xA;Microsoft Edge Browser.&#xA;Credentials configured in the orchestrator.&#xA;&#xA;Assets:&#xA;LFE_credentials - Credentials for the LFE Website.&#xA;&#xA;Arguments:&#xA;io_Dic_Config(&quot;LFE_Url&quot;) - Webpage URL (LFE web)&#xA;io_Dic_Config(&quot;GeneralTimeout&quot;) - Gneral timeout for activities&#xA;io_Dic_Data(&quot;LFE_Website_Opened_Successfully&quot;) - If the navigation was completed correctly or not." DisplayName="LFE_Login" sap:VirtualizedContainerService.HintSize="1210.6666666666667,3708" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Url" />
+      <Variable x:TypeArguments="x:Int32" Name="int_Timeout" />
+      <Variable x:TypeArguments="ui:UiElement" Name="ui_element_LFE_Website" />
+      <Variable x:TypeArguments="x:Boolean" Name="bl_LFE_Website_Opened_Successfully" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Credential_Folder" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Credential_Asset_Name" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap2010:Annotation.AnnotationText="Init all settings to be able to work with this component, set up variables, validate windows, steps, etc.&#xA;&#xA;If all is fine, let's continue with the process." DisplayName="Init" sap:VirtualizedContainerService.HintSize="1148.6666666666667,660.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="493.3333333333333,242" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Url]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">https://secure.lasfacturaselectronicas.com/lfe-misfacturas/</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[int_Timeout]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">120</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Config | Init configurations" sap:VirtualizedContainerService.HintSize="422.6666666666667,192.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Url]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Config("LFE_Url").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Int32">[int_Timeout]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Int32">[Cint(io_Dic_Config("GeneralTimeout"))]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Credential_Folder]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Config("LFE_Credential_Folder").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Credential_Asset_Name]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Config("LFE_Credential_Asset_Name").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="422.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[LFE Website] Login into LFE Started&quot;]" />
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Contains all the main activities this component will perform, like type into, extract info, mathematics operations, conexions, open browser, etc.&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="1148.6666666666667,2202" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="1086.6666666666667,2046" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="Always" OutUiElement="[ui_element_LFE_Website]" ScopeGuid="83f5fc44-0aa1-445d-ba9c-2793004534c8" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <uix:NCheckState DisplayName="Check if correct website is open." Exists="[bl_LFE_Website_Opened_Successfully]" sap:VirtualizedContainerService.HintSize="1052.6666666666667,1826.6666666666667" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Timeout="[int_Timeout]" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Webpage successfully loads." sap:VirtualizedContainerService.HintSize="548.6666666666666,1605.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="str_LFE_User" />
+                    <Variable x:TypeArguments="ss:SecureString" Name="sstr_LFE_Pass" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486.6666666666667,366" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Orchestrator folder path " AssetName="[str_LFE_Credential_Asset_Name]" CacheStrategy="None" DisplayName="-EDIT- Get Credential for LFE Web" FolderPath="[str_LFE_Credential_Folder]" sap:VirtualizedContainerService.HintSize="388,175.33333333333334" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sstr_LFE_Pass]" Username="[str_LFE_User]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:GetRobotCredential>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                  </ui:CommentOut>
+                  <uix:NTypeInto ActivateBefore="True" DisplayName="Type Into RFC" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Text="CUSM810511JP3" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="256, 387, 540, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT ext-gen1097'" FullSelectorArgument="&lt;webctrl tag='INPUT' name='RFC' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1097' tag='INPUT' type='text' class='x-form-field x-form-text x-form-invalid-field x-form-focus' aaname='RFC:' /&gt;" Guid="bfd8f0c5-bf06-4fcb-96b4-f242911399c6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAiAAAAAaCAYAAACO9+f+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADlSURBVHhe7dixDcJAEETR64n+O6AHUipwapI5JARGBNwkfk/6ul3JBaw8bvdtlyRJauYAkSRJ9Z4HyPUyJEmSlvbxAAEAWMUBAgDUOUAAgDoHCABQ5wABAOocIABAnQMEAKhzgAAAdQ4QAKDOAQIA1DlAAIA6BwgAUOcAAQDqHCAAQJ0DBACoc4AAAHUOEACg7rcDZNhf2DOEPUPYM4Q9Q9gzhD1DnGg/PkDmR16v1+v1er1/fr//AZkfT/YMYc8Q9gxhzxD2DGHPEPYMcYL98ACRJEla2dsBIkmS1MoBIkmSym37AyqdEfibL1aNAAAAAElFTkSuQmCC" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="151, 387, 100, 17" ElementType="Text" FriendlyName="'RFC'" FullSelectorArgument="&lt;webctrl id='ext-gen1098' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1098' tag='LABEL' type='' class='x-form-item-label x-form-item-label-left' aaname='RFC:' check:innerText='RFC:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAVCAYAAACqoKu+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD9SURBVGhD7Za9EYMwDEY9FzRMwtGxAwUtI9DRMgQNE7BCWiagVWITg+0g54Ivdyq+4hWy7Mbv9KMe60ZALhAkHAgSDgQJB4KEA0HCgSDhQJBwTkFzR5lSpByydjku9pWfM1Qjm3ffgvsEggpq5uvYCHCEuJhc3tF0nI1UejG4Cy9oXajJFZXDHrOCPt75TG0RyAO/wAsa6lerqql/51lB+l5EAASlEZlBpxxNOGM0es4YAUzrA+lcV5CpHr9tcRWECvkvbIsLP/7uDAJpfF0S7LrMCrI5r4rOLQ4VlkZEkD3bJcUEaUzemU92+4OgNE5BQCQQJBwIEg4EiWajJ4GTIPYxZaYHAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" DisplayName="Type Into User" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="DebuggerApi" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Text="CUSM810511JP3" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="256, 414, 540, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT ext-gen1101'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='User:' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1101' tag='INPUT' type='text' class='x-form-field x-form-text x-form-invalid-field' aaname='User:' /&gt;" Guid="4bacd027-cc71-4b8b-a108-822ffc1351d8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAiAAAAAaCAYAAACO9+f+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADlSURBVHhe7dixDcJAEETR64n+O6AHUipwapI5JARGBNwkfk/6ul3JBaw8bvdtlyRJauYAkSRJ9Z4HyPUyJEmSlvbxAAEAWMUBAgDUOUAAgDoHCABQ5wABAOocIABAnQMEAKhzgAAAdQ4QAKDOAQIA1DlAAIA6BwgAUOcAAQDqHCAAQJ0DBACoc4AAAHUOEACg7rcDZNhf2DOEPUPYM4Q9Q9gzhD1DnGg/PkDmR16v1+v1er1/fr//AZkfT/YMYc8Q9gxhzxD2DGHPEPYMcYL98ACRJEla2dsBIkmS1MoBIkmSym37AyqdEfibL1aNAAAAAElFTkSuQmCC" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="151, 414, 100, 17" ElementType="Text" FriendlyName="'User'" FullSelectorArgument="&lt;webctrl id='ext-gen1102' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1102' tag='LABEL' type='' class='x-form-item-label x-form-item-label-left' aaname='User:' check:innerText='User:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAVCAYAAACqoKu+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEDSURBVGhD7Za9EYMwDEY9FzRMwtGxAwUtI9DRMgQNE7BC2kxAqwT8J2zuEud8ORVf8QrLsgu9k2z1eO4E5AJBwoEg4UCQcCBIOBAkHAgSDgQJxwtaBypUSyPb1LGKupXFwF+BIOEkCNqoKxUpZSgHWkze2Ph4PflY0Q9Us9ylry7nwGe+FnQWt5nd3vguflR0doeWdr0PgtJJExQVV3eV7Rq+1h20sVzwC0lvEB9luvjB2DNAUD4CQcGH4E6aix+5YQd5ICgPXpDpBl7Us2PcA996eUxcOPps3p0gvEHpMEEHs/51WXgxpzYaY/YcH332YwBBeQgEAWlAkHAgSDgQJJqdXs9KFtHYmfGWAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" DisplayName="Type Into Password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Text="Rosario6*" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="256, 441, 540, 22" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT ext-gen1105'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Password:' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1105' tag='INPUT' type='password' class='x-form-field x-form-text' aaname='Password:' /&gt;" Guid="d7135b55-e442-4ea4-889b-b2dc5f4bd19e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAiAAAAAaCAYAAACO9+f+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADOSURBVHhe7daxCcIAFEVR999HcASn0EIQSyEkISQaOxv95X/VuXB2uIfrY9oBAJIMCAAQ9x2Q4+kMANDq74BcbncAgBblgDyHAQCgRTkgwzgCALQoB2ScZwCAFuWAzMsCANCiHJBlXQEAWpQDsm0vAIAW5YC83m8AgBblgEiSJHVlQCRJUjwDIkmS4hkQSZIUz4BIkqR4BkSSJMUzIJIkKZ4BkSRJ8QyIJEmKZ0AkSVI8AyJJkuIZEEmSFK8cEACATj8DAgCQYkAAgLBp/wCnqq0rsInHUwAAAABJRU5ErkJggg==" InformativeScreenshot="ec5934ae19ec93c684e9f5acdba70a39.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="151, 441, 100, 17" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl id='ext-gen1106' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1106' tag='LABEL' type='' class='x-form-item-label x-form-item-label-left' aaname='Password:' check:innerText='Password:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAVCAYAAACqoKu+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVGhD7ZaxtcIwDEU9F2mYJCdddkiRlhFSfVqGoGECVvgtE9DqW4oVy4oPn1JJVLwDlm0Z3vULhN/XG1x25YCMywEZlwMyLgdkXA7IuByQce0D0LWH0FzgXpvbuDKgxwVOIUAQaq/lYrM6DqAzDI80xi8tx5Z1SECvJwxNgNP4TLBqybpBK+qhuy37lhoaR717mNJZU8druQefK/eqyxL7DLiP6zrxAlDZf9v6F9DqMSfMRiMIIK8fb3Afz4U504jGVSCwodgvvS/20qVIUNMFyZ9l7rGcrRJ0DEDSoEJodgakjSCThVksXEsG4zldTEOTzsJzqIe+EHM6aawAyEtCYz2/I334k7BOU55jc8o6m0vgUo1vOacDX3EdvuJcTqEAIno7IB7oBC1SjxORoGIdmqTrsie+jyYOnRz30HKSPEFVfQ1oMU6AmLq1ST9jn3sURs6GZyM5fbnHx9+gAkCZNkqsmK89ereqLwBFkVnzIytEKJwgMpTrvFeujcqJ0EmsGcnQRD+srwClGp8RP9P+AblMygEZlwMyLgdkWm/4A60rQGqhaTi7AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DelayAfter="5" DisplayName="Click Enter" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="872, 516, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Enter'" FullSelectorArgument="&lt;webctrl id='ext-gen1089' aaname='Enter' visibleinnertext='Enter' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1089' aaname='Enter' visibleinnertext='Enter' tag='SPAN' type='' class='x-btn-inner' check:text='Enter' /&gt;" Guid="bfbeb000-b318-45db-9d8d-894531e6eb18" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGkSURBVFhH7ZddcoIwEIBzp1xFZ+QW5Y14hqqvDr2A2AMUeW71CA7ypqhn8Heb3QA1Evpk6nQIM99sdjdB8w3BkW02GzidTuCu+oVe0A87Ho9wvV4dDaAfZmo4dNj5fIbL5QIuNkdNUhNt7zN8OeEAYxNt75MkmySCA+c6/dg8l4j7wHtvkJl6T4J+3WySBBy88crYMxILKSmElan3JJ4niWQIEL3iCQsSWU9A3Dxxat0KwnKORMS4XtVEIO9R1ezBDocD2GQmJZUbVAiYYe8DN+hBuJTjZQheOca6fJLSYn069qSsVN2v6qVKXDDTPssWbL1eg02iFw6d13m9N/GBd4YwpzwCn3dg+Hlfn8Owcy/Zh6io+5PiXpb5F5LqMv5YEv43sclUSuoOFvUeyRjBgvKplNSF0dd9Xa3X8gGOFzAiSapmG5KU57lWfGROm9SOi9xcJPs3MvL8/UcSCVPzlFwlpFqPa3Jd0iO/rylnWNhut9QocbmekyTH7zC0ttvtyF4Tbe9rklw0Rzpu+/2eCi7WIx23LMsqayXlpLbnKCjLMvgG33kWiuq/w3AAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="872, 608, 69, 16" ElementType="Text" FriendlyName="'Restore'" FullSelectorArgument="&lt;webctrl id='ext-gen1129' aaname=' Restore ' visibleinnertext='Restore' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1129' aaname=' Restore ' visibleinnertext='Restore' tag='SPAN' type='' class='x-btn-inner' check:text='Restore' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIXSURBVFhH7VdLcqMwENWddBVcFW4RdiFnSMzW47mA8QUmZp3gI8Q2O/DnDP521C01SNhxqhxSWYyoetV6et1q8UD+iKqqYL/fg7/OL/QF/RG73Q5Op5PHJ0B/BJPj8eiInjdcIEEcDgeKnp9zwcTHz6PADyeP6+jOpPlfCKUEWeMRskt5XyCLJYR/iovab4G+3TrBbKhMiiEzPHtQRj1k53lfAOvCweKi9lv4MZN2LzHIuyEsDF8MwuYtY/Mwh+cw1+YyhOHMzanNM71ifBDcs72W6dsFxHa7hU7wrjc+MXxCb8S80dTG56RNIEYD3jFKiP+Z/IHWz+ool+tMPs03tVrj3nMY3tna9yHKsoRO8NqHgJ+kQvCU11r+FDRP2SAa5dAPcBxBaq2T3lu1owhk0Ie8rVEvqw7zWuvb/b8LMgl/etuTN3Fr41Xr5qbPPZD3qZtvxmWZQkQ3pmvRiN7zVGtmnanJZ5Oqt8Qxqd3vpv1f4fTfbblcksC4iauN99TGx4ZrY8ZaT/FJ9yB5M/lposZjiFjPm9qxMYnWpjVVXY79VL4yMxq5+U291pgnZkz8lvuxOJnUCSyTeA5vWAYJvQlkmjkK2rApJHTcNGpj6qNjTLWOkmue28vOQ7BhXUCgax7XQSatVitnknk7/q+6wMF6vaYJHy9HxySG5y6n47bZbEhgeN5wOm5FUdTuseijjuhLURTwAS8d0nOELcTbAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message End Login" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;[LFE Website] Login into LFE Completed&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Error at Login" sap:VirtualizedContainerService.HintSize="450,395.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message Failed End Login" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;[LFE Website] Login into LFE not possible, check website/credentials.&quot;]" />
+                  <Throw Exception="[New SystemException(&quot;Unable to login [LFE Website]&quot;)]" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="305, 331, 37, 19" DesignTimeScaleFactor="1" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl tag='FONT' aaname='Login' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1168' tag='FONT' type='' class='' aaname='Login' check:innerText='Login' /&gt;" Guid="df078b53-1bc6-44b2-8c2a-bf89cfe2c56a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACkAAAAXCAYAAACWEGYrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEGSURBVEhL7ZMxFkQwEIady2FcQucILqB0CYWl1Kt1W9oTaGczyYggQd6Ofbyn+IokI/PlTwTvzwBX55Hk4pHk4m6SPSRxAUHcQm0UsNK2EEYFhHlvX3fwSHLhKUk1Ig1FBUm7qCkbY12kFldGXQcRzlGSWSpqsB8l7NrTQ5LW026aI6GodIwFUmRLEsWMnmqugYzGyGHJOsdE5h8jOg3bIRApvpOks15xWNK6oUDL05WZKUp8JS37MEkKidflJS+S5P6bnAto/imp1zf+7tVBqCG/pNx0ydh4WTM2n5CNze94kzwJKbl+Jj6wSuJ1z9+kSn71Tj1hl5yuWvGrIHL+dTNwA8kBvoK11SAkuhBuAAAAAElFTkSuQmCC" InformativeScreenshot="9f38199cd21cb11077b464a42f97d1a2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="294, 296, 150, 13" ElementType="Text" FriendlyName="'LFE WEB'" FullSelectorArgument="&lt;webctrl id='ext-gen1059' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1059' tag='SPAN' type='' class='x-panel-header-text x-panel-header-text-default' aaname='LFE WEB - Online Invoicing' check:innerText='LFE WEB - Online Invoicing' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAARCAYAAAAliLUMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAShSURBVGhD7VRNT5VHFH4X/h8W0MRf0IUrtBujxLhEWJhwa1wScmNEe61xicFcsRFjG7ULL3BNjS2FWzcWlEK5jbGfSwJ+dX06Z+acmXNm3hdBvUkXs3juvHM+n+ecgWL9739h/R+DfOazh2ex9tdbyMjoNYpn5icjo9conv7xFp7+aZDPfPbwLFbNR8Y+8fUtOPBpAw6cmIdvy/wZCYqff38DFovzcJCGd5dtFs+hdsLY0Sdw8PJzuHQ2tSf5Sd1Q7+htF3P38pS9Y00fH8HG3qYFK9yCS7LffhDXS7RXgPNs/GM4+qE8JBL9U1BbLIn7ULCGs4/L/Yi9xOwRxZMX7uPJD/pBePsLfhhOcLC/8Q8NH4G061MvwvcxwIcV6lD9Sh7mFMLxLh+oitvDeedLl8tDDLyI52754qHd2S3uvc8ws8ae4v//Z/HNT1tgce8+9KG4Y/fhCtssNuDkMRQ9BSfvSfsWnDmN9gYcuqrtMVwc5V+9ab/7sObpJePn+jfhDMZX8uBcztuCK3X3WN7VP8USHMI63JPA9frqG6GXBHNin71zLdTHWjQCP45l6P4BKT/mpmDnIPtjrJ5nnOe5KA2yJ8Pkl+qUEG+ibF60J0TRXtmG9uoOtFst6Efn8RZM453tK5swPBQVMBhsbsP4WGrvP79JeZy/DdOTTuxgcwemz5vvoRaM0zm9sgyDmDu2rHkozMI41mvORnbyRf3eec5RD9tf2Ln+WCd80zxYK+r2PsnfDH14rgvDx0Wc6sNzJL6sk3Urnh2qSbqN3c7Nx3Mf07MV9oDzVXWJZ/9k19Tl/sjTxCl9ab/xMfNdqVPkWz46n/dt50j1iger22AhhnKNbRaSoLRLgdqegGr3Ty67WobcA0vUEPO+TRWb8jAQ4lSsXZ6Mjf44OJ5R1UPWF0PGGKVV+eQCQl8bJ/t4rhHKdPqaQdc1vzzUEu2khDf2j/fDNeyspQaZ7zmIuonO8p6cr7m6WsV3z3bAYr4FA1S0yTaLLpwiUafmpX0HJmpob8DhGW1P0YHDWLs2a08bT/0GhpCUqF3Jw2CGBNU6ZKO6ZiETceyuKM9rXnADGrjQDb2Ih9KqfFwLNfCstEYbt5uuBCk/5ua0xzvhu5mv5eny4v1U6kvmSqjUKXyYE+Vrrq5W8dD8PFwzWAiDuI53hhExQqJGFvAefFJIiBff4s6xvs4aE0eYwXC8WIjlIesJQfZexrmif3y/LoZh7VyLuYghY22lVfrEAkYWeFYUp/hFPuyBKOWnHxraNV+xE7N05TfAh2RrEU93j/ao9KX9Jsw/hYnSmCgf+UidJl9xpXrFo19egkV7jgYtMQWj7S6MEsHRNsUS6v7xCAzNwYyIYcxc5EHMQp1sPt8Q8rGlPBpw5Ibx3SBxCqHevhHXk9zZRzbmqnhYXweO2Hw5K4pjLb5u8HtI7YhEv5u7n5+NL9mJz9N7CnN3sLzQF+l75HUwzFwrdYp84h/3QQxc7HoexffrLyEj42Oi/rl7aJ99FWzF4sYrWPxVIN/z/T3u5+hxMT754jflL340P0ubryCf+ezlWSx3X0NHIN/z/ePfX8N/Jy79ErSIa0wAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" Selector="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" Title="Las Facturas Electronicas" Url="[str_LFE_Url]" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Once the process is completed, let's set up all the final variables and out arguments that will be used in the next components. &#xA;&#xA;Also, validate the final information." DisplayName="End" sap:VirtualizedContainerService.HintSize="1050,426" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign | Set up output parameters" sap:VirtualizedContainerService.HintSize="431.3333333333333,100.66666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Object">[io_Dic_Data("LFE_Website_Opened_Successfully")]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Boolean">[bl_LFE_Website_Opened_Successfully]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;[LFE Website] Process completed&quot;]" />
+    </Sequence>
+  </Sequence>
+</Activity>

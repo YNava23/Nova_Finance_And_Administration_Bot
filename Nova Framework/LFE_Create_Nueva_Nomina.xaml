@@ -1,0 +1,598 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LFE_Create_Nueva_Nomina" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_Dic_Data" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_Dic_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1130,6034.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>LFE_Create_Nueva_Nomina_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: &#xA;LFE webpage | Fill up the Nueva Nomina window with the employee information.&#xA;&#xA;Most of the information comes from the excel file&#xA;&#xA;Precondition:&#xA;Microsoft Edge Browser.&#xA;&#xA;Arguments:&#xA;io_Dic_Config(&quot;LFE_Url&quot;) - Webpage URL (LFE web)&#xA;io_Dic_Config(&quot;GeneralTimeout&quot;) - Gneral timeout for activities&#xA;io_Dic_Data(&quot;LFE_Fecha_Inicio&quot;) - Init date&#xA;io_Dic_Data(&quot;LFE_Fecha_Final&quot;) - End date&#xA;io_Dic_Data(&quot;LFE_Current_Employee&quot;) - Current employee&#xA;io_Dic_Data(&quot;LFE_Fecha_Pago&quot;) - Pay day&#xA;io_Dic_Data(&quot;LFE_Nombre_Empleado&quot;) - Current employee&#xA;io_Dic_Data(&quot;LFE_Last_Nomina&quot;) - Last number of nomina&#xA;&#xA;Out Arguments:&#xA;&#xA;&#xA;" DisplayName="LFE_Create_Nueva_Nomina" sap:VirtualizedContainerService.HintSize="608,5970" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Url" />
+      <Variable x:TypeArguments="x:Int32" Name="int_Timeout" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Fecha_Inicio" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Fecha_Final" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Fecha_Emision" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Fecha_Pago" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Nombre_Empleado" />
+      <Variable x:TypeArguments="x:String" Name="str_LFE_Last_Nomina" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap2010:Annotation.AnnotationText="Init all settings to be able to work with this component, set up variables, validate windows, steps, etc.&#xA;&#xA;If all is fine, let's continue with the process." DisplayName="Init" sap:VirtualizedContainerService.HintSize="546,938.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="493.3333333333333,566.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Url]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">https://secure.lasfacturaselectronicas.com/lfe-misfacturas/</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[int_Timeout]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">120</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assignation of the current row into variables needed for Mis Nominas process." DisplayName="Assign Data to Variables for the website." sap:VirtualizedContainerService.HintSize="431.3333333333333,99.33333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Inicio]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Final]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Emision]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("dd/MM/yyyy")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Nombre_Empleado]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">YHEIDER</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Pago]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Nombre_Empleado]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_LFE_Last_Nomina]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Config | Init configurations" sap:VirtualizedContainerService.HintSize="422.6666666666667,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Url]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Config("LFE_Url").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Int32">[int_Timeout]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Int32">[Cint(io_Dic_Config("GeneralTimeout"))]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assignation of the current row into variables needed for Mis Nominas process." DisplayName="Multiple Assign | Dic Data | Setup arguments" sap:VirtualizedContainerService.HintSize="422.6666666666667,299.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Inicio]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Fecha_Inicio").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Final]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Fecha_Final").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Emision]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("dd/MM/yyyy")]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Nombre_Empleado]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Current_Employee").ToString.ToUpper]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Fecha_Pago]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Fecha_Pago").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_LFE_Last_Nomina]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Data("LFE_Last_Nomina").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:MultipleAssign>
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="422.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[LFE Website] Navigation towards  Started&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Contains all the main activities this component will perform, like type into, extract info, mathematics operations, conexions, open browser, etc.&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="546,4298.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="484,4126" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="450,3876" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Nueva Nómina'" sap:VirtualizedContainerService.HintSize="388,197.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="224, 205, 95, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Nueva Nómina'" FullSelectorArgument="&lt;webctrl aaname='Nueva Nómina' class='x-btn-inner add' visibleinnertext='Nueva Nómina' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Nueva Nómina' class='x-btn-inner add' visibleinnertext='Nueva Nómina' tag='SPAN' type='' check:text='Nueva Nómina' /&gt;" Guid="c9039443-e744-475b-a135-ba93db4e0cb2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGMAAAAUCAYAAACZHIPsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAV1SURBVGhD7Vb7T9NXFO//1GxZsi2LbiZbsiWL6OyG2SNj6mRFuwcVJzJ1MCgWE5UW4yMMhI1KRqaUh0IRnSARdZNWyisah8xlyRLB/fzZOefe++0t37KxGWRL2uRwvuf1ueeez73fL56ZB48g8ssSOh9/YnFNxh/amderqT3TxEhe/hvyl2RcmelF/cX9qOoOYH+8BKHeMpy//X3O3Lw8vnim5hYwNfeIJFsfGajA6RtHcW3uMpK/3cSNX0fQM9OBil4/dn23zZWf14+viQx6IFZsffBCKS5Md+Du/DT6Z7vQMnUcjRMRdNxpwZUHFxG6VIYtTT5X3f9ax4LweoNoWW7+CmjPpDCzANYsfCO6J2OYfpjGyfRhHLlejbrRLxFJ1qI+GULdrQPovtuB8t5ibG0ulBq73rGHoyjweuENxJ346YAXBXXJ3PkrZcuQ1brKl0RogxclsUzOlPh8CA0bOxNb2o6jxKtqlpf/9zaRoVhh44fpHkSHKzH++y26CfU4OhZCzdUKmF/l9TLsuVyMvcM7EL/Tjk2n1uGbka+deqU1npDhQ4FsUsVbhIxU7vyVspkM6qFAn/rJuZRDxrLqn6DtmbhPrJCwrh/Yj66ZdnodteLgtX2oGtmDsv4STQWwvb0Qwb538cn5zTj2Uy0OX/kC753yOfVGxB5iMoJo5mHQ7WB/s74Zk/eTqNEDYf9Anc/JmaAYD4tPMwvnSHxDFAmJW/n61CvxoWbIWt+IkBFFM9Xw2gbfrG1jqDjV695LqF+J0VoJXlPygjgt2Opm8JqKcMo3fVt74X0afOPPOS+SLDIO0H9MiXtdiKZqiYjdmgL3b2fPm9g7+CFiyZN45dALucENGbJ51ssjgzftDEUPckCwzLCt1wyvw3kkjL14s6I1RoKHJ9qq17ghweXh2n7dn342PZk9uMgw/Vm9ZvWxlN/SnrR+SM8uoOLsdpybaUPoZjn2jX6mR+/+MRnlia04kzyBlw4+69SLNniyuCJBBhxOWhvJkMH5cupkkItOkkg2kYJLQ+2X9eLw27mEYe9HtCaD8xnDH1Nr+Nso7hCl8p3+rN7T1tAZz+lj1vLbOIvy+50bxZLxu+ZFttwM46zuCaJhNITIWA12DxVj5+D7+ODMRk2BIoHl495CREcrEU58jo2R17JAHTxrQ2po6tovJoNzF5NhSMrC0xs2r5u0zlV4etP6Zki+1mZQ/fwsRKrXiZ/XzhpibjLsG8B4Dhm238LJymf/EqS69kfiGZ+dJ1bmwbon1YFtZwrQORND2WARAol35BthfkxESdyHT7s3o3OyFS8eegbHB6NOfZYeitCGStGk7b6wOiHrw2Nkj6GaB0nP4/QstyHQKXlNtFnvhgj6dF1TOEKnmnE7iVAf1tPHuGaIbVXnb+M8hccYrj7aSrPxGJ/6kDrqcb0MyODb/lI0C45at5pyTL3q2/LrNew+XX5+tnBcfZJoMha0cwGl7Vvp39btODv1rfOxZhJ2xFmYiEKcm2jBR7G36Hux1qlzaSEjqMlgv9qsIoNsaU5dXX+ATzWTwXmaHImRyGYULp9K20638cmzMeKZ9Y2WgUQ1GWRLX4ZEHddr8atU6uhmKDIYxyZjQZPBefbQ+WaYvuz8pDokjB8ozcJx9UnaM/6zYkW0lqLGjdjVWYQ4EdIw+hXK+7Zgz/kiNFyrQicRURzz4fmqpzI1i+rz9r+zNRnEjOVku6hxE14/tgaHLpWj9ccIWm9GUJPYhbXhp/FyeI2Tt1R9Pv7P457b9Efk3kOlLWm92oi3T7wh/76uCz+HgvpX6RvR4MoTyVGfJfl4br8RimfIyMuqiydFjKTuzZPk9WprIoMeiBXl0JK3V8Gex59LMXnnCwRgRwAAAABJRU5ErkJggg==" InformativeScreenshot="a229490fd0d58c03e7eba953a677cfac.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="221, 181, 70, 13" ElementType="Text" FriendlyName="'Contratados'" FullSelectorArgument="&lt;webctrl id='lblcontratados' tag='LABEL' aaname='Contratados: ' aria-role='presentation' /&gt;" FuzzySelectorArgument="&lt;webctrl id='lblcontratados' tag='LABEL' aaname='Contratados: ' aria-role='presentation' type='' class='x-component x-component-default x-box-item x-toolbar-item' check:text='Contratados:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAARCAYAAAB6mTpFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFySURBVFhH7ZQBjoQgDEW5mtzGcBPjVfQyk3idLgUKLYJbo8kms/xkkqGW8vssGhhSaYBSaoBSaoBS6qtBHYsFM29p9Uw3QW3gjAGTf85H7mubDdjlSCuldgdmWuHOrj8CFSHxBtGI29Pihr4b1KVRNmk554B1MuBmvy88s7B+fBjrUG6IyTy3x3XOCY3KSUbIAUKO8cmupj6DanlMMKtcfJE1YDWo1uao2BhNSMlLDTcOlxMl84Q+K1gOuPmizufT/zJRHY+8PuYsZ6+kF0Dhm6LDvHJD0RxdTX4NWqD4FZbT0gEVmqQcqie9lDN7HtOUNV+AlBpUOLRZ8GVQuD9fJVZbgIoN0p5ST3r5HVQSQb8A9sLHPDZK8TJ5D0CR4QCtB4oa576uvZziHpAjH6x+2Vd0AxQqmsrXQhivY31QEQDmY7MVqLQvPPcf+BoIxrHhUC+sfQ4Hz66kndiZTY+yHz6hD0H9Xw1QSg1QSg1QKgH8AC6qpcn9+wa7AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Popup Nueva Nomina" Mode="Appears" Retry="True" Timeout="[int_Timeout]">
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="509, 294, 81, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Nueva Nómina'" FullSelectorArgument="&lt;webctrl aaname='Nueva Nómina' class='x-window-header-text x-window-header-text-default' parentclass='x-component x-component-default x-box-item' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Nueva Nómina' class='x-window-header-text x-window-header-text-default' parentclass='x-component x-component-default x-box-item' tag='SPAN' type='' check:text='Nueva Nómina' /&gt;" Guid="d508afbb-181c-44f5-a2fe-b84f71b79997" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAARCAYAAACsPOAgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGvSURBVFhH7ZQxkoMwDEW3yKFygj0DTU7BcAvS5wChTUGfIhfYIt2egGN4EehbknFY2MFMZsfFnwHZlr6eDB9f353L2lYZagJlqAmUoSbQ/4PaXN3hs3bH+hlf30EC9d66Y2/GGEKsephD++rpytPo63Bq3c3Eru5s9j5c8VegPIwteo1C9WbfDWqvotGxEOp7aAq1agfDw7QNVDRyceVd7fe3Z7wlaH5sWICMMDp3ruh9zDE+K0WHJwDL+sL1plBtLvaoPB/ZB6lotFfOgZs65A97IYU5ReGXEYHaN0YFKPliqEGT6tyNQPjCbNYPQoR9gC/Suek81bf17FkAoTUBMKwBHJ/DIMyagcq9zvwa9CVBLA6VzRT1Qqh4DqXX1PPkn600D5UB8tdkwUljAmvGM3L174OfNVD9cKBFUKWgJFsAlc36nCxMs6goZ3A+etu0LFQ5h9jOUM2+VTeVYkiMGAxy48ZgsIackJ4s8r9o8FeovQAtPpDY558AKvexEqoU9TENB2KDGrqXzyUD0tAEjmgJVO81CpqEJhNAjfX5EmrWZspQEyhDTaAMdXN17gd3tg70aVMQXgAAAABJRU5ErkJggg==" InformativeScreenshot="a803810a8be21c05366b4853272ab4e2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="523, 321, 83, 16" ElementType="Text" FriendlyName="'Datos Generales'" FullSelectorArgument="&lt;webctrl aaname='Datos Generales' class='x-component x-fieldset-header-text x-component-default' parentclass='x-fieldset-header x-fieldset-header-default' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Datos Generales' class='x-component x-fieldset-header-text x-component-default' parentclass='x-fieldset-header x-fieldset-header-default' tag='DIV' type='' check:text='Datos Generales' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFcAAAAUCAYAAAD4BKGuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH8SURBVFhH7ZW9cQIxEIXdhBuiBCqgCzIacEzCXAOXE0IL5AwxdcjS/u9K2GdAjvRmFKDT7r79Vnd8pKFuGnA7asDtqAG3owbcjhpwO0rh3k5pvfpKn3ZtTulKjx/rkrarQ9rf6OdLuqf9xnvYnunRvwu9vFI/wPWQjrsFgBtxz4nA7i70O+ttuZ9RZ7jxVgJsuVVzOtqbxkM4z3rGgHKxFiCrxDUGWeKkQfd2lfpFBGGndRVI8c/ntY/rdMgeZni2nu7ec14Y7+FCDJ8R/za/rYv6Ba4tcElHCTb7Ns7lwDNgHvYZRvszgg03oIt8nJ7HOhwL+zAkD8cOD0GxnzzAs9aNeSHeDV73nefG5fgDXJS9gRXcUKACUOLYTJAzmlXddKhj9mDp2wNDLBIP/lbhQp9QK4CAOD5nPAtEl4fOGE+WEWv5Z4ESYRMG+iK4LG24MtOYfJHkgDp621Q/wY39oDxcGjz9Vs8BrusjSAbj/S3/Q7PNEegKrsthmi77oZl60tSka8Lu4WAYogIydYoEbsgHANB/Cy76sTFmH2LrvkoeqWv5kALcnNguMVBEhWl/n8FjYrqNfFammJcBBQ019qPc5yCedR65EW0WJHCL9E2p/tBMb+otn5n8cPgStP0bJnnFC6Nwh96uAbejBtyOGnA7asDtqAG3m1L6Bn6sKUHq+d+eAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Agregar Empleado'" sap:VirtualizedContainerService.HintSize="388,197.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="521, 516, 113, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Agregar Empleado'" FullSelectorArgument="&lt;webctrl aaname='Agregar Empleado' class='x-btn-inner add' innertext='Agregar Empleado' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Agregar Empleado' class='x-btn-inner add' innertext='Agregar Empleado' tag='SPAN' type='' check:text='Agregar Empleado' /&gt;" Guid="6e6d15b1-7328-4372-971c-fbdce73347b1" ImageBase64="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" InformativeScreenshot="0f6b61282bf839bce64b9f8c4576a99b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="643, 516, 84, 16" ElementType="Text" FriendlyName="'Quitar todos'" FullSelectorArgument="&lt;webctrl aaname='Quitar todos' class='x-btn-inner remove' innertext='Quitar todos' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Quitar todos' class='x-btn-inner remove' innertext='Quitar todos' tag='SPAN' type='' check:text='Quitar todos' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAUCAYAAAAJD/ojAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATLSURBVFhH7VX7T5tlFO7/1P2i8fa7zLHSNeBAp1xkQyrNhMIQmrk5BwKGYSAxAwdlG5cpJgKJZFxUAjGCMaHAgEIEJhuoWNpyq1sez3v5vr5f+5VgAr+Qkjw93znnOed87/OeUsvS020sEoQNS5v0j8q3sI/FJ4SkPRZLAgulueWJpH+UvsVPHzrWQtFnQqC/HyueCiwVXIK/IB9LZR/iz+969PxCDD+2PpkPxQisYKWsDH831GHvpyHsT01g/5dRhHu7sFKUhxlnjmlNEvGwLKwJpVW7/EERgl934bn/ESID3yDirUek+TP823kbz8YHsF5ehF/ftcfVnQw7jWq7Fc6uw/IPtlLgKFZLyxC678XzBR8iX36KQL0HW3VXsPeFB/u3KrFXU4K9/g6sOrMxmZ9uqDWAbk97WatVwtUfkzdBlxtWexNGKH/XZUVa3bQ5L1G9BmW+ECsGCetlTbdZTsGh5tMGz5PK838QyAb6+rBxrQLPfJN8Y3cbKrFZXYyd6+8bECrLxl5PO3478wqWu+/o9Ubr4y+aVufT4+0kmNXVl4Afbxlfrf//VryDsys2fpBVag7FP9gKgTloez0fYbvnLiLdzQjUuPHX23ZTBN3ZCNddxbqnFD8XOPR6vTED20SrG+1K//mxJqRpMbmpwzzXB6c1HdVjSpzXa9tPufEwhuvSlRj1YfPGRU8nu7yYeaZ8pS+/PI1vmCe2np/HlC8uIcplsZjzS98yRx8a/M6L2P++B5EGDwKfFCHR33rGaWxeegtbzY0YOfeyXq9iiB2OhBoyxIWQVSTknBRS5M3jXrnBal8BH6rkt2OOX5o4ZCKenuNcOYfP1HLKfLUmAd9wNuJUmc4WMAi8cDEXu92t2LtRhJ2P86Wc8X9M4I28TGzdbsSQ4wVDQw3HIrAUU90oEXPDq3EMiBHYMFPpb4grNQfxtfkylwiWR4+DEAhhsfQyNmuuYre+EqHLWVxIU5w/g8C1cqyUF2M0J0Wvj/YidLKXKIFXj1F+rJHEkDGWtzdikOd6UcgFZvESGZcHqp2S9X3EsaKwkz0Hozm9Z8x87k9xsUQN+Xpv4es9eLxJxrWaA/jSH6wV/4JEzGx+kAnMHgik9sa3D7DgeB073W0I5DiwmWeLE3ctPQVrb9qw7f0Ko6mn4L/XqNfrvbgvNoH9qJn6fAto89gzvwyxwUJ4Oiz1EwfyyXomsORIsXlO2WB9NuczK2ZysZivfOVFP5lT49pF0gYn4g/WuiVXeUfT+bTBs6SyCp8rF6sF72D7QSv/QdvITBXCZryBNQeJ60hFuK0FMxfsGM58zVAbjyncZKLSi3G4es1zrhIu3k3a4Fm5NQ8Zhz3zWpF7KDeGfTMK6WA22pxZ2mAb+W16XyPUGs7Re8r6OF46bPxSZA8zvhLT+yYACRySTtROXjiL33MzsX2vFf/cqMR69nk8ycrA5vUKhO+0YDbrLAZsp+LqElshpnjpw/BPjrXMrAZhhom8c5iwvYSnV4qxeetzjselLvxw2ooh2lyzmgPREb31wg6T/AlFQoEZljtbMF5gx0jGqxhOexE/vpcC//0mU24S5rBM08f0CoHbLWmT/lH5QmACU1t71n2NqPkKknmyh8hbfKRyEseFLfwHUM6JdU2Qt64AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Popup Agregar empleado" Mode="Appears" Retry="True" Timeout="[int_Timeout]">
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="624, 317, 107, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Agregar Empleados'" FullSelectorArgument="&lt;webctrl aaname='Agregar Empleados' class='x-window-header-text x-window-header-text-default' innertext='Agregar Empleados' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Agregar Empleados' class='x-window-header-text x-window-header-text-default' innertext='Agregar Empleados' tag='SPAN' type='' check:text='Agregar Empleados' /&gt;" Guid="6779372d-c291-4b0f-b89b-f3be9e8e635a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAARCAYAAADT7fLRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIhSURBVFhH7Za9ccJAEIUdUBQVUIMSqmDUhcgpAKUEzDgkoAEHZK6AMs7cz9P+3OosZI+RPAq+wWZPu/v2rc5++/i8u4V5spg3YxbzZsxi3oxZzBvEze22jVttGle1VvxZrq565FptDm53seLDyMw7NYfQ5GpzdHsVmy40XEF9Nc6OYRbmySH8TqN/Afr+2TD6mYN5l7Nb+6TbQ/zkm4sYZ3t2Jy6sPsZPL1CfD2d9LrkgkSSijc8TePtJbFX7m0GLLpiHnNAUfj67fXfDNG7d3FgOSTQrN29fl8+BmNuO8X5lPqZDz6SbozIPV2bV6mGo37uBSPNA1aZho1A674WgRhRV2ECYHxYI54A+bw0mDbSn11C/W1YZk8vnF0jGaE68dv5nJhoSey3plvkQ8/nUHBXMPDRhFBMiH2d7BhKLs7imfhc1cvMoFz3DzcM5jexdxNBLyEMbng9K6+A5eczoMZBqZ9r58+iP69Ex3iPOJZSJZJ6+5vgDY81LAyOGiEh5UHOy5hVqpTnRm6efGWoePwvoDe/Mk6+1LsBFPmLfmVcYtt2YIeLV5omFlTHMKltOs1bsqV936dpkuY3vO/Ms8SgYDEVjnNCkZZ4HxQh533PUUnBCDSmWagDqIXt2hHkEBpVr7AwUZ60c6NnSTXrQl/g+uw2lfvEPy1Dyt3Qk+jp+KX1LOF0Gm5dtWtrkp8m2ia6B1/KPzVuYHot5s+XuvgDZJWieLy4kzQAAAABJRU5ErkJggg==" InformativeScreenshot="f869065b59e1aac63a3cfd778d3af092.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="648, 348, 91, 16" ElementType="Text" FriendlyName="'Filtro de búsqueda'" FullSelectorArgument="&lt;webctrl aaname='Filtro de búsqueda' aria-role='presentation' class='x-component x-fieldset-header-text x-component-default' innertext='Filtro de búsqueda' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Filtro de búsqueda' aria-role='presentation' class='x-component x-fieldset-header-text x-component-default' innertext='Filtro de búsqueda' tag='DIV' type='' check:text='Filtro de búsqueda' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAUCAYAAADr0+FaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH3SURBVFhH7ZVBjsIwDEXnEr3QHIET9BbdcQHW3SDWI3XfJVyBPWLNOTyO7SR22lCmQgQN+RISuI79/ZLQL6gqpgq/oCr8gqrwC6rCL6j/Cf96hM33Hvqr/H5TRfhkeAdN8ulOAJfDHprtGZPO0MlQMfYEnQZo2iNc5OeSlnq75853Gd2gb5nbkhL4S6clwh+3uDnvCv96k28l9GT4k5P/g7AmN2PAZzvYHNzgLs/fngFGqpJI3bQO10b4eu09P9yP8vxGuE0M/TQEXVOByXig+sZP9EGHTtbwrKwQb9GXgq/zUxb3/3ZkqAn85OTT82Rob8wO4mVzqBblJKcmcyO4nwfCYGlNBn70jwo1cx5Sz3FmU0dviu4rHHmGM4x+lnQ21LqTPwd/xiyJ6todn/QKQBikOQAznmw/9kIQM/D1wQrDZz3k56GZjTfuq1nMQdbr3hz+vAetP8P3oucOAuashO9vilYWPvXwa15y8rmJN5mCYtkcqkU5HA+DGJhRVDN4dZ70sBKXwV3c5QdoFHc1cx5Qui9955rc1/tRfXW+6ht7JXHRavhsJA5nAbOxcMokaiRmqMaaF6682CgvOXUUMy8+FcdPAPCIB3qxRx+0SfIsbCgqxHN9sXaPOXpNhP/pUn87r1KF71Xhf5Yq/IKq8Auqwi8mgF/Pt3BuP7IbTwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Verify that option Nombre appeared" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Buscar Por" sap:VirtualizedContainerService.HintSize="388,228" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="939, 377, 21, 26" DesignTimeScaleFactor="1" FriendlyName="'DIV ext-gen7571'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Buscar por:' type='text' /&gt;" Guid="32da5ba7-178a-45cb-a976-519e50eb2031" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABUAAAAaCAYAAABYQRdDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFHSURBVEhL1ZFbboMwEEXZUlVlH1XbXbVZTqUuob8hCESkABJSv0h4vxI7bq4TRxjsfrjkoyOdjOZ6OLHAYneo+0g/Pr/YHAzLCuJvHhJ6MsbzQ0lsZWXJgzzPjRBiSVrW9Z+koLo6RFl12/IgyzJjjsejLG37ngdpmhozkfbXYL/f3xA3SM+Mc2TjfCIlhEpSvCNCCKOU8o75t1wppafLl9vtdnzhcDiwxeuSPTy9scfndy4oioJ3zMhxjj3s47mJFD8IkiTh4B0NBei43XDGOfbEM/gDpXS73d6I45j15w8oRALMyHE+3G+aRi3dbDYSURSxruukG2JGPt7VSn3fnxCGF/HiZck7ZtWeVup5npIgCFhVVbyrzoFW6rquFtxGlQu0UsdxjNFK1+u1MVqpbdvGaKWr1cqYfyzFMBei+E3nrjtIGfsBdV+8ehj4zM4AAAAASUVORK5CYII=" InformativeScreenshot="e840fa2ca5cbdcfd452a724d9458f5f8.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="743, 377, 200, 26" ElementType="InputBox" FriendlyName="'INPUT ext-gen7567'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Buscar por:' aria-role='textbox' placeholder='Selecciona' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='Buscar por:' aria-role='textbox' placeholder='Selecciona' type='text' class='x-form-field x-form-text x-form-empty-field x-trigger-noedit' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMgAAAAaCAYAAADyrhO6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ1SURBVHhe7ZfLbuIwFIbnpfMKQx8ieYiCRpoXqArdcREIJGbR0q64CiGECnh8DrFz7MRJ2s5iqvyf9Eux49hZnC92figAQBAIAkAJVpBfv7sIgnhxBPnz8oYgjQ+5cL5cOY4g2/0eQRofcmG323EcQfaHA4I0PkFBDscjgjQ+fJrabjmOIMfTCUEaH3Jhs9lwHEFO7+9fy/O9+hnF6qHoHoJ8k5AL6/Wa4whyPl/cdGMVRVGWu7Z69sfIvLRVSwvyWHTvM/nX8yFIjQQFuVyvWXqJliJRXdHXjd12LouOLuiKMQjyn4dcWK1WeUEki3ZLRXEvbRXwSjKYnaWjFrYvUfapojFMTyWmXyd5uvXymnK8P98TSZveF+/Wi6mdZHPatRaqc5f2Of0AhCEXlsslJyiIKUZTvC63Ajf3qEBbbV16TkEHxqRFe7sW8HpCBiI3X0t1XunanYMFCawryd4BgDDkwnw+54QFIeQXWxYd9cuvsWnLgq4zRlBYvCXz8W6TtlkQu6MEBNTQMxAEVEEuzGYzTrkgEipQ8wXn60wcTpEgVWMEVYJIIRghTKkg3ntAEFAFuTCdTjn1BUkLj3cRUZwOJV98yycF8eertYOwHNla2EFAHciFyWTCKf1Jd87xXKzmH8A/5+s2FahT/IExsoAlXjEzuflK/kFCglipAusC4EEujMdjTngH4eLMjib2eGXw7nPhOQWtKRpT0G8k4kI3/VTY/nwsUXrfClEiSHp9e0YLH2MHAdWQC6PRiPOBIxYAzYBcGA6HHAgCgAe5MBgMOBAEAA9yod/vcyAIAB4QBIASgoIgCOLGCgIAyANBAAii1F/zDMvFcRNSwgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Element 'Nombre'" Mode="Appears" Retry="True" Timeout="[int_Timeout]">
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="746, 461, 211, 20" DesignTimeScaleFactor="1" ElementType="ListItem" FriendlyName="'Nombre'" FullSelectorArgument="&lt;webctrl tag='LI' aaname='Nombre' aria-role='option' class='x-boundlist-item' visibleinnertext='Nombre' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LI' aaname='Nombre' aria-role='option' class='x-boundlist-item' visibleinnertext='Nombre' type='' check:text='Nombre' /&gt;" Guid="154ee073-3c53-47b5-b78a-d4b190a3b0ad" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANcAAAAYCAYAAABpw2jUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIjSURBVHhe7dhNbsIwEIbhuRq5DcpNEAfoJeAM3VC1QuoGiROU34ZQaNiwmc44NnH4SwGjpuh7pUrYMaaLPHKAsmzDT88ZI4TCpJ7UleDKgAuhgOW4Mqb1+hu4EAqYelJXtFqvgQuhgKknImL6+loBF0IBU0/vG/nOBVwIhU099cUVpcslcCEUMPX0Jq4oTf8GV6dJHLWGdoTQ46SezHeuZJEe4hq0OdKLjTbvbn8zF3F7YMc3BlzoUVNPff21MEkWp3HJX9z154ALoarU02uSMs0/kxO4BFIrLk6vfVweQP+EG7YipmbMsbvW7DB3ZR8zLt5vcMm63R66zjTkdkNQt+z+dt7sa9cCJapz6ulFXNFsfgbXQG90C6KEywKwp5pCKSOI2YwcQHvNX2de71B2DMZ8v3zv0iOpwWn3NGs95AjVLPWUiCuazuZncMlrvbEVhD9nXrubXfJu/vzkclfKEPxr+4+FxbgMVzu9FqH6pZ7UFU2nFbgckO4eOB+Xh60Slz2RLsXlHgnxaIjqnsElrmg8mVXgciiiYu6Wk+tKXMCE/kvqSV3RaDytxJUj0RPDzVV857oUV+nzDnEdnJQyLl1HqEYZXOKKPkaTX+CyMPw5s8Y+pnk/PlyCy3/MK7AcwSXln+/Wl/83hOqUelJXx3EhhK5uh6vX6wEXQgFTT+qKttstcCEUMPWkrsgNEEJhcp6AC6HAARdCdwq4ELpTuSfmHxY+p4ZIYzXyAAAAAElFTkSuQmCC" InformativeScreenshot="01be3b34dbaa35f1486b3b612b8469cd.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector, Image" Version="V2" Visibility="Interactive" />
+                    </uix:VerifyExecutionOptions.Target>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Nombre" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="746, 461, 211, 20" DesignTimeScaleFactor="1" ElementType="ListItem" FriendlyName="'Nombre'" FullSelectorArgument="&lt;webctrl tag='LI' aaname='Nombre' aria-role='option' visibleinnertext='Nombre' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen7664' tag='LI' type='' class='x-boundlist-item' aaname='Nombre' check:innerText='Nombre' /&gt;" Guid="af90cbb5-7b79-47ca-953b-f126f3088eac" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANcAAAAYCAYAAABpw2jUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIjSURBVHhe7dhNbsIwEIbhuRq5DcpNEAfoJeAM3VC1QuoGiROU34ZQaNiwmc44NnH4SwGjpuh7pUrYMaaLPHKAsmzDT88ZI4TCpJ7UleDKgAuhgOW4Mqb1+hu4EAqYelJXtFqvgQuhgKknImL6+loBF0IBU0/vG/nOBVwIhU099cUVpcslcCEUMPX0Jq4oTf8GV6dJHLWGdoTQ46SezHeuZJEe4hq0OdKLjTbvbn8zF3F7YMc3BlzoUVNPff21MEkWp3HJX9z154ALoarU02uSMs0/kxO4BFIrLk6vfVweQP+EG7YipmbMsbvW7DB3ZR8zLt5vcMm63R66zjTkdkNQt+z+dt7sa9cCJapz6ulFXNFsfgbXQG90C6KEywKwp5pCKSOI2YwcQHvNX2de71B2DMZ8v3zv0iOpwWn3NGs95AjVLPWUiCuazuZncMlrvbEVhD9nXrubXfJu/vzkclfKEPxr+4+FxbgMVzu9FqH6pZ7UFU2nFbgckO4eOB+Xh60Slz2RLsXlHgnxaIjqnsElrmg8mVXgciiiYu6Wk+tKXMCE/kvqSV3RaDytxJUj0RPDzVV857oUV+nzDnEdnJQyLl1HqEYZXOKKPkaTX+CyMPw5s8Y+pnk/PlyCy3/MK7AcwSXln+/Wl/83hOqUelJXx3EhhK5uh6vX6wEXQgFTT+qKttstcCEUMPWkrsgNEEJhcp6AC6HAARdCdwq4ELpTuSfmHxY+p4ZIYzXyAAAAAElFTkSuQmCC" InformativeScreenshot="01be3b34dbaa35f1486b3b612b8469cd.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Nombre Empleado" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Nombre_Empleado]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1033, 379, 226, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT ext-gen7574'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Valor:' aria-role='textbox' name='ComValor' placeholder='Selecciona o escribe' /&gt;" Guid="d6122b93-5707-4dc4-b40b-fff5882a0b58" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOYAAAAaCAYAAACjOiDZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANpSURBVHhe7ZjrTuMwEIX3pfsK2z5E8hCkWmlfYLUt/4AKBBK7EpT9VW5CCFXQej0TO5lx7DR7QQ3R+aQj1Y4zHps5TsInAwDoHTAmAD2kMuaXrzMIgnoiZcwf178gCNqTyINvmy1LGfPh6QmCoD2JPPj4+MhSxnx6foYgaE9KGvP55QWCoD2J31ofHljKmC/rNQRBexJ58P7+nqWMuX59/TddHZjPo8x8i12DummWmdH4wPyMXYMGLfLg3d0dSxnz7W2jRUUyGtWaFOYqHCN1XZixNeb32LW/0f+O11fJddKe79pnaJBKGnOz3daa59aMuZmJvlmm2w0tp7bAdoyB2kX7Ppmaq9g1aNAiD97e3jaNKVkWYzPK5q4V4YZM6J+kU7Os+nJT3RUbw8xN7vut8sOyl+eU48N4h3RYuOsit3lG7byOWc21NNOJ61P9EZK5NpF5jgs/Uq+pzq+5Vsp3XEzL/nCdtMaJXUuVt1i/hdcqYoHhQB5crVaspDG9CeJ//LLY/LWy0GyBKiMlxjiz1AXt4Pl0ETbjjc30hn7rGGWxxueV1DmElPFkrslDSeVZ56Rj23gFjYivVedrCY1ZrVPnwgeCPzTU3oAhQB68vLxkpY1JOHM2Tmjql08V326c/DvGCKKmaYkni1QbKWF8C90TNWaYE82VKPowT9/WOTi6rrXLvrl11QdO2AYfHfLgxcUFq92YEi5Wd5Lz79qwrNB0XcYIGsVKiLHqaUGIAtamCIwZ5NGYg+AxIqdEjgTPJeLVMct5fR8bputaw32LrlPHV/OAQUAePD8/Z3U3pisMLoSweDxtBebpWqxES7xOT0y6R8z1Hk/MKP7+rmtt27eqLfYfDBLy4NnZGav1nz+qCLh4/LdP+B1n22QMVYiJMdI4kpgZGvFavjFTxqyKPDEvo4texwsI87Rtum+e6T5ppnDO7sbU94dvDcsir75FwceHPHh6espKPzG5WOpXJvkPCSa4zsWjjGSJjYn0K0P4firAMB6bwl0Xxkka0/0u77EHTZZ4YhIyJ1H8Mdggfqzbl1gfE1nrTmOK8eEBofZI7g348JAHF4sF6w9eZQEA7wl58OTkhAVjAtATyIPHx8csGBOAnkAePDo6YsGYAPQEGBOAHpI0JgRB/VBlTABAf4AxAegdxvwGJ/bI7sHBNfkAAAAASUVORK5CYII=" InformativeScreenshot="9672d9127b817850bbb397a686073653.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="978, 379, 50, 17" ElementType="Text" FriendlyName="'Valor'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='Valor:' class='x-form-item-label x-form-item-label-left' innertext='Valor:' parentid='ComValor' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='Valor:' class='x-form-item-label x-form-item-label-left' innertext='Valor:' parentid='ComValor' type='' check:text='Valor:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADYAAAAVCAYAAAANfR1FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD9SURBVFhH7ZRhDoMgDEZ7NbmN4SaGq+hlTLxOR0vpCsNfy5wYXrJECMPvlSLgQxlivTHEemOI9cZ3YntABx5XGd4JETswTIB+SyOFgzsMu4xr7i8W1RaHMJcRW3MFPYh9hjSnuHkEAP3pydb/seu0ILLPQmvz/Ire7vMDzB2r25Fe3jgNK1OI0frctmkvtxz6DFOIT5lLxWIE23pU/WYbGmErRutNeN6Lx3XBrqEQs0HX2YaRquc2a4i9RQQVvYOYhrBtmOZSWxE9nliEA+kl55kyGH8gGmIsfH7HSrGL7xjDYauXsoy04ezbJ0YU604Kw/xD7CEMsd54qBjiC/jgujKeniGaAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Empleado" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="651, 483, 14, 14" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tableRow='2' tag='DIV' aaname='*{0}*' visibleinnertext='*{0}*' /&gt;&quot;, str_LFE_Nombre_Empleado)]" Guid="47c9dadd-b331-4373-94d9-88d85268e9b6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFgSURBVDhPpZPbTsJAFEX9/wf5E02URBGUgIpGaBRtASkX29ICQ7lfXreck0wzMAVLfFjpZC6re05Pz1arFZbLJbNYLJj5fI7ZbMZMp1NmMplgPB4zYRgyo9GIEUKARVKmig7JpFCVRSKSnKdSJxObiBbkOAm0X73eTiIaX1xnYrlM3yGduUf2oRCJtET7ovK7tcPHVwNWowW73UXh8VlL9KfIqNbwaTXRsDtodx24Xg+ll9fDieSCFBnVOj7Mb5h1m1M4rgc/CDAYDFAxDC0RoSW6usnxNZqtLn4cjw/TAdlDplVLlug2m+dr9HyfN1D/yP4iWu2Olii2Rrl8EV7Px3A45AR0mObX6zU/HdeNREcTFZ9KkYS6muY2m01EsK2V3H+0Rm/lCkzTgm23tjVyEPT7ELSZD4Xbl4hIpCVSRUlRE2miU9ESSZn8Mkn+fiK2RvuiOIkqUCX/SqTKhBD4BWSkhbdsCvF3AAAAAElFTkSuQmCC" InformativeScreenshot="a443eb651c22fc081f59129a5269304a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="648, 428, 55, 16" ElementType="Text" FriendlyName="'Empleados'" FullSelectorArgument="&lt;webctrl aaname='Empleados' aria-role='presentation' class='x-component x-fieldset-header-text x-component-default' parentclass='x-fieldset-header x-fieldset-header-default' visibleinnertext='Empleados' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Empleados' aria-role='presentation' class='x-component x-fieldset-header-text x-component-default' parentclass='x-fieldset-header x-fieldset-header-default' visibleinnertext='Empleados' tag='DIV' type='' check:text='Empleados' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADsAAAAUCAYAAAAz30VQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFgSURBVFhH7ZVBbsJADEV7CS7UI+QEuUV2uQBrNlEuwD5LuAJ7xJpzuOPx99iOoAVCKzXJl0ZqPM6333hIP2hBWmHnqhV2rloo7OVA1eeWNqNV9VckvKor7eotNUc8TtC572jTnvD0vEawHe0ueH6b/h3siRre6/eYOOdxzE8fUL3dEAGMsLlh7IfGj+rt3/XxjprWw4qv7mnfwb8+0FnCWT9eYykKMBQaWt7b05D+zubZFMW1QG6Scxwsx0oD8RCGo4HbBKWu5MDf96DgpRaGksGjP+uJydqL4ToVgLG5FrZ4OHVd6sMqU0S8QIis7r1aOoi0RlNl/T2shyuSHG2w5L0AK4Jf6tl/YN8OG+K3rnGpIfHwe8/+3sfXjf73r7EdDud8AyunEVYGeRy2qtMe3vVNhnfVWz2SLJ4Ogz+EmLKASPyRD5Tlp6UekMFOFmAn/1/+Pa2wc9UKO1ctCJboCzV8/xAWqbsLAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Aceptar" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1235, 784, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Aceptar'" FullSelectorArgument="&lt;webctrl aaname='Aceptar' class='x-btn-inner aceptar' parentclass='x-btn x-btn-default-small x-icon-text-left x-btn-icon-text-left x-btn-default-small-icon-text-left x-box-item x-toolbar-item' visibleinnertext='Aceptar' /&gt;" Guid="35bbcff6-6cb3-45a8-ace7-0277b2b10cc4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATBSURBVFhH7ZfrT1tlHMf7tzjE+UKiawwvmplsr7ZlMWrKRh1RJ4jCBFpgjGPGRWDi5CYmY6UEHWFMWhbYBl0BSbm1lHaMKOJKW+aEcomZLl6IhuvX53lOn9NzaAcLTl8Qmnzze37XnudzntOLKhgMYnV1FXuvyBflQvmoVlZWsLGxsafHiPJRyQPr6+uKgj1f9FV0wbW2tiatF/8Kon2mEdl3EpA0oMGb9nikDx+FOVCH+T8fRNTvZp9B4g637od2pI0eQ+6QDs3eOrRPtzA13buE9J7XkND5MgZmrRF9u9Wq6IeTXKM/9yFp+CA+Hy+CbaYDjVNfoHT8HBNdW2faUTGaD03Tc/hm+paid7dKAWlhaRapzqMMEIXx0VgG8jzpyB79ALlEZ4kE9xl0PbiOi448HG5S46dHPyoGbqdAvQ5qtQ4Nvuj5napXUENXH4ia+7di325clmkj9P0n2QmigCgcves9ZDqTkel4FwZHMuzB2yh0ZcFKQL1lPoJaZ6XUv738MCXqIOTroDP6o+R3rt58Aukpz+RSQDrjOIYm7yU0eGuR505D1kgKgXMaWcNEQ6cxMNfDfj8sLAVR/10FGscr8IpRoxi4paZM0CWa4OdWylF4anLCRAndYtxvpKcuFM/vZTEGI1+ATl7bLYTryCk1TW3qVQvo5e9P1gKZIcWeQKrl5WVwvW6Lw837X6N4LBs5rlRyom7g3qMJ6AeT0R/sZoDW1ldR/20lCgfT0O5tQmzZPql/O/nIheuMPrLugUA34w3H1QSaT17vFUGKsXB9D90gj9sInNCaxsXZshlMPnYDWI7OpGBtm2u2lmp2dhZcRzpi0TF9DUUePYo9Ofh9+TcG5te/HzJLAdXd/RSGnlMosL+PDu8VPFv4jNS/tUZQrVXD0Cr6Zr0a2sqRiDjXSKVWdhJE0ZpwH6lzVEOrNsCsmBeawXLhXpaT1Ut1TyAJEv35rbupwVcTtTBNViF3OAXlbgFLK38wQOsb66i78wkybCeRTSBdHrsAk6scmvJ4qZ/Piuo7axQXzaStxogESVnvqkqAWm8O94fmcRjMl23aooBkhoHMl9+QhCqXon7b65X57L8b1dzcHGodJUi5cRxd9y0QBlNgsL+NC86z8P0yifq7n+HD2yeQaU1Eri0JXf5reLXhEErai6V+PiuaL27aIsu3kY0koMYZZBtUa2vgktXPmQ0EpJgX/Rqplm6YzmczQ31tBjEu9luk2eI6lCM3KoFAstB521yv3JcgUY353Tj05YsoH8rGrUArzvW9g5zeJOi7dciyUlFAp9Dpa0FRdxoOnI+De9It9T9eLtSETos8zjfM8/yE8ToGIRTjwBjQTTE2r5VCDcfCvQYY+PvIIMmvYzupKDG5Wt3NeL46BqX2DFgJKONYOQr6UnG+NwVG8rh1EUAFtlTEGvbhan+zovf/ED8x0XL/lSRI8/Pzkm1xNeNAZRzeuHIYJk852r5vQNtEA+pcpTh++SBeEl7AVbsSkLxfbp92nkPaaf9O8qqFhQUW2Gw9Ux6UdZZAczEe+4UY7M+LgebjeJRdL4HnB09E/W62KrqQB/f8SJ89bjSwuLjILNeeL/rscQsEAmzBg3s2bCmXQCCAfwB67C9SkANJFgAAAABJRU5ErkJggg==" InformativeScreenshot="78ddac9e19982b800d945c80204dcf99.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '* No. de Nómina'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Last_Nomina]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="530, 360, 204, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT ext-gen6934'" FullSelectorArgument="&lt;webctrl tag='INPUT' aria-role='textbox' class='x-form-field x-form-text x-form-empty-field' name='IDNumNomina' placeholder='Escribe un número de nómina' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aria-role='textbox' class='x-form-field x-form-text x-form-empty-field' name='IDNumNomina' placeholder='Escribe un número de nómina' type='text' aaname='* No. de Nómina:' /&gt;" Guid="f180a3a0-4910-4378-ba3a-1f24dfdd3253" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANAAAAAaCAYAAADG19KmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPuSURBVHhe7ZhtThsxEIZ76VyBcAd279BsVKkXqEj41RMUKYT+roQQQny4Hn++M2tvwm6gSzWP9Ep4bY/ns6h8MYqijEYHSFEmkAbo2/eNSqU6UhE2QL9ufqtUqgOqDtCfuzuVSnVA1QG6u79XqVQHVB2g+4cHlUp1QNUBenh8VKlUB1QdoMenp4/VpjGL5cpcl/bmpt3KnC0W5mJT2PvHuv56ZhYXl8W9qfpxsfg8NfogVQfo+fkl66YzS9swC6FmA2fGyNltzCX9TAN03pmdPDM77Ux3foLY30m71dIOkKjfKTS2Pp+mruNUHaCX19es/do2+tJ0e/h2am1bm+i12ZX2VEdr19kBakT9VO+m6gAxbv0ArW/DmrE1Lf5marbF7+2V/XTlh2Td0Ddr7yfZbe3JuNea1v7r7u+E74GtuwO2euzN2t5ddvv+OvjfNra5Bm2EdxrrRzhH/nqLPp58D9f0M9qnXPn33TrlhMC8xBj92bYjP/P5wzEHKHfJZr5P7GmgwvecG049ZgLiwB5wObV3ko8US44tvRVqTquhd9BP9s7MmTxAlBTWtB0VD5oXCYVOzRCK4Mrt9vIbPtmhvSi5Mdl4hyHfhLW7k/eYPYFv2mhfDgk2cn8v2vc2Qiwsd9xH54eL0X9nPkHjDeVf+pVtWlxOMZZ6DcsxD9gLOfXngv9xD89BHEPvMDD2mfOGAaLgUT4R2OgJdz4mCpCJwXNyL619cXKi5TrCm5OtZQOS7ZJ/Fh4P2pQFxzVvTtZ0uCfzktb9mMiPYiwSkTd8m9voryP1mKVfELOIhdmu1LX+joDuYy/MmMm/gWIi4mCVkpuQQ1JJtCOtuX32DkMWBNbSf7Jd8s9SL/KUAcK8yFjID/9Oti1j8X4Vm03kTQ4Qf6ts4/iYwU9RY+Yf5hv8q79D+LeSr9gLM+YEAwTExhTJTYhisyLIvbSWzVWHNxkUSPof/QxLpF5k6cfYASq924+xGotE5G3oN1CNUTGLWNhbmG/wr/4O5tJC97EXZszkAdra/xSmhhBN3yueKDYrAtvj911TwL1911Z8gQI528GG9J/eGjlAKSZnIxb9yAGSNmjd5HzlRrVgPgbyz/e8nfS2jNOu2RuBeswiFrSHtbNMHyCRP+yTGfOGAbLBC1ExXLDpGxRZ3HGFw6YgsAiuOPl8TrTHJT/tl5vfFyKcCX/RcwXCghLYCIKhZmIxhb8m+YY8doAI8NHZoXOFAbJgzHIPyTUIfwmE3FXrAwzGHNa9+1g7C9kYP0Dcz6XN7f/1G0hRlCI6QIoyAR0gRZmADpCiTEAHSFEmUB0glUp1nCJpgBRFeTs6QIoyGmP+AhCCMq9huLrtAAAAAElFTkSuQmCC" InformativeScreenshot="5ca07b15e6e62f4da35189e1da76a464.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="530, 341, 204, 14" ElementType="Text" FriendlyName="'* No. de Nómina'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='* No. de Nómina:' class='x-form-item-label x-form-item-label-top' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='* No. de Nómina:' class='x-form-item-label x-form-item-label-top' type='' check:text='* No. de Nómina:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANAAAAASCAYAAAAqhFDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI3SURBVGhD7ZcBjoMgEEW9Wr2N4SYbr2Iv06TXYYdhgGFWdCtutjX/JSZ1FIHmP9DBAwAOA4EA6AACAdABBAKggxWBFu+mRX7/I3fnh9vsn3J6Oo/Zj8Pg3V3OAThAESgElgMVBVqmoRHgp59vdG0Y/fyQktTGrxPjfkQgmcOgFwCuOVoWNHG8R+QJ/8up8wQfzY8diMXZXJmTQDqobyaQlntVIADOYXsHWg1ekmX2LgfVCqQkq3aqHeS1KrajQwukr7XEElnmr7HIbQXKktGhdireWSaX+whzeYbn8HlpX3YgmbNqU55H/2GqVXWC5/HCfwLemgPfQEWWELAqTCIQB68V4CZGwtAuixIDmXbF5mtU7ivcL31W/Yf6uvS8YKT+RLK1uVmBcpumGPG+vKNDoEuxItAeOlApqLpmAsP3bL0SChwsJZoWqJKJsOcJJUuWW9VsOxZdzispzVj0NStQbrMxz9Bmd/7gI+kUKAVqMVLpwFihGuwJRM+sjh2B8vNUTQvDqD72BEo76m8F4r7UeCHQNekWKIaNVvtcs8L8wQ7UQgtEcNhvIchSM895ZQd6RSAramgDga5Jv0AEB4zCk2ocoNVvoC2Z6mv8zBxC247O177TjEBRhDA23X/7GyjP6QyB8vjM2GXBwTfQNThFoBTUUov3xNcXHRYrgoEFiO3cVO8WRYZ4VP0nrEBElFvVVB8l5FoMolOg9Dv242guEOiqHBAIAJCAQAB0AIEA6AACAXAY778Bay+UN5KjC/wAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '* Fecha de Emisión'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Fecha_Emision]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="530, 406, 187, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'15/02/2023'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='* Fecha de Emisión:' aria-role='textbox' class='x-form-field x-form-text' name='FechaEmision' /&gt;" Guid="ec4c012e-9364-441c-956e-97ab66d9495d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAL8AAAAaCAYAAADmO41bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALoSURBVHhe7ZfbjtowEIbzaBuehsOLFMKLtA17V6mP0MsmYYNAojeVesVRCCG0gJsZnGTs2CzQXFTOfNIvbWLPOEifnawnGKahsPxMYynk//b9B4fTqCjy//r9h8NxOuD56XzBKPJvdjsOx+mA59vtFqPIv9vvORynY5V/fzhwOE4Hv3A2G4wi/+F45HCcDni+Xq8xivzH9/eakoj+iy/6P01jj+SLaHsd8dk4xuE8HvB8tVphFPlPp7Mhoeh6vhhE5F7YFZ7nKemGZDwKhP8SiMQ0vx0W8762aQ9tjbxOzk8++WSuYb18jKxrr4HfVN6nNRy3Y5X/fLkoCTu5IC0RxGRs1BOeH4gxmasExjuhvAbReiKUY9CzO4K/30TQKXuM+61KT7jn999kXdkD+xc9sz5++Xx31cSB6Mo51/rsNxbPy3E54PlyucQo8psZiV4m/zCRl8AryD8UqbzUGWWC917lhTY3HWSSd0byipAMRSuTsxxJxTCTWlm3gDyTXmd9NsPvkFifiXEO8HyxWGCel598NrQGVDWYX8pYEcsiJ86j90Fq2wbD9eUaer/KJpLQGgXYZGSzMk4Dns/nc8xz8lNQNjIOkhHZ75Mf1lAFhDp1U+VcZS3G7pJfq5HAGwo3MJ/6jQE8n81mmH+XXxNLl/Zj+e1imk5jFPZWP4P8lRqNyjMyzgKeT6dTTG3yX0WFvw2fSEROXTSzmOqnUw7W6m8NXXbTenqNTmVDMq4Cnk8mE8wT8oPgmmy5fCBiRSJV5PJEN5/4CPTUNoT99FY3HMie97TVwBz6VvnozcC4A3iepinmpvwoBfnHNhdEvU82RiatVWatR9Yl2xS0zzUgpS5nvlH0ucVaePrL+8Xmu1FD50P41G8M4Pl4PMbccfLfD2wKVdpnUE9yhqkT8DxJEkyN8pu/0x/G+OnEMPUAnsdxjKn15GeY/x3wPIoiDMvPNAqWn2ksVvk5nCalkJ9hmgbLzzQUIf4CVdlZmVJ7rt8AAAAASUVORK5CYII=" InformativeScreenshot="f643802d4fda9a9d584910bf487cc21f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="530, 387, 204, 14" ElementType="Text" FriendlyName="'* Fecha de Emisión'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha de Emisión:' class='x-form-item-label x-form-item-label-top' parentid='FechaEmision' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha de Emisión:' class='x-form-item-label x-form-item-label-top' parentid='FechaEmision' type='' check:text='* Fecha de Emisión:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANAAAAASCAYAAAAqhFDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJVSURBVGhD7ZgNjoMgEIW9Wnsbw00ar1Iv06TXYfkbmBmQ7aK7rZv3JSQKw/Dje2I7WQDAMDAQADuAgQDYAQwEwA4aBrpbM9/T9W/ytMtlstfbM90fwGrsdFlc5nNwn6dTzRfUFAN58U2TNWs00PbDjcL3sbz83AifYaCwTrWWkRy9dTTbT2Z20KY6gUhQZk0VFUcJ/4MM9CcnLviP9E+gybgPOk1f+GRAbcLn7Zrro8hTntnYK9VnIbs5UJ2ob/BYSn9fmIH4mN35buT3bXx+PkfJWfYmxKX8Yp3T1S4P2U77x9sDYf+N2/tGW9qP7ZcaeBcDv4G2DRTEQwIOwk4iS+KQWZOQRDwXDRHj2uJRc+EnkBjTC7CVO4q7ZyCZj8aS42aD8DV71qUyUNgjGo/PMeWndcp5wUCfSsNA35GEH96SpZhVC73ccwEVlPg7IvH9m+KpBFsMpMdszyHW67VQnOijxuJt+XrjJVBi9R6xNQvDJ6ORecHHMmygLKxMrNdiHDWQ/BQaMxDv70s9hxTX+4SjPg0DUT8Rl06SUCoz65cEMxQMdEoON1BL6EJgmW0DafH4/iMGqses8XGHGihT1lfa9R7hBDo7BxqofujPm4mfM0ockW8M9NL3v2wLoqbx9ZjuvpWDG0EjjPGKgVyMyespZuF5xNr4HLsG6u0BeCeHGsgThOUedixKcFQfhLFtILqmHP6fqU3xBOHFWDO7a2FgJ8Kcp/MnQo5JJeXgwn/tBOLzbrV74rpjDJsTDHRKBgwEACBgIAB2AAMBsAMYCIBhrP0CJfwamEzK38AAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '* Fecha de Pago'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Fecha_Emision]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="754, 406, 187, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'15/02/2023'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='* Fecha de Pago:' aria-role='textbox' class='x-form-field x-form-text' name='FechaPago' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='* Fecha de Pago:' aria-role='textbox' class='x-form-field x-form-text' name='FechaPago' type='text' /&gt;" Guid="7830ba4f-3009-40a0-bda2-a63dd511cdab" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAL8AAAAaCAYAAADmO41bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALoSURBVHhe7ZfbjtowEIbzaBuehsOLFMKLtA17V6mP0MsmYYNAojeVesVRCCG0gJsZnGTs2CzQXFTOfNIvbWLPOEifnawnGKahsPxMYynk//b9B4fTqCjy//r9h8NxOuD56XzBKPJvdjsOx+mA59vtFqPIv9vvORynY5V/fzhwOE4Hv3A2G4wi/+F45HCcDni+Xq8xivzH9/eakoj+iy/6P01jj+SLaHsd8dk4xuE8HvB8tVphFPlPp7Mhoeh6vhhE5F7YFZ7nKemGZDwKhP8SiMQ0vx0W8762aQ9tjbxOzk8++WSuYb18jKxrr4HfVN6nNRy3Y5X/fLkoCTu5IC0RxGRs1BOeH4gxmasExjuhvAbReiKUY9CzO4K/30TQKXuM+61KT7jn999kXdkD+xc9sz5++Xx31cSB6Mo51/rsNxbPy3E54PlyucQo8psZiV4m/zCRl8AryD8UqbzUGWWC917lhTY3HWSSd0byipAMRSuTsxxJxTCTWlm3gDyTXmd9NsPvkFifiXEO8HyxWGCel598NrQGVDWYX8pYEcsiJ86j90Fq2wbD9eUaer/KJpLQGgXYZGSzMk4Dns/nc8xz8lNQNjIOkhHZ75Mf1lAFhDp1U+VcZS3G7pJfq5HAGwo3MJ/6jQE8n81mmH+XXxNLl/Zj+e1imk5jFPZWP4P8lRqNyjMyzgKeT6dTTG3yX0WFvw2fSEROXTSzmOqnUw7W6m8NXXbTenqNTmVDMq4Cnk8mE8wT8oPgmmy5fCBiRSJV5PJEN5/4CPTUNoT99FY3HMie97TVwBz6VvnozcC4A3iepinmpvwoBfnHNhdEvU82RiatVWatR9Yl2xS0zzUgpS5nvlH0ucVaePrL+8Xmu1FD50P41G8M4Pl4PMbccfLfD2wKVdpnUE9yhqkT8DxJEkyN8pu/0x/G+OnEMPUAnsdxjKn15GeY/x3wPIoiDMvPNAqWn2ksVvk5nCalkJ9hmgbLzzQUIf4CVdlZmVJ7rt8AAAAASUVORK5CYII=" InformativeScreenshot="d1a1d44ea02e5ed0f212ab58a92f67ee.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="754, 387, 204, 14" ElementType="Text" FriendlyName="'* Fecha de Pago'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha de Pago:' class='x-form-item-label x-form-item-label-top' innertext='* Fecha de Pago:' parentid='FechaPago1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha de Pago:' class='x-form-item-label x-form-item-label-top' innertext='* Fecha de Pago:' parentid='FechaPago1' type='' check:text='* Fecha de Pago:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANAAAAASCAYAAAAqhFDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIeSURBVGhD7ZcLroMgEEXZWt2NYSeNW9HNNHE7PP7MwKip+pqG3pOYVIQRmntElQEAnAYCAXABCATABSAQABcQBJqNHuf4+z9ZzfRQZniu8fwGFm3UY7KVAfgMRSAXPqWMXoJA86g2whiC7/rS430RvkMgv066FggI3qDZgVKg9BIbGu4K/hcJlHfc+HD4yA4MemB/B1LavtDV7AefPtGphOtzyO0h5LHOqM2Q2nNw7RxSG2sXeE1lvDuIQPSeu/Ol9f3/4NYdZRLqZtHSNTWY6RUvxf/RH7SunyfpB7rgxDfQtkA+sCloPjBRwBxKSgwh6y8FLPSTd8RqLnQHYvd0QsrhFQVisgRcv3Qftk5Wm/6u5gaBukQQ6IgY/Pz0DYde6qCXcxq+QhUwHz5ZFDdeFIhK6iDhr+8pzyG0F4HqORWcNKG9XieRppKPiwZ65LRAbchCeyvWVnj3BaKvX6lOw4FAdLw7JDGafs3rXLl2JFAjzMZuBvrhdoGkoL8rUB1EN/6MQJIwNV4g6ZXVy1NqYwcCEjcK1AZmfeoSLBp0z4FAOdR8Z+Lwa16GdP/6nvZcqrErUF4Lnysbw75tiEz1+vAN1CW3CuTw4bKhDkcJMGv3wdwWKP1ONbQdKwtk8aKEvnoUdoBcRw7vpkBxfmmsHtMO5CDze9h2WpvMh9WFQF1yQiDAqF8jwU8Bgc5AdxnsKj8NBALgAhAIgNMY8wcn1pqEUQexHwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '* Fecha Inicio de Pago'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Fecha_Inicio]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="978, 406, 187, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT ext-gen1760'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='* Fecha Inicio de Pago:' aria-role='textbox' name='FechaInicioPago' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='* Fecha Inicio de Pago:' aria-role='textbox' name='FechaInicioPago' type='text' class='x-form-field x-form-text' /&gt;" Guid="6150822f-f3c1-4b4b-934b-28825c842280" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAL8AAAAaCAYAAADmO41bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD1SURBVHhe7dY7CoNgEEXh7H8/gSwhrQ8UBdMEUvlERMRXmCmEv3ADM+fCt4NT3MfJmNMRP3O7K/7n6w24EsT/+f4A06TzbT9UEH8/joBp0vkwDCqIf5wmwLTb+Kd5BkzTh9P3Koh/XhbANOm86zoVxL+sK2CadN62rQri37YdMO02/v04ANOk86ZpVBA/Y9Ynndd1rYifuZp0XlWVIn7matJ5WZaK+JmrSedFUSjiZ64mned5roifuZp0nmWZIn7matJ5mqaK+JmrSedJkijiZ64mncdxrIifuZp0HkWRIn7masTP3O42fsCTK37GvI34mdOd5x/gHVThIhX1qgAAAABJRU5ErkJggg==" InformativeScreenshot="a7fbf3e8f972d34e6c8a73902519480f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="978, 387, 204, 14" ElementType="Text" FriendlyName="'* Fecha Inicio de Pago'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha Inicio de Pago:' class='x-form-item-label x-form-item-label-top' innertext='* Fecha Inicio de Pago:' parentid='FechaInicioPago1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha Inicio de Pago:' class='x-form-item-label x-form-item-label-top' innertext='* Fecha Inicio de Pago:' parentid='FechaInicioPago1' type='' check:text='* Fecha Inicio de Pago:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANAAAAASCAYAAAAqhFDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK0SURBVGhD7ZgNbsMgDIVzteU2UW5S9SrtZSb1OgxsSOwXQ1VC9yd/UqQlgGPMe5BuCo7jdOMGcpwTuIEc5wRuIMc5gWGgW1iXW/77nTzC9WMK8+WR7/8DsXbTHK6f+db59+wGuq9hmqaw3tlAt2UK08c1yhxh4ae+8nrdCOcN9LjMIoc1yrfB5zXMzT6cz3rPt110GIjy0rU8l4PznRxOIDJOcxFHnRyD4iTjm0b/CXoNJMbQRuan2F+hfQKZO3Zb+MWAaEJ1WpDgc5xl3Xfg7dMxCTE/U88NlIEaMfEEUjt/EiyP3XKW7U2D8rgtVyV+OY/K6YcGKnOI9dUnrDaVrHO69lrLfIwxrVo6L9PxG2hfYIQWvIhNCpbMiQLKC6366wVnuF/1RDQMZMaU+aQ5KtEl5Hv0O1vCU3OmuGUOHKPUifpZMSoGOsxXzlPVU/dX74G6u4HGYxjoGbxgcvfjHRAXfr9PC3c0HLfvzy1RM2m89ZwwDGTGRENvYwoif2W2CAhxB+csDIQx8L6ABqq9K/XLOet6yhysfOS9M5puA9UMcTQWLngB4+jF1p8vDRG8w0Ao4pr45RgCDaRrUTWG6iNPI85/a3tqIDQM5ueMZriBrMV61UD6s4jHV0XwDgOhYdBQGzhnNJA1BqB+0jQFMEPq99RAVj7y3hnNQAPFFhD+47KyMEwBYhww0Pat/kQEPQYyY9aFmARb++2g2miexQyYS7xf0LSRpoH257K2us56Lqp2UPfWPJw+hhooQYsUF5QvWLzynBYf40gh8N8lxhrHarEzJBbR79aKiScCiauMTULlsdt7qH9uF5vCEZHrEnNVZpDzSO2GeKsG0vOj/yzCRsFtc3wu66PbZFw30Hg6DOT8LpJJbQM678cN9BeRp2O8rNPZ+R7cQI5zAjeQ43QTwhfJ7Ke8KKaErAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '* Fecha Final de Pago'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Text="[str_LFE_Fecha_Final]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1202, 406, 187, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT ext-gen1779'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='* Fecha Final de Pago:' aria-role='textbox' class='x-form-field x-form-text' name='FechaFinalPago' /&gt;" Guid="639c61ae-a8f6-4b12-b915-f70d14469cc2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAL8AAAAaCAYAAADmO41bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD1SURBVHhe7dY7CoNgEEXh7H8/gSwhrQ8UBdMEUvlERMRXmCmEv3ADM+fCt4NT3MfJmNMRP3O7K/7n6w24EsT/+f4A06TzbT9UEH8/joBp0vkwDCqIf5wmwLTb+Kd5BkzTh9P3Koh/XhbANOm86zoVxL+sK2CadN62rQri37YdMO02/v04ANOk86ZpVBA/Y9Ynndd1rYifuZp0XlWVIn7matJ5WZaK+JmrSedFUSjiZ64mned5roifuZp0nmWZIn7matJ5mqaK+JmrSedJkijiZ64mncdxrIifuZp0HkWRIn7masTP3O42fsCTK37GvI34mdOd5x/gHVThIhX1qgAAAABJRU5ErkJggg==" InformativeScreenshot="81d4e7543736fb4ac4b0b2369cfe637f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1202, 387, 204, 14" ElementType="Text" FriendlyName="'* Fecha Final de Pago'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha Final de Pago:' class='x-form-item-label x-form-item-label-top' innertext='* Fecha Final de Pago:' parentid='FechaFinalPago1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='* Fecha Final de Pago:' class='x-form-item-label x-form-item-label-top' innertext='* Fecha Final de Pago:' parentid='FechaFinalPago1' type='' check:text='* Fecha Final de Pago:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANAAAAASCAYAAAAqhFDLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ9SURBVGhD7ZcBjoMgEEW5Wr2N4SabXqVepkmvw8KA8mcEbRXabnZe0qQiDF/4X1rjFEU5jAZIUU6gAVKUE2iAFOUEhQDdnB1v6XtPHu56MW74eaTrL2KyzlyuXuEefq3M4K73dKn8O3KAgmmMcXaKAbqNpmKiaPzQFz+vB6FBgO5XNwgdhgwda9sp9XuVngEqaD6sU/k4qxOIgrO5qa1OjlYB6nACdA8QjKEXV4dnUN7C9glkrLeIZNv4cwBlCB8/w9IezZnqjDa/kZefjsGYqY21C6oBghMo9bFjnn/RlZ652F4NUKydx+H8qLu0dp6VZljPmp6AuJfXBPXwtaC9qK2d0oQD/4FgwwUUktl4ZJRkItp8aai08az/ThgkTwco62UaEam3EiA+Hk8gvi7Ur7SOK82V50M9NE/ug7XZPGKdNUD9KQRoj2T8+U2YPnaSRsjXYSPXgeOGkyZBwvhS+xwOriUYCLRIwxbDHAjz7wVIPiMEiBneI69nGujJoSnpqayV0oXDAaoFgps5buaRAJFJRJ0V0owLYKxNw0rNZcNmoC4hA4S1oB6y6of6n9OTAyQDI/UpvWkeoNLmvRogMggYZvsEOhqg0vxnA1QIjGRH8zN69AT6HhoGKG0s22gbjbKYFikZJm5+NghvX9EgQEtd1FgNkFfjw7xoozFzbfk8/nos1HhGcwD1iDGoga0VjvEwrUoXmgYoQJvmDc9+gsh2Mqesg0GJ3+ca1o9tH6D5e5pn9PNgeyVATBuNwflRd7hfMG9Vs6emx0NBSfeGC75g4rPGe7yuBqg/BwKkfJoQjNoLTHkvGqA/AZ4yeqp8ExogRTmBBkhRDuPcL2KTt9Ls4vsMAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="-EDIT- Click Guardar" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1309, 825, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Cerrar'" FullSelectorArgument="&lt;webctrl id='bottNewNom' tag='DIV' class='x-btn x-btn-default-small x-icon-text-left x-btn-icon-text-left x-btn-default-small-icon-text-left x-box-item x-toolbar-item' innertext='Guardar' parentclass='x-box-inner' visibleinnertext='Guardar' /&gt;" Guid="1e94e908-2729-4b34-b0f9-abfebff7889a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS2SURBVFhH7VdLbBtVFJ0FQkIskCBFLNh3A2JhiTWRqFS1bJAc0bArSySkzCqZ8C0LCiJ1JOgidcjHKYJ8AKGi1kkaFlVTRw004dPEsQ2J64njJE3iOEltj2fsw7t3ZuJxMm1N2IDJSEfz3r3n3Hn3zPPkRVJVFYVCAaVSiUGXPf6/z8kX8kdyGnSI/SB/pGKxCILvWgx1Z4J44r3LePydy3jsISAOcUlDWrtOLWLXpCOi2VtrwPWUwVuumou4pCGts2itQTIMA4QnP7iCX9dE4KMoGzCXzAhsISwwq25iJpFGeDGDWYKaZg5xSUNau04tosKk0EoJUr3MBrQqClpbWxEI9KGnpwfza1k0NzeLeQC9Pd3MkeqbWPNvMil2oREe5apr7qCQdF0H4akzVzCmGnjkdCc0o4jle0WkdkpIbukChnXXoWYKSGY05ArE9bOGtHadB2FU8cDjKaPxQsyV909gmjTqmjso2CT6gteJ3fD9H3k82xFHXsTeblHQ19uH1awBRYwvBi4i0NOLlZ0Ceru6kNU05pKGtM6iVK/yHkXnKWGMtXgzHoO/xY+Yg2djv776PJvU4nzO39O7xfkIoImGqdGv57I4+kVc/JB0bOsG0pqBjbyOTbFrCBuajvW8hoxGx4YCjnbGWUNaqkGw61XMw340ehSMuOaj8AsDlaA5j3ZQkyNmPqg4dl4j/GEHX7w4iivDVG8Eyi5PwNJHqNZu3Hr+nLkWpcWMjbqtd89csid14ifTe3sHLwbuIDi/JYwyUBRmGQJ0d4JMJA5xSUNaZ+G94MWe8iPiktO0SIVJzLVNcmCEmuK4yXdyKNfYEeGxu97UMIdfWPl51UBKJBIgHBGN+n/ZxrH+JF76ShUGJPBCdwLPd93BcxZoTDHKEYe4pCGtXccNoTYvPF4fQjwfgGy/XY6F4PN6IPc7uE0DltbBJXC8km9yvPCNu+jHffA69N62kBWTMcDa6sD/lhCo0fNT23j1uyWcHEriy5tL9AfMcdGRvch3yp38Jslc0pDWruOKG+1oEAsbdMb6ZWFSOybUCbRz02Z84lyDaHJQjM14w7kJ17jNV9VBYVID2m/s1VO8zBtssmq5reUh2DXpadGo7+dtvH5pWTSfEmYYCMfXEBXnoqg4M83E1/H7n6uYmV8ROZ05xCUNaZ1F98NszFy8FdtjkmmGk+c0437xcs42k8wom2SbZxp2YJMWFxdBoEY/+SmDN4IreO1SCrr4QG/lilDeP4v6l0+IcQlz6gYiiXXoubzgLDOXNKS169wfVqOO7U+L5tyAMIxjDZBlsRPkoQfELZMGHLVD1LhV01vW867iuCz01vOYK2PI1laBCpPOTm7jrbF1nA7eRe5eXuwYoP7YCXzcdp7H8eUM4qlN5HZyzCEuaaoz6b8LKZlMgvDMh0F8eiuLd0NbkK9tit1SYGOOH38Fn33ewePVdA5301kUshpziEsa0tp1ahG7Jr3ZHeRm6czzaOsP+G06jJtTc7g69iP83wYxNR3B9ckZjE/eFrlZ5hCXNKR1Fq01SEtLSyBMT09jeHh4HxYWFhhuORuktevUIvib5JY4hAn+JsViMd5SqVTqEHtAvsRiMfwF8fordFTcyaIAAAAASUVORK5CYII=" InformativeScreenshot="b613389bc04ff8fdd1298db1f2dc6d42.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1228, 825, 69, 16" ElementType="Text" FriendlyName="'Cerrar'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Cerrar' class='x-btn-inner abortar' innertext='Cerrar' visibleinnertext='Cerrar' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Cerrar' class='x-btn-inner abortar' innertext='Cerrar' visibleinnertext='Cerrar' type='' check:text='Cerrar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPtSURBVFhH7Vf/b1NVHH1/CYkhILAimheDMJnKwEkiJGZ9urLIiBKFzJA9vrkSSfCXQZBtkCCSGaMxMdnW+ItAaEtCkcH2E/60TWd/29p1htCyjRRe1/Z4z31f9vrsoCVGk7KbnNz7+ZxzbnNPb19bZWpqCgsLCygWiw44lusicrkcmI/ChVuwjFIwH6VQKMCLmfBl3H7jZfymbcdd/zaBRjmzZp98OV+t4h8h/XX9Koa2bEDmhwt4HPkZj8IC1syaffLUeb21CiWfz8PGTPQKbjW8hPSPX+PB6WNI1K9A8s2VSL61Ss6s2SdPHfVuf63CCSkV/gVD4uCZn77B3JnPkdZbkT6yF9ONq5F6xydn1uyTp456+twb1iIUfrMRv762BrOh7/Hw/EnMNLwgn/Ac6UMfYkbcIs72IE8d9fTZe1SN8HGoqrqIYLS87n+G/HbjIrZxtTz0/Xdfwb2mOisOc2QONFsrc9xr8kkd9bGNL0q/vY8Nu/bODh8OimAC6PvD5v/Ety3HEbX5p/n/Q14xDEMu5GH7+5DRNiPdvAn3t62xIikd7JPPaPXIfdeDmLhJ9HMfG5XUkU4VgUsTS/BRBJ0bZgZp/N6HgBpEUPhUMUe8tRFxeRb3lq/TGRTaJ73ek2sZEhHbtBYLF7swu3srZgNb8WDXq5jraLWiMQdr9snPtjbCOHdC+NaVbFgZzAMFr5XjzIPZ3MSlANTOiBWSy+Ot3bjGW8rgzL3Ulj5MeDVVQJmcnAQR27wOua7DmG/bgfndjciePGhFUzrYJ09d7suDwlcn/dVhALo4oN6/NGffCAl/D4Zv98Cv6hiwdd5aYKDD7TM59vxnhx3Ns0D+LSFi9XXIH/sI2X078VDcFPeYf9tnrcxBPrtvF/JH24TPJ/3VYQS9fhVa90gZblCEpKH3jqd/pxeaOPjgEvVItybC7MWIhxsUIZV/ncrhhHRzy3rMfdqMXLuGR3t3WHGIm/N+A7J7muRsD/LUzX3ynvS5N6wY/bp4t91hMDgezAxQ7Rhc7HeLdSUhWR65/jdDSiQSIKJfdeGW+Msxv19D/rMWGOKmPP54J4z9fhjtH8hZ1rxBgqeOevrsParGAINa/IjwMCYXKv3I6SEkhs1QQrbXW7s8mq47XEh37/tscEIaHR3F9e7T4pf0BmTbW4AjbSiK30aFQ3tQOCwgZtbsk6eOevrcG9YilGQyCRtjY2Py4EMiAENvA04cAL5wQdTsk6eOere/VlESEiGDOnsKN1/34YZ4mN8Q314ORM0++eclIEKZnp6GF+Pj4wiHw0uCfDlfrUI+k8oRyzAhn0nxeFxeqVQqtQwPmEs8HsffhBJNMVIg8wgAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NKeyboardShortcuts ActivateBefore="True" sap2010:Annotation.AnnotationText="Sends enter to the website, and verifies that the popup disappeared." ClickBeforeMode="None" DisplayName="Sends Enter to close popup" sap:VirtualizedContainerService.HintSize="388,245.33333333333334" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="DebuggerApi" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+                <uix:NKeyboardShortcuts.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Element 'Aviso'" Mode="Disappears" Retry="True" Timeout="[int_Timeout]">
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="840, 538, 54, 39" DesignTimeScaleFactor="1" FriendlyName="'DIV component-1002'" Guid="33dc9107-5d1a-4b81-acd7-beb5ffc0779f" ImageBase64="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" InformativeScreenshot="2801cd05ddf7324bb77562a9f06cdc4a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Image" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="892, 540, 197, 28" FriendlyName="'Nómina creada'" FullSelectorArgument="&lt;webctrl aaname='Nómina creada con éxito.¿Deseas timbrarla en este momento?' aria-role='presentation' visibleinnertext='Nómina creada con éxito.&amp;#xA;¿Deseas timbrarla en este momento?' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Nómina creada con éxito.¿Deseas timbrarla en este momento?' aria-role='presentation' visibleinnertext='Nómina creada con éxito.&amp;#xA;¿Deseas timbrarla en este momento?' tag='SPAN' type='' class='x-component ext-mb-text x-component-default' check:text='Nómina creada con éxito.¿Deseas timbrarla en este momento?' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                  </uix:VerifyExecutionOptions>
+                </uix:NKeyboardShortcuts.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NKeyboardShortcuts>
+              <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Generar" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1768, 1018, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Generar'" FullSelectorArgument="&lt;webctrl aaname='Generar' class='x-btn-inner aceptar' parentclass='x-btn x-btn-default-small x-icon-text-left x-btn-icon-text-left x-btn-default-small-icon-text-left x-box-item x-toolbar-item' visibleinnertext='Generar' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Generar' class='x-btn-inner aceptar' parentclass='x-btn x-btn-default-small x-icon-text-left x-btn-icon-text-left x-btn-default-small-icon-text-left x-box-item x-toolbar-item' visibleinnertext='Generar' tag='SPAN' type='' check:text='Generar' /&gt;" Guid="f9bde9d4-9d32-475a-9508-abf2b125b9d5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARySURBVFhH7ZftT1tVHMf7tzjE+UKiawwvmplsr7ZlMWqKo46oE0RhAm1hrHcZDwNmnTyJCayUbI4wJi0LbKNdWyRlQKG0Y0QZrrRlTtpSYpyLDxjDQ/l6z7m95V5pC75bmt7kk3N+T+ee3/ee2wdJMBjExsYG0tfOi+hC9JGsr69ja2srTQKIPhLeiEQiomDa3rYlxCBsbm6KxvDfAQwGrkJ9Pwd592R4z56N4omj6PO1Y/mvJ7G8RPWpFJfEC7qfjqJo+hgqxhXo8XRgYLGX0v2oHcW2t5Az9DpGl0w76lJ1lJAPJyHTv4wgb+IgvpqtgWVpEFcWvkb97FkKmZuXBtA4rYGs+yV8t3hHVJuqiEQKrwZQOHmUCkTEODdTgkp3MdTTn6KC5QwL4zoN05ObuOSoxOFuKX5+9pNowaRYz0EqlW6T2wV/vLznDPrtxmNc1EE5eoKeICIQEUfp/Bilk/kodXwElSMf9uBdVDvLYGaFet9wBG2TTbH6ZPh0ClYYBsMiHwP9gjjveUQk0mnHMXR72tHlaUOlqwhlUwWsOKdQNsEyfgr3Qjb6+yG8GkTnD424MtuIN3Qy0YLx8UGfKwVjjRcjcHH+hHF50RoNE/UrBILuns9YxTlSzTBXa2XjuQwYEsvVwyfaR3wka2tr4HnbkoXbj79F7Ywa5c5C9kTdwqNnc1CO5WM0aKUCbUY20Pl9E6rHijDg6UZmw75YfUI8eihIk544MRYve8oUOi9nW0gTenjXvFyTGhv12zTb873kixDen+Qn2Us8JIFAADxHBjMxuHgDNW4lat3l+GPtdyrMb//8SkciUMeDL6CynUSV/RMMeq7hxeoXYvUJcbRALpWjxcHZBiXbDH3CxDeFFjlv86hgCHB+VR9XM9Ukh1RpYOd7y4/VxHKi9+9TQSpvwVQ0Zy+IRFLcluGbuTbo55tRMVEArYvB6vqfVKDIVgQd9z9HieUE1KxIl2cuQu/UQqbNFi0Yn50NBAIGqAQiiWOE5CLtlk/FoOIRm79X1P9/RSL/TUKhEP2P0uaoQ8Gt4zA9NoIZK4DK/gEuTp6B9+k8Oh98ic/uvotScy4qLHkw+W7gza5DqBuojdUngsSdzTl008aY38huPAetk0H0q9gnLW+FMxozNpO5E620aUG90sjFyUkU5Pf/J5+uT8XgckIGIhh3L6Gf28d2/4mgIvHM+Fw4dPVVaMfVuOPvw9mRD1E+nAelVYEyM4EIdBJD3l7UWItw4HwWXPMu0YLJ4ITij7+wUa5BsV/ctFCkveSLcpSq2AOJJ9JuSIiKQvpcPXi5JQP19hKYWaF0M1pUjRTi/HABdOzrZmIFqrIUIlO1D9dHe0S1qQoVaXl5mRr82OvswYGmLLxz7TD0bi36H3ahf64LHc56HL98EK8xr+C6vWdHXaqOEjIJh8PUIRzdC240DNVBdikb+5kM7K/MgOxCNhpu1sH9o3tHfiqPVKQ0yaGv28rKClWNJ21v2/R18/v9VC1hMD1yI9HF7/fjX5GiLrPPWJDuAAAAAElFTkSuQmCC" InformativeScreenshot="48a827ce756a7699f6b20e2d48dcd788.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1849, 1018, 69, 16" ElementType="Text" FriendlyName="'Cancelar'" FullSelectorArgument="&lt;webctrl aaname='Cancelar' class='x-btn-inner abortar' parentclass='x-btn x-btn-default-small x-icon-text-left x-btn-icon-text-left x-btn-default-small-icon-text-left x-box-item x-toolbar-item' visibleinnertext='Cancelar' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Cancelar' class='x-btn-inner abortar' parentclass='x-btn x-btn-default-small x-icon-text-left x-btn-icon-text-left x-btn-default-small-icon-text-left x-box-item x-toolbar-item' visibleinnertext='Cancelar' tag='SPAN' type='' check:text='Cancelar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARHSURBVFhH7Vfva1tVGM5fIoi4zTW6SRhzq6u6TutgG0gTbVZchw7dqIxkm3MpDuaXOrRNFfxRIqIIQtvhB1FJmsIy1y79ND+13dp8a5O0Mpas7ciWX318n3PvTW6SmxVKP0jogYf3Pe/zvOee++TkJte2sLCAfD6PrVE76Av9seVyOaytrW2hDuiPjUmxWKwglkJ/YOKV3fjH9TpuOw8JWlXknHXyZn11f6PNbSwUCgVFMP479hfGD+xC+udv8Hj0NzwKCfTIOevkqWNPdb85NgpfYdJS+E/cbHkBqV++xYOrFxFvfgqJV59B4rVnVeScdfLUUW/ub9Ro48OJSAZ/x7jcePrX77HyxSdIeTuRunASydZtWHzTriLnrJOnjnr2GWv8bxDqgaPjB8SsuA2gZNLfL+3A8rWf8PDrK1hqeVp/vgOpc+9iSU4RozHIU0c9+8wLWiOMHocDjhJ6ELbUbRI22yQ+vYnI3m3qpu8feRH32pp0O7SRPtOuZ9q412ZXOuoje7er/voIwyfGuAfnSrW5QTd8oWrdJiLkE5MCmLPiNgCTSduRHwog7dqPVPs+3D+0Q7ekcrBOPu1qRu5HPyJykswL1uAJG6ZZ5dPlQ5j1uwG4Jfdd0usVvZrhmt6NwN06NfM1mdf0zCHQ4ZBraNx6H5gtm82CiOx7DvnverF8/CCW3Qfx4NgerHg6dWu0wTnr5Jc7W5H96rL07VT99TDKm700asmVMas27R6cRfYOTZKNB1kfVQZoufVarBn8LE0nH9RMmjXpDK3Wr11v/X1psM3Pz4OI7N+JXO95rHYdxurxVmSunNWtqRysk6cu99lZ6WtS/fUw7JHNeIYtufkJP5ylT9kBZ19Ur3kxrDRR+J0OeIeYD8PrcMI/YepXtXK/gtOP6JBXi1YatRfzuuujbFJzEwoX30Pm1FE8lJNiHqtv2PVMG+Qzp46h8HGX9NlrFjUj2uc0bdgMbfPGRmnmxkyqrglKJmn9al2pq71sxKR4PK7eT24ceB4rH7Yj1+3Co5OHdTvk5LzdgsyJNhWNQZ66lQ/eUn3sr4d4/Joyw9U/WapN9rtkgyNSd2Egyusz1zW3BuASk0aUdhID6mbKucMzUlqntibzfsmVSQOYrNtfrhv3Xw/k1QsuEf6yFzfllWP1tAuFjzqQlZPy+P2jyJ52Itv9jopqzhMkPHXUs8+8qDU0E8pfCd6AZpZW88IrJ+nJJlWvIwbfslibJpRMEp65rvd65HpVJtXutRbqJBFTU1MY678q/6R3IdPdAVzowpr8NyqeO4HieYFEzlknTx317DPWaFTYEomEShgNo8bFgKy3C7h8BvjUBJmzTt4wyNzfqNGWTCZVYsSZmRmM9X2OGy/bcV0e5tfl16sEmbNOnjpzXyNHdZKqMT09jWAwWBfkrfoaFcokumVgcXFxa26aK5NisZj67hnkVixH+hKLxfAfbxf8mXwEeLYAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DisplayName="Click Cerrar - end" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1235, 754, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Cerrar'" FullSelectorArgument="&lt;webctrl aaname='Cerrar' class='x-btn-inner abortar' visibleinnertext='Cerrar' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Cerrar' class='x-btn-inner abortar' visibleinnertext='Cerrar' tag='SPAN' type='' check:text='Cerrar' /&gt;" Guid="9321cdf4-3be5-4f03-9dfc-3ecdd49dfcf7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQKSURBVFhH7Vdtb5NVGH5+iYkxArIqmIYgTKYycJIAiVkfXVlkRIlCZsgKiKuRBL9MoluniS+kidGYmGwlfjBq+kJCkY3uk3zaJtBvW19mCC3bSOHpyy7Pdfqc9mn3DOhiomt2kiv3ue/rvk57rt5902ZnZ1EoFLC+li/6Qn+0fD6PpaWldawA+qPZEXOhXzH+0lZc1/fiT9cegXYZmbNO3k7XrNBKpRKKxSJU/PvS7xjbtQXZH77Cg/DPuB8SMCNz1smzz6pr5qhxozAX+Q1X255D5sevcff8GSRan0Dy5aeQfOVpGZmzTp597LfqrVAPshLWEq/xw4lIBX/BmLh49qdvsfDZh8h4upE5fQSp9g1Iv+aQkTnr5NnHfurUGVbwcLu6wlriKyb98cImzF/8Hve+PIe5tifNz3cgc/ItzIkpYlSLPPvYT506o2GEPoLT6azCG7Hv+48hv92I6PYN8tJ39j+P2x0tph3llT3eae7K63aHQ/axP7p9o9Q3jJBXGOOG/4aq3YK/y4tIfd//ABaTNqIw4kdW34lM5w7c2bPJtKR2sU4+q7ci/50PUTFJ1gMfF5F+J9wXbtly+XwE3sqEmUbe8MPt9MIrdE4RI/V5jaZ6tnycfq/ofdjjPRyaYRggojueQeGbAcwf2o15927cPbgNC33dpjXlxZx18vPd7TC+OCt0m6W+MYTlhbxBO85AWFxMcTcvuOHsD8P4i6ZYNPW5FUFOqRdhsedZzi4/btb3NABtZmYGRHTnZuQHTmGxZx8WD7Ujd+6EaU3tYp08+/KfnBC6FqlvDKPwiAt6Rlbm1ERIuHyIjfvgcnowqvrqc4HRPquuzLHmGoxVelaDqkmtLSieeRu5owdwT0yKdS2+6jB35UU+d/Qgih/0CJ1j2aGPRgw+10pPnia54Buvqz/CpNigq2xmHfevmMT/JsSVXc9i4b1O5Ht13D+yz7RDTM4bbcgd7pBRLfLsW3j3dalTZzSEEY94tXUMX1O1CQy7PAjIKCahL1CtD4n9tWHo4uIBpa/LJ4b0ikbuTS4gTNKHJsyzVoeKSZHPB3BV/OVYPKaj+H4XDDEpD945AOOYC0bvmzLKnBMkePaxnzrqE4lEzcGPlUujqm+R6mUCtW85cflErNaUZXniYkWj93kqnDJpVc/P3GtMiKmpKVwaOi9+SW9BrrcLON2DJfHbqHTyMEqnBERkzjp59rF/cnJS6pPJpIwKzZRXTCJ4YV58TBhgeHqAs8eBjy0QOevkrQY1OzQ6ZoWcqMFPceVFBy6LD/PL4turApGzTn56erpGV49UKmVbV1hLvKYSa6RRoVAIwWDQNpK30zVrlJPETTqdXo82kf5o8Xhcvu9UUWE9T0tf4vE4/gGVH0uH9BRcAAAAAABJRU5ErkJggg==" InformativeScreenshot="50baef1c63e979d923c4ed1102cfa474.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1129, 754, 94, 16" ElementType="Text" FriendlyName="'Descargar Log'" FullSelectorArgument="&lt;webctrl aaname='Descargar Log' class='x-btn-inner descargar' innertext='Descargar Log' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Descargar Log' class='x-btn-inner descargar' innertext='Descargar Log' tag='SPAN' type='' check:text='Descargar Log' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGIAAAAUCAYAAAB23ujSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARbSURBVFhH7VhbbxtFFN5/g0BIqNoHKPyABomXpHZpHnjhmVTeVkDcPiEkAm1itzygyOGhlRCqnXJREPIlgUhVbCMhBC/Q2AYJ4sRBSkspF6Ekdg7zndkZz453E7elpJV2pM8zc853LnPOztqy0263aXd3l+JxOAO1Rw+cnZ0d2tvbi3GIQA8cW3gi9zU9f6lKIwcAHHBt+xj3BqfX61G32yU1o8DZL36imaUfKRMB6MAB17aP53ubdSMURi5W6d1qh0Yvf0/Hr/xACQuQQQcOuLa9jVg/nN7BB74wFI6Jp3zuu7/pVPkmpSIAHTjHLtXYiWlvI9YPp3dsxUhmmZ47f52eeWuZcXRqmZ71gbWSg/PC1OcB2wAaczTuuuRqjNNcI4T3yKBFcyddOlsK090/+FeTiRcn3vF/WB08TkycD9gGsJoTjUhTJbB3KV0yOI8UmpQTjXhQ+Q80YuyVC1zk9tovtNVp05nLK/Tkq58ysIYMOoyxiQsB2wDsRgClNLknc9TkvTyYujHqgM3Z8f4tmqz4thVKK5m4WblVi6fi+DHTk4YMMTVPxQnG1nE4P2EPnc5TIboRZi59vRVjwF8Qzvb2NpkYFcXF+P3mr9T9c4ueen2Biqu36cNvt+jI5Gcsgw4DXNte44YsSjlC1hDJj882pLwoG9RgvSj0DfAblJsts76Mwk7K9SAETxyYfbG9KEZR6cqigYY/FFLrfJgxkYfm24iwZxv/nIYvnE/nrM5n2llw1tbWyMTYxDQX+bUP6nRENOHpswv0/je/0UvXfqaj5xZEMxZYhwGuba+xkqGE61E+VFajTMJ4WhiQ58nDOpGhmraDLEGZFcOP9tW3T0zXBmNe9QxfMqZ3Vepq0wkjtu8/wLcRtFdgP6m8xbG4+/qViGzEY6c/oTfrf9FU/Q69cf2W+KW0RW9/9QfLoMO460bohMIPpaGKzNywRsiGKft86i4bAbnmGf4PsxH4n8OEejVR7x964vTHdGrpNnlLtxhYQwYdBri2vUY1S0lx2EJgj+TkviCK5yayVPf1hRmxFhxvpi75nDz0dcqKQ7mpgpQzCqJ4ScpW1dqlJOxCYyqe9MPxtW9/rTimfACGvSlnez+mEY/Pp3Le16+Es76+HhCM+l/WvZ1t8bkrCv8ReV/eYWANmdSJRgiuba/3fuH7118m2Of7BVZ6TlQWVclwaMk35dJPfSbp7z3yxKFDGyEw7/X9sc88/BmxPWG/TyMi8wXAFfp+Lsq/4Nvn9/1G1cvZ2NjgjYK+EXtd8dHj5ePiFgByCBnr5I2w7R/e/TwX/GLtv/I3/J4b5c1H6jHzjTCRTGW4yMMMcG37hwvBpxi3Jpz3AJDHK0vF9mg+jGPA6XQ63BWFl8+9xwUeFV/EePXgqT8u1gDWUjbNHHBtexuxfji9boSaFxcXqVgsUqlUOnCuVCraLp7vb+bvCGw2Nzfj+ZBmfjW1Wi1eQGgS4v3/s8dFaDZb9C9gsgdk0Dd4zAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" Title="Las Facturas Electronicas" Url="[str_LFE_Url]" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Once the process is completed, let's set up all the final variables and out arguments that will be used in the next components. &#xA;&#xA;Also, validate the final information." DisplayName="End" sap:VirtualizedContainerService.HintSize="546,163.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;[LFE Website] Navigation towards Completed&quot;]" />
+    </Sequence>
+  </Sequence>
+</Activity>
