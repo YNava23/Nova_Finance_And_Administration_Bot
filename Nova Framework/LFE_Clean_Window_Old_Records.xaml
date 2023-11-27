@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1124,2175.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1130,5652</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LFE_Clean_Percepciones_Window_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -101,13 +101,14 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: &#xA;LFE webpage | Clean any current record on the next windows: Agregar deducciones, Agregar percepciones y Agregar otros pagos.&#xA;&#xA;Precondition:&#xA;Microsoft Edge Browser.&#xA;The bot must be on one of the next windows Agregar percepciones | deducciones | Otros pagos&#xA;&#xA;Arguments:&#xA;io_Dic_Config(&quot;LFE_Url&quot;) - Webpage URL (LFE web)&#xA;io_Dic_Config(&quot;GeneralTimeout&quot;) - Gneral timeout for activities&#xA;io_Dic_Data(&quot;LFE_Current_Employee&quot;) - The employee to be selected&#xA;io_Dic_Data(&quot;LFE_Window&quot;) - windows where the bot will clean the records | Agregar percepciones | deducciones | Otros pagos&#xA;&#xA;" DisplayName="LFE_Clean_Percepciones_Window" sap:VirtualizedContainerService.HintSize="558,2110.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: &#xA;LFE webpage | Clean any current record on the next windows: Agregar deducciones, Agregar percepciones y Agregar otros pagos.&#xA;&#xA;Precondition:&#xA;Microsoft Edge Browser.&#xA;The bot must be on one of the next windows Agregar percepciones | deducciones | Otros pagos&#xA;&#xA;Arguments:&#xA;io_Dic_Config(&quot;LFE_Url&quot;) - Webpage URL (LFE web)&#xA;io_Dic_Config(&quot;GeneralTimeout&quot;) - Gneral timeout for activities&#xA;io_Dic_Data(&quot;LFE_Current_Employee&quot;) - The employee to be selected&#xA;io_Dic_Data(&quot;LFE_Window&quot;) - windows where the bot will clean the records | Agregar percepciones | deducciones | Otros pagos&#xA;&#xA;" DisplayName="LFE_Clean_Percepciones_Window" sap:VirtualizedContainerService.HintSize="912,5587.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_LFE_Url" />
       <Variable x:TypeArguments="x:Int32" Name="int_Timeout" />
       <Variable x:TypeArguments="x:String" Name="str_LFE_Current_Employee" />
       <Variable x:TypeArguments="x:String" Name="str_LFE_Window" />
       <Variable x:TypeArguments="x:Boolean" Name="bl_LFE_Close_Window" />
+      <Variable x:TypeArguments="x:String" Name="str_Page_Title_Attach_Selector" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -115,7 +116,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Init all settings to be able to work with this component, set up variables, validate windows, steps, etc.&#xA;&#xA;If all is fine, let's continue with the process." DisplayName="Init" sap:VirtualizedContainerService.HintSize="496,752.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="Init all settings to be able to work with this component, set up variables, validate windows, steps, etc.&#xA;&#xA;If all is fine, let's continue with the process." DisplayName="Init" sap:VirtualizedContainerService.HintSize="850,832" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -123,7 +124,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="431.3333333333333,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="493.3333333333333,303.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_20">
             <sap:WorkflowViewStateService.ViewState>
@@ -178,7 +179,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Config | Init configurations" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Config | Init configurations" sap:VirtualizedContainerService.HintSize="422.6666666666667,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -197,10 +198,18 @@
                 <InArgument x:TypeArguments="x:Int32">[Cint(io_Dic_Config("GeneralTimeout"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_Page_Title_Attach_Selector]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Config("Page_Title_Attach_Selector").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Data | Setup arguments" sap:VirtualizedContainerService.HintSize="431.3333333333333,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Data | Setup arguments" sap:VirtualizedContainerService.HintSize="422.6666666666667,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -230,7 +239,7 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[LFE Website] Clean records for employee:  &quot; +str_LFE_Current_Employee+ &quot; on &quot; +str_LFE_Window+ &quot; window started.&quot;]">
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="422.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[LFE Website] Clean records for employee:  &quot; +str_LFE_Current_Employee+ &quot; on &quot; +str_LFE_Window+ &quot; window started.&quot;]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -239,7 +248,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Contains all the main activities this component will perform, like type into, extract info, mathematics operations, conexions, open browser, etc.&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="496,603.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence sap2010:Annotation.AnnotationText="Contains all the main activities this component will perform, like type into, extract info, mathematics operations, conexions, open browser, etc.&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="850,3985.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="bl_LFE_Old_Records" />
       </Sequence.Variables>
@@ -250,7 +259,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="Assign bl_LFE_Old_Records | Init loop" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign DisplayName="Assign bl_LFE_Old_Records | Init loop" sap:VirtualizedContainerService.HintSize="788,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Boolean">[bl_LFE_Old_Records]</OutArgument>
         </Assign.To>
@@ -258,21 +267,21 @@
           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through some of the next windows Agregar percepciones / deducciones / otros pagos and delete old records " Condition="[bl_LFE_Old_Records = True]" DisplayName="While | Loop through some of the next windows Agregar percepciones / deducciones / otros pagos and delete old records " sap:VirtualizedContainerService.HintSize="434,149.33333333333334" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+      <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through some of the next windows Agregar percepciones / deducciones / otros pagos and delete old records " Condition="[bl_LFE_Old_Records = True]" DisplayName="While | Loop through some of the next windows Agregar percepciones / deducciones / otros pagos and delete old records " sap:VirtualizedContainerService.HintSize="788,2224.6666666666665" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
         <ui:InterruptibleWhile.Body>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="774,2028.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="754,2056" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="712,1918" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
+            <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="712,1968.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="678,1668" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="678,1770.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="out_bl_Success" />
                       <Variable x:TypeArguments="x:String" Name="str_LFE_Percepciones" />
@@ -282,16 +291,16 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NCheckState DisplayName="Check if there is an OLD record" EnableIfNotExists="False" Exists="[bl_LFE_Old_Records]" sap:VirtualizedContainerService.HintSize="616,1552" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Timeout="[int_Timeout]" Version="V3">
+                    <uix:NCheckState DisplayName="Check if there is an OLD record" EnableIfNotExists="False" Exists="[bl_LFE_Old_Records]" sap:VirtualizedContainerService.HintSize="616,1654.6666666666667" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Timeout="[int_Timeout]" Version="V3">
                       <uix:NCheckState.IfExists>
-                        <Sequence DisplayName="OLD record appears" sap:VirtualizedContainerService.HintSize="572,1330.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <Sequence DisplayName="OLD record appears" sap:VirtualizedContainerService.HintSize="572,1433.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[bl_LFE_Old_Records = True]" sap:VirtualizedContainerService.HintSize="510,1214.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If Condition="[bl_LFE_Old_Records = True]" sap:VirtualizedContainerService.HintSize="510,1317.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -299,14 +308,14 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="376,722" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,773.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;[LFE Website] Old records for current employee: &quot; +str_LFE_Current_Employee+ &quot; . Cleaning them.&quot;]" />
-                                <uix:NClick sap2010:Annotation.AnnotationText="Verify that the old record was deleted" ClickType="Single" DisplayName="Delete OLD Record" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;[LFE Website] Old records for current employee: &quot; +str_LFE_Current_Employee+ &quot; . Cleaning them.&quot;]" />
+                                <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Verify that the old record was deleted" ClickType="Single" DisplayName="Delete OLD Record" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1245, 498, 16, 16" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG ext-gen1755'" FullSelectorArgument="&lt;webctrl tag='IMG' parentclass='deleteRowDet' /&gt;" Guid="75665fcd-d3a3-4921-a057-57f44e6f183e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI2SURBVDhP1ZHdS5NhGIf7n/Kk6Os8TV1zuJxlzS11YRMzN80N0wxKDDUMwi0/StNZC0ohD9RKkEgjSCxwSW5hbdV6dZtuS7lqe5+Ql712EB3UBb+T+7l/Fzc8u/jL/OdCaWwMv7OBJUsFPksZS/ZzfH7oFa/q7Cj02+187Wwj/myCxOtZEi+miT4axm81s1BZKrYyURUun7Wydm+YLd9bkuP3Sfa3k3Rd5ftQN5sz4wTrrbw8pRXbSjKEAZudyGA/W4vzJG9eRmp3stpWR/y6k0SHg3jreeJjdwlUGpkrKxStbRRCaXSUUFMDm/Nz6Ys2Oh2Er9Sw3nxGkYjdSNx7m1e5B1j29Ii2jEIYcF4g5r1D0uNCaq3lywmtatZqjUTbGgk6bTy36ERbRiH0VZaTeOwl2elEumQV00yC+hzCFcdZdXUxVbBfTGUUwsVyExueXuItVtYvlolpJilhyGxgtbuLCd0eMZVRCN/Zqgm3NrLR7iBSXZwuqqYoF6mpHn99DdOl2aItoxCGHoywqDvMuqcPqVRH2KzJkK0UZrNyTEOs/xbTeVn4BrpEW0YhTDFfZSJgOUlspDf9ASFDnizSH2FF91OmyyPa52ahRMuk4ZBobZMhTDFXks97k4HYQC/fWhwEjUV8LNYTbm4g2uPmTXE+45ossa1EVZhi1lzArGYfn+pqCHdcS+eDrYonObuZULnsFzsKUywPuZmxaJnSH2Ty6F6ens7GN3hDvKrzW+Gf8K8L4QcZ+JXcQG1gqQAAAABJRU5ErkJggg==" InformativeScreenshot="b89b927ed5009b9cf82402f2ee219bc7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive">
                                       <uix:TargetAnchorable.Anchors>
@@ -345,13 +354,13 @@
                               </Sequence>
                             </If.Then>
                             <If.Else>
-                              <Sequence sap:VirtualizedContainerService.HintSize="476,308.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                              <Sequence sap:VirtualizedContainerService.HintSize="476,360" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;[LFE Website] No Old Perceptions found for current employee: &quot; +str_LFE_Current_Employee]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;[LFE Website] No Old Perceptions found for current employee: &quot; +str_LFE_Current_Employee]" />
                                 <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Boolean">[bl_LFE_Old_Records]</OutArgument>
@@ -395,7 +404,7 @@
                 </ActivityAction>
               </uix:NApplicationCard.Body>
               <uix:NApplicationCard.TargetApp>
-                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" Url="[str_LFE_Url]" />
+                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="[string.Format(&quot;&lt;html app='msedge.exe' title='{0}' /&gt;&quot;, str_Page_Title_Attach_Selector)]" Title="Las Facturas Electronicas" Url="[str_LFE_Url]" />
               </uix:NApplicationCard.TargetApp>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -409,34 +418,34 @@
         </ui:InterruptibleWhile.Body>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:InterruptibleWhile>
-      <If sap2010:Annotation.AnnotationText="Close the window if needed, if not, keep the window open to add new records" Condition="[bl_LFE_Close_Window = True]" DisplayName="If | Close the window if needed, if not, keep the window open to add new records" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="If_2">
+      <If sap2010:Annotation.AnnotationText="Close the window if needed, if not, keep the window open to add new records" Condition="[bl_LFE_Close_Window = True]" DisplayName="If | Close the window if needed, if not, keep the window open to add new records" sap:VirtualizedContainerService.HintSize="788,1439.3333333333333" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="368,172" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <Sequence sap:VirtualizedContainerService.HintSize="526,1224.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="326,84.66666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
+            <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="484,1137.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="450,848" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="450,899.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_19">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="out_bl_Success" />
                       <Variable x:TypeArguments="x:String" Name="str_LFE_Percepciones" />
@@ -446,7 +455,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ClickType="Single" DisplayName="Click 'Guardar'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Guardar'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1235, 748, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Guardar'" FullSelectorArgument="&lt;webctrl aaname='Guardar' class='x-btn-inner aceptar' /&gt;" Guid="5586a891-9224-43b5-927e-bc1f0656da2b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAS7SURBVFhH7Zb9T1tVGMf7tzjE+YNE1xh+aGay/bQti1GTOXFEnUAV1vI+Jma82HbWCe3EZIyXQGkYcy/QboMOKE15t7RAhwXH1jEn3NLOTBdfiKZA+XrPub2Xe2lBIjExpE2+ec7znOd77j2fe3pzZQsLC1hZWUHiF/sjXAgf2fLyMtbW1hLaRISPTFyIRCKShkTO5TIy4LW6uiqMQ38ysMw3oXD8GNIHFHjXmYqc4cO49rAWi388junfzTmFxCd8dD91InvsCIqH0tA6WwvLXBuV+d5F5PS+gWOdr2JgwRbj261RRl5OYo395ED68H585a1A97wVTfe/htZ7hoqMbfMWVI19AoX5BfTN3ZZ4/w96YlVDfsEbd+7fSgIpuLQA5ehhCojA+HRCjRJPDgrHPkYxq9OsSt2n0PW4HedHSnDQLMePz36QLLiVvBfkkMvXpbY+idu3E/0nkMjbm9f1uTrk9x+nJ4gAInDyXVnIHc1A7siHKBjJgJO5g3JXHmwsqPeuHULNaLXg31whdKhYMEavtGbsQEjSt3OFLCwkyXV2LgmkUyNHYJ69iMbZGpS4s5H3bSYL5yTyhlkNncRAoJd+PwSXGNR/V4UmbxVeq1NIFoyrQAfUcgO88eaiAA3jXC7Z5LhBdPLU6AiI+o3cHOfzwiD0rT8MupZQj14/ei8Go6j2D5KFw2HwerM7BbcefYPKiUIUuZTsibqJe898yB/MQD/TQwGtRlZQP1WN8sFsWGbNSNbtEfybKWhRQa5qRzDOXDgcRDu76WoPl9Ne4+SGnjAmyaZonesX95A5lSVIx/H9nIf2MO1QsdD4621H9Iub1yFrMqxzV1DhyUelpwi/hX+lYH756ymNBFDt5Bco6D2BMudHsM624Pny5wT/ZvKZlJBnNcNH8z5o+KdLaz40Z8mh6RX1avuiXlEvEa1L+7keJZrvxvHfbYZS5FeafNGaBn3Uuz0JkBiGQdotBUy+GjTMGFA8nAm9uxRLy79TQJG1CGrHP4e6+zgKWUiXJs6hwaWHQp8q+Pm1YvI4N8bYNVJIdq6f3yTDcHW6MVJv4Tcv7echmaY2+h0UMA/ToZNCcmx1vxtyGUmIAoEAakY0yLx5FF2PrqN0MBMFzvdxbvQ0Hvw8g/rJL6G68zZybe+guDsdXf4reL3xADSWSsHPrxWb+2BSsk9T51ift2tZSCb4yByBYZ7m+tgx6QsEpumYwJD6uR6tnV9f7GcoDM5PIHHwCDAtOUktPjBTJg7SlvcrzQVIRBN+Nw40vwz9UCFuP7yKM44PUGRPR35PGvJsRATQCXQ+aENFTzb2nU2Be8Yt+LdWFID4+JObJnPkVNGaEhodexJ4mHHr3DocvKjoxqNrZq376emjdQ3r3wCJ925DMkJMrKvuVrxoTILWqYaNBVU3oUeZQ4mz9kzUsX+3LhZQWbcSyQV7cLm/VeLdrZItLi7SgTi2uVqxrzoFb7UcRINHjxvTjbjha0StS4ujl/bjldKXcNnJAYrn321RFgwG6WBj9Nz3QNepgeJ8KvaWJmFvSRIUn6VC166B53tPTP9ujvQkiYuJPDan7yRSCIVCNPJK5FxO+Mj8fj8d8MVEXI+Ei9/vx9/L2j37L/m1vgAAAABJRU5ErkJggg==" InformativeScreenshot="8b8d6625ab02f0373b6ac69c4deab37d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -463,7 +472,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NClick>
-                    <uix:NClick ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1235, 748, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Guardar'" FullSelectorArgument="&lt;webctrl aaname='OK' visibleinnertext='OK' /&gt;" Guid="5586a891-9224-43b5-927e-bc1f0656da2b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAS7SURBVFhH7Zb9T1tVGMf7tzjE+YNE1xh+aGay/bQti1GTOXFEnUAV1vI+Jma82HbWCe3EZIyXQGkYcy/QboMOKE15t7RAhwXH1jEn3NLOTBdfiKZA+XrPub2Xe2lBIjExpE2+ec7znOd77j2fe3pzZQsLC1hZWUHiF/sjXAgf2fLyMtbW1hLaRISPTFyIRCKShkTO5TIy4LW6uiqMQ38ysMw3oXD8GNIHFHjXmYqc4cO49rAWi388junfzTmFxCd8dD91InvsCIqH0tA6WwvLXBuV+d5F5PS+gWOdr2JgwRbj261RRl5OYo395ED68H585a1A97wVTfe/htZ7hoqMbfMWVI19AoX5BfTN3ZZ4/w96YlVDfsEbd+7fSgIpuLQA5ehhCojA+HRCjRJPDgrHPkYxq9OsSt2n0PW4HedHSnDQLMePz36QLLiVvBfkkMvXpbY+idu3E/0nkMjbm9f1uTrk9x+nJ4gAInDyXVnIHc1A7siHKBjJgJO5g3JXHmwsqPeuHULNaLXg31whdKhYMEavtGbsQEjSt3OFLCwkyXV2LgmkUyNHYJ69iMbZGpS4s5H3bSYL5yTyhlkNncRAoJd+PwSXGNR/V4UmbxVeq1NIFoyrQAfUcgO88eaiAA3jXC7Z5LhBdPLU6AiI+o3cHOfzwiD0rT8MupZQj14/ei8Go6j2D5KFw2HwerM7BbcefYPKiUIUuZTsibqJe898yB/MQD/TQwGtRlZQP1WN8sFsWGbNSNbtEfybKWhRQa5qRzDOXDgcRDu76WoPl9Ne4+SGnjAmyaZonesX95A5lSVIx/H9nIf2MO1QsdD4621H9Iub1yFrMqxzV1DhyUelpwi/hX+lYH756ymNBFDt5Bco6D2BMudHsM624Pny5wT/ZvKZlJBnNcNH8z5o+KdLaz40Z8mh6RX1avuiXlEvEa1L+7keJZrvxvHfbYZS5FeafNGaBn3Uuz0JkBiGQdotBUy+GjTMGFA8nAm9uxRLy79TQJG1CGrHP4e6+zgKWUiXJs6hwaWHQp8q+Pm1YvI4N8bYNVJIdq6f3yTDcHW6MVJv4Tcv7echmaY2+h0UMA/ToZNCcmx1vxtyGUmIAoEAakY0yLx5FF2PrqN0MBMFzvdxbvQ0Hvw8g/rJL6G68zZybe+guDsdXf4reL3xADSWSsHPrxWb+2BSsk9T51ift2tZSCb4yByBYZ7m+tgx6QsEpumYwJD6uR6tnV9f7GcoDM5PIHHwCDAtOUktPjBTJg7SlvcrzQVIRBN+Nw40vwz9UCFuP7yKM44PUGRPR35PGvJsRATQCXQ+aENFTzb2nU2Be8Yt+LdWFID4+JObJnPkVNGaEhodexJ4mHHr3DocvKjoxqNrZq376emjdQ3r3wCJ925DMkJMrKvuVrxoTILWqYaNBVU3oUeZQ4mz9kzUsX+3LhZQWbcSyQV7cLm/VeLdrZItLi7SgTi2uVqxrzoFb7UcRINHjxvTjbjha0StS4ujl/bjldKXcNnJAYrn321RFgwG6WBj9Nz3QNepgeJ8KvaWJmFvSRIUn6VC166B53tPTP9ujvQkiYuJPDan7yRSCIVCNPJK5FxO+Mj8fj8d8MVEXI+Ei9/vx9/L2j37L/m1vgAAAABJRU5ErkJggg==" InformativeScreenshot="8b8d6625ab02f0373b6ac69c4deab37d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -480,8 +489,8 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NClick>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;[LFE Website] Closing window&quot;]" />
-                    <uix:NClick ClickType="Single" DisplayName="Cerrar ventana percepciones" sap:VirtualizedContainerService.HintSize="388,197.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;[LFE Website] Closing window&quot;]" />
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Cerrar ventana percepciones" sap:VirtualizedContainerService.HintSize="388,197.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="1295, 331, 19, 19" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG ext-gen4376'" FullSelectorArgument="&lt;webctrl id='ext-gen4376' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen4376' tag='IMG' type='' class='x-tool-close' aaname='' /&gt;" Guid="aef72d3b-6169-4658-b4e5-bf343c3bb022" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADGSURBVDhPtZJNCsIwEIU9jRfxgm5deQe33qEiiNClKG0pggtBEH8qr2HSl2kcUqwPPpKZZD5KySTLy2Ys/itbrKtk9Gwgw4Uh0UIvGyqSsLAnu7wcy9XR7xnuI6asvruB6WzerqgF3UdMWXFz8GCsBogpO1w7WCArnyOmbHN6BLBInyGmbFs8PbEv43PElO2qdwsLYjVATNm+Dv8VakH3EVOWnx0YkD3DfcSU4THy8DfMR8vC1LAIBDKAC6no2Z7sF0aUlc0H5Yz8X70zJ9AAAAAASUVORK5CYII=" InformativeScreenshot="4e760a3e7f93d7ce2d612b2a2b7c6b52.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Image" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -503,12 +512,12 @@
                 </ActivityAction>
               </uix:NApplicationCard.Body>
               <uix:NApplicationCard.TargetApp>
-                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" Url="[str_LFE_Url]" />
+                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="[string.Format(&quot;&lt;html app='msedge.exe' title='{0}' /&gt;&quot;, str_Page_Title_Attach_Selector)]" Title="Las Facturas Electronicas" Url="[str_LFE_Url]" />
               </uix:NApplicationCard.TargetApp>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -520,7 +529,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Once the process is completed, let's set up all the final variables and out arguments that will be used in the next components. &#xA;&#xA;Also, validate the final information." DisplayName="End" sap:VirtualizedContainerService.HintSize="496,285.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence sap2010:Annotation.AnnotationText="Once the process is completed, let's set up all the final variables and out arguments that will be used in the next components. &#xA;&#xA;Also, validate the final information." DisplayName="End" sap:VirtualizedContainerService.HintSize="850,334" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -528,7 +537,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="388,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;[LFE Website] Clean records for employee:  &quot; +str_LFE_Current_Employee+ &quot; on &quot; +str_LFE_Window+ &quot; window completed.&quot;]" />
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;[LFE Website] Clean records for employee:  &quot; +str_LFE_Current_Employee+ &quot; on &quot; +str_LFE_Window+ &quot; window completed.&quot;]" />
     </Sequence>
   </Sequence>
 </Activity>
