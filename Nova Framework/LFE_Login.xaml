@@ -293,7 +293,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <uix:NTypeInto ActivateBefore="True" DisplayName="Type Into Password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Text="Mclaren6*" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" DisplayName="Type Into Password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="256, 441, 540, 22" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT ext-gen1105'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Password:' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1105' tag='INPUT' type='password' class='x-form-field x-form-text' aaname='Password:' /&gt;" Guid="d7135b55-e442-4ea4-889b-b2dc5f4bd19e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAiAAAAAaCAYAAACO9+f+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADOSURBVHhe7daxCcIAFEVR999HcASn0EIQSyEkISQaOxv95X/VuXB2uIfrY9oBAJIMCAAQ9x2Q4+kMANDq74BcbncAgBblgDyHAQCgRTkgwzgCALQoB2ScZwCAFuWAzMsCANCiHJBlXQEAWpQDsm0vAIAW5YC83m8AgBblgEiSJHVlQCRJUjwDIkmS4hkQSZIUz4BIkqR4BkSSJMUzIJIkKZ4BkSRJ8QyIJEmKZ0AkSVI8AyJJkuIZEEmSFK8cEACATj8DAgCQYkAAgLBp/wCnqq0rsInHUwAAAABJRU5ErkJggg==" InformativeScreenshot="ec5934ae19ec93c684e9f5acdba70a39.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -303,6 +303,11 @@
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </uix:NTypeInto.Text>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -310,7 +315,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DelayAfter="5" DisplayName="Click Enter" sap:VirtualizedContainerService.HintSize="388,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" CursorMotionType="Instant" DelayAfter="5" DisplayName="Click Enter" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="872, 516, 69, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Enter'" FullSelectorArgument="&lt;webctrl id='ext-gen1089' aaname='Enter' visibleinnertext='Enter' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1089' aaname='Enter' visibleinnertext='Enter' tag='SPAN' type='' class='x-btn-inner' check:text='Enter' /&gt;" Guid="bfbeb000-b318-45db-9d8d-894531e6eb18" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGkSURBVFhH7ZddcoIwEIBzp1xFZ+QW5Y14hqqvDr2A2AMUeW71CA7ypqhn8Heb3QA1Evpk6nQIM99sdjdB8w3BkW02GzidTuCu+oVe0A87Ho9wvV4dDaAfZmo4dNj5fIbL5QIuNkdNUhNt7zN8OeEAYxNt75MkmySCA+c6/dg8l4j7wHtvkJl6T4J+3WySBBy88crYMxILKSmElan3JJ4niWQIEL3iCQsSWU9A3Dxxat0KwnKORMS4XtVEIO9R1ezBDocD2GQmJZUbVAiYYe8DN+hBuJTjZQheOca6fJLSYn069qSsVN2v6qVKXDDTPssWbL1eg02iFw6d13m9N/GBd4YwpzwCn3dg+Hlfn8Owcy/Zh6io+5PiXpb5F5LqMv5YEv43sclUSuoOFvUeyRjBgvKplNSF0dd9Xa3X8gGOFzAiSapmG5KU57lWfGROm9SOi9xcJPs3MvL8/UcSCVPzlFwlpFqPa3Jd0iO/rylnWNhut9QocbmekyTH7zC0ttvtyF4Tbe9rklw0Rzpu+/2eCi7WIx23LMsqayXlpLbnKCjLMvgG33kWiuq/w3AAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
