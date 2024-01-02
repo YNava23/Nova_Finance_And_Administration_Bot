@@ -293,7 +293,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <uix:NTypeInto ActivateBefore="True" DisplayName="Type Into Password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" DisplayName="Type Into Password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="83f5fc44-0aa1-445d-ba9c-2793004534c8" Text="Mclaren6*" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/" DesignTimeRectangle="256, 441, 540, 22" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT ext-gen1105'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Password:' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ext-gen1105' tag='INPUT' type='password' class='x-form-field x-form-text' aaname='Password:' /&gt;" Guid="d7135b55-e442-4ea4-889b-b2dc5f4bd19e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAiAAAAAaCAYAAACO9+f+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADOSURBVHhe7daxCcIAFEVR999HcASn0EIQSyEkISQaOxv95X/VuXB2uIfrY9oBAJIMCAAQ9x2Q4+kMANDq74BcbncAgBblgDyHAQCgRTkgwzgCALQoB2ScZwCAFuWAzMsCANCiHJBlXQEAWpQDsm0vAIAW5YC83m8AgBblgEiSJHVlQCRJUjwDIkmS4hkQSZIUz4BIkqR4BkSSJMUzIJIkKZ4BkSRJ8QyIJEmKZ0AkSVI8AyJJkuIZEEmSFK8cEACATj8DAgCQYkAAgLBp/wCnqq0rsInHUwAAAABJRU5ErkJggg==" InformativeScreenshot="ec5934ae19ec93c684e9f5acdba70a39.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -303,11 +303,6 @@
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
-                    <uix:NTypeInto.Text>
-                      <InArgument x:TypeArguments="x:String">
-                        <Literal x:TypeArguments="x:String" Value="" />
-                      </InArgument>
-                    </uix:NTypeInto.Text>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
