@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1124,1673.3333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1130,2231.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LFE_Left_Pane_Navigation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -103,11 +103,12 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: &#xA;LFE webpage | Navigate through the main letf pane of the LFE webpage:&#xA;Catálagos, CFDI, Nómina, etc.&#xA;&#xA;Precondition:&#xA;Microsoft Edge Browser.&#xA;This is a dynamic component, you need to specify on the input parameters where the component will navigate.&#xA;&#xA;Arguments:&#xA;io_Dic_Config(&quot;LFE_Url&quot;) - Webpage URL (LFE web)&#xA;io_Dic_Config(&quot;GeneralTimeout&quot;) - Gneral timeout for activities&#xA;io_Dic_Data(&quot;LFE_Navigate_To&quot;) - The category where the component will navigate" DisplayName="LFE_Left_Pane_Navigation" sap:VirtualizedContainerService.HintSize="712,1608.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: &#xA;LFE webpage | Navigate through the main letf pane of the LFE webpage:&#xA;Catálagos, CFDI, Nómina, etc.&#xA;&#xA;Precondition:&#xA;Microsoft Edge Browser.&#xA;This is a dynamic component, you need to specify on the input parameters where the component will navigate.&#xA;&#xA;Arguments:&#xA;io_Dic_Config(&quot;LFE_Url&quot;) - Webpage URL (LFE web)&#xA;io_Dic_Config(&quot;GeneralTimeout&quot;) - Gneral timeout for activities&#xA;io_Dic_Data(&quot;LFE_Navigate_To&quot;) - The category where the component will navigate" DisplayName="LFE_Left_Pane_Navigation" sap:VirtualizedContainerService.HintSize="712,2166.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_LFE_Url" />
       <Variable x:TypeArguments="x:Int32" Name="int_Timeout" />
       <Variable x:TypeArguments="x:String" Name="str_LFE_Navigate_To" />
+      <Variable x:TypeArguments="x:String" Name="str_Page_Title_Attach_Selector" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -115,15 +116,15 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Init all settings to be able to work with this component, set up variables, validate windows, steps, etc.&#xA;&#xA;If all is fine, let's continue with the process." DisplayName="Init" sap:VirtualizedContainerService.HintSize="650,163.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="Init all settings to be able to work with this component, set up variables, validate windows, steps, etc.&#xA;&#xA;If all is fine, let's continue with the process." DisplayName="Init" sap:VirtualizedContainerService.HintSize="650,770.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="431.3333333333333,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="493.3333333333333,272.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
@@ -170,7 +171,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
-      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Config | Init configurations" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Config | Init configurations" sap:VirtualizedContainerService.HintSize="422.6666666666667,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -189,10 +190,18 @@
                 <InArgument x:TypeArguments="x:Int32">[Cint(io_Dic_Config("GeneralTimeout"))]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[str_Page_Title_Attach_Selector]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_Dic_Config("Page_Title_Attach_Selector").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Data | Setup arguments" sap:VirtualizedContainerService.HintSize="431.3333333333333,100.66666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+      <ui:MultipleAssign DisplayName="Multiple Assign | Dic Data | Setup arguments" sap:VirtualizedContainerService.HintSize="422.6666666666667,100.66666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -206,7 +215,7 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[LFE Website] Navigation towards &quot; +str_LFE_Navigate_To+ &quot; Started&quot;]">
+      <ui:LogMessage DisplayName="Log Message Start Login" sap:VirtualizedContainerService.HintSize="422.6666666666667,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[LFE Website] Navigation towards &quot; +str_LFE_Navigate_To+ &quot; Started&quot;]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -215,7 +224,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Contains all the main activities this component will perform, like type into, extract info, mathematics operations, conexions, open browser, etc.&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="650,879.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence sap2010:Annotation.AnnotationText="Contains all the main activities this component will perform, like type into, extract info, mathematics operations, conexions, open browser, etc.&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="650,830" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -223,13 +232,13 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="588,706.6666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach page and continue the process." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Las Facturas Electronicas" sap:VirtualizedContainerService.HintSize="588,657.3333333333334" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="554,456.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Navigation" sap:VirtualizedContainerService.HintSize="554,459.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="out_bl_Success" />
               </Sequence.Variables>
@@ -255,7 +264,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <uix:NClick sap2010:Annotation.AnnotationText="" ClickType="Single" DisplayName="Click category on left pane" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
+                          <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="" ClickType="Single" DisplayName="Click category on left pane" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1ff6a5a4-e05a-4776-9285-97825f06d17e" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://secure.lasfacturaselectronicas.com/lfe-misfacturas/index.php" DesignTimeRectangle="39, 837, 37, 13" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Nómina'" FullSelectorArgument="[string.Format(&quot;&lt;webctrl id='*' aaname='{0}' visibleinnertext='{0}' /&gt;&quot;, str_LFE_Navigate_To)]" Guid="bcff87bb-44c1-4f05-84e8-0db929edc51d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACkAAAARCAYAAABASYU2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAETSURBVEhL7ZOxEYMwDEU9Fnc07EFBywZU9PT01ExAywq0mSAr0CmWZWFkTJK7OAnJUfw7I9vS05dRl+sMR9cJGUv/CtlDrhTkXWjvPXKQYwOJLq6KftlsCwVJPS3fqKHONrH7mqBKX2vKg9QAaQbVSLEQ5DfkQZbQduXipoSkMStU2sBgYtalQt8xe/o+T0SL3Fs5aWvkOq/MQxOiHDaPjaO2kCYpHXKQVIiBMU6NUFysuTA2a9Y+JMPvvW1ZCxWAdO/OQWJC9wyCADounN+FZJfkXW6A3XwISVA0ls9ASldFHq0dSPdG6DAl5Iv+uONAsgkE/BTk9jB9m3GY4hiLBbn+cdYTpD0HeWCdkLH0A5Az3ADPhQZoyPsBjQAAAABJRU5ErkJggg==" InformativeScreenshot="e1c6a656feaf839a744e9582506ece28.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -308,7 +317,7 @@
           </ActivityAction>
         </uix:NApplicationCard.Body>
         <uix:NApplicationCard.TargetApp>
-          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="&lt;html app='msedge.exe' title='Las Facturas Electronicas' /&gt;" Url="[str_LFE_Url]" />
+          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIsSURBVDhPdZNRSBNxHMf/FdRLRQ8RsccgfQgqhEIq8FXMoKdegqCwl3rpJWslJjano6gXNTKpVoKjNh3X7Uqc0ebAzeUm5uLK6YJ1o6WrzUDM7e7X//fv7ro77Q9fuPt9f5/PcQdHAMAUx3jKbrvvl8SlUpW1qygKucDFHpHbHtBjXHCMz94k7YMyFlbJhrBR0B6ebdns8DBYC5VkUYJw06vJ9TAG4bbQh1Z6IwvpHEzlfkB/ch4u8pOwo8v7620mX0fhvu0uLxx/EoTax6M6vPeeXyKt7xjMBncnROr7ezrCKR0+8TQIZVlm8ysjCR0OZ/LHiAZjzg5PsCU8iqIU3dML3Th3RlLqFKDOPabDh52+pElQ3RuAc/7ocml1LYTLMpUE5iQBr+NSAc5zMaju4aXIFwYnyOU+MAl2urxFTsyequ8RxmakQppyTTRb0oXlF7vu+NiTEa7p8k0x2ChQ4caaTl8ci93N7u9UcoAKqiqy8vnqaDJM4VoKs94kUOGTJjPNnmvP8jPSUhRfgZ5iW+D99CVP5B+MQZj/9LXBCms52PHyY0WWeVUCobmceYcX/w/bbgxI0Uz+yJn+YGy1XGGC4spv2KT2px+ODBH9a1qCcCK7eOioayhKHwAtXBy8yQWYXyzBvluD0PjgDUelW8mGsH0gK377yf6D6/6Y09o39L7mEcZ+ncAIa2kejnZqfX23IKyslbdpnUlgsz9HeL8R1oISCgeMMACQP4yCmVejyGPyAAAAAElFTkSuQmCC" InformativeScreenshot="ead6a666656ee07fff11cc4aa7549664.jpg" Selector="[string.Format(&quot;&lt;html app='msedge.exe' title='{0}' /&gt;&quot;, str_Page_Title_Attach_Selector)]" Title="Las Facturas Electronicas" Url="[str_LFE_Url]" />
         </uix:NApplicationCard.TargetApp>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
